@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  introduction: MyText
+  shop_image_id: MyString
+  address: MyString
+  genre_id: 1
+  business_hours: 2021-01-04 06:26:21
+  station: MyString
+  phone_number: MyString
+  home_page: MyString
+  holiday: MyString
+
+two:
+  name: MyString
+  introduction: MyText
+  shop_image_id: MyString
+  address: MyString
+  genre_id: 1
+  business_hours: 2021-01-04 06:26:21
+  station: MyString
+  phone_number: MyString
+  home_page: MyString
+  holiday: MyString

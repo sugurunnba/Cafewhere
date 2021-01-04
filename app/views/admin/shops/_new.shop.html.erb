@@ -1,0 +1,47 @@
+<%= form_with model: shop, url: admin_shops_path, local:true do |f| %>
+<table>
+  <tr>
+    <td>店名</td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td>お店の紹介文</td>
+    <td><%= f.text_area :introduction %></td>
+  </tr>
+  <tr>
+    <td>お店の写真</td>
+    <td><%= f.attachment_field :shop_image %></td>
+  </tr>
+  <tr>
+    <td>住所</td>
+    <td><%= f.text_field :address %></td>
+  </tr>
+  <tr>
+    <td>ジャンル</td>
+    <td>ジャンル機能追加後に反映させる</td>
+  </tr>
+  <tr>
+    <td>営業時間</td>
+     <td>営業時間の書き方を反映させる書き方で書く、データ型はtime</td>
+  </tr>
+  <tr>
+    <td>最寄駅</td>
+    <td><%= f.text_field :station %></td>
+  </tr>
+  <tr>
+    <td>電話番号</td>
+    <td><%= f.text_field :phone_number %></td>
+  </tr>
+  <tr>
+     <td>ホームページ</td>
+     <td><%= f.text_field :home_page %></td>
+  </tr>
+  <tr>
+    <td>休日</td>
+     <td><%= f.text_field :holiday %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit "新規登録する" %></td>
+  </tr>
+</table>
+<% end %>

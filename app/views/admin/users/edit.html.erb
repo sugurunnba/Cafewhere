@@ -1,0 +1,31 @@
+<%= form_with model: @user, url: admin_user_path(@user), local:true do |f| %>
+<table>
+  <tr>
+    <td><%= f.label :name %></td>
+    <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :introduction %></td>
+    <td><%= f.text_field :introduction, autofocus: true, autocomplete: "introduction" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :phone_number %></td>
+    <td><%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :address %></td>
+    <td><%= f.text_field :address, autofocus: true, autocomplete: "address" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :email %></td>
+    <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+  </tr>
+  <tr>
+    <td>性別</td>
+    <td><%= f.label :gender, "男性" %><%= f.radio_button :gender, 1, autofocus: true, autocomplete: "gender" %><%= f.label :gender, "女性" %><%= f.radio_button :gender, 2, autofocus: true, autocomplete: "gender" %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit "更新する" %></td>
+  </tr>
+</table>
+<% end %>

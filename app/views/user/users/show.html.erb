@@ -1,0 +1,31 @@
+<table>
+  <tr>
+    <td>名前</td>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <td>自己紹介</td>
+    <td><%= @user.introduction %></td>
+  </tr>
+  <tr>
+    <td>性別</td>
+    <td>
+    <% if @user.gender == 1 %>
+      男性
+    <% else %>
+      女性
+    <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>電話番号</td>
+    <td><%= @user.phone_number %></td>
+  </tr>
+  <tr>
+    <td>住所</td>
+    <td><%= @user.address %></td>
+  </tr>
+  <tr>
+    <td><%= link_to "編集する", edit_user_user_path(@user) %></td>
+  </tr>
+</table>

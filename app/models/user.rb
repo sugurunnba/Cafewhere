@@ -3,4 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  # enumがなくても登録できている、必要か分からないためコメントアウトにしている
+  # enum gender: {"男性": 1, "女性": 2}
+
 end

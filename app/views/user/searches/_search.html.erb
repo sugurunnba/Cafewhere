@@ -1,0 +1,6 @@
+<%= form_with url: user_searches_path, method: :get, local: true do |f| %>
+  <p>検索したいお店の名前を入力してください</p>
+  <p><%= f.text_field :search %>
+  <%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "地名で検索" %></p>
+  <p><%= f.submit "検索する" %></p>
+<% end %>

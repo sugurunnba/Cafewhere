@@ -34,18 +34,15 @@
   <tr>
     <td>ホームページ</td>
     <td>
-    <%= link_to "https://tabelog.com/kyoto/A2601/A260202/26017496/" do %>
-      <%= @shop.home_page %>
-    <% end %>
+      <%= link_to "https://tabelog.com/kyoto/A2601/A260202/26017496/" do %>
+        <%= @shop.home_page %>
+      <% end %>
     </td>
   </tr>
   <tr>
     <td>休日</td>
      <td><%= @shop.holiday %></td>
   </tr>
-  <tr>
-    <td><%= link_to "編集する", edit_admin_shop_path(@shop) %></td>
-  </tr>
 </table>
 
-<%= link_to "戻る", admin_shops_path %>
+<%= link_to "戻る", user_shops_path %>

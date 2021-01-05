@@ -1,0 +1,24 @@
+<% if !(@shops.nil?) %>
+<!--中身がnilならtrueを返す-->
+<table>
+  <thead>
+    <tr>
+      <td></td>
+      <td>店名</td>
+      <td>住所</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @shops.each do |shop| %>
+    <tr>
+      <td><%= attachment_image_tag shop, :shop_image, :fill, 60, 60 %></td>
+      <td><%= shop.name %></td>
+      <td><%= shop.address %></td>
+      <td><%= link_to "詳細", user_shop_path(shop) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% else %>
+  <p>一致する店名はございません</p>
+<% end %>

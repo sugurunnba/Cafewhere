@@ -2,6 +2,7 @@ class Admin::ShopsController < ApplicationController
   def index
     @shop = Shop.new
     @shops = Shop.all
+    @genres = Genre.all
   end
 
   def create
@@ -32,6 +33,6 @@ class Admin::ShopsController < ApplicationController
 
   private
   def shop_params
-    params.require(:shop).permit(:name, :introduction, :shop_image, :address, :genre, :business_hours, :station, :phone_number, :holiday)
+    params.require(:shop).permit(:name, :introduction, :shop_image, :address, :genre_id, :start_business_hours, :finish_business_hours, :station, :phone_number, :home_page, :holiday)
   end
 end

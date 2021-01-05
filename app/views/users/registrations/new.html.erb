@@ -28,6 +28,13 @@
   </div>
 
   <div class="field">
+    <%= f.label :gender, "男性" %>
+    <%= f.radio_button :gender, :male, autofocus: true, autocomplete: "gender" %>
+    <%= f.label :gender, "女性" %>
+    <%= f.radio_button :gender, :famale, autofocus: true, autocomplete: "gender" %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>

@@ -3,6 +3,8 @@ class Shop < ApplicationRecord
   attachment :shop_image
 
   belongs_to :genre
+  has_many :bookmarks, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   def self.search(search, select)
     if  select == "habikino"
@@ -14,6 +16,10 @@ class Shop < ApplicationRecord
     else
       Shop.where(["name LIKE ?", "%#{search}%"])
     end
+  end
+
+  def bookmarked_by?(user)
+    bookmarks.where(user_id: user).exists?
   end
 
 end

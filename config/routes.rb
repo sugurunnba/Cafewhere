@@ -52,7 +52,10 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :shops
+    resources :shops do
+      resources :reviews, only: [:new, :index, :create, :show, :edit, :update, :destroy]
+      resource :bookmarks, only: [:show, :create, :destroy]
+    end
   end
 
   namespace :user do

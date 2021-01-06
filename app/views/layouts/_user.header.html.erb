@@ -2,7 +2,7 @@
   <%= link_to "マイページ", user_user_path(current_user) %>
   <%= link_to "お店一覧", user_shops_path %>
   <%= link_to "検索", top_user_searches_path %>
-  <%= link_to "ブックマーク(未実装)", user_user_path(current_user) %>
+  <%= link_to "ブックマーク", user_shop_bookmarks_path(current_user) %>
   <%= link_to "ランキング(未実装)", user_user_path(current_user) %>
   <%= link_to "お問い合わせ機能(未実装)", user_user_path(current_user) %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

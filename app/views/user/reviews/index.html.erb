@@ -1,0 +1,5 @@
+<% @average = 0 %>
+<% @shop.reviews.each do |review| %>
+  <% @average += (review.rate / @shop.reviews.count) %>
+<% end %>
+<%= @average %>

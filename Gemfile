@@ -67,3 +67,6 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 gem 'pry-byebug'
+
+# 評価機能(星)を実装する際に記述
+gem 'jquery-rails'

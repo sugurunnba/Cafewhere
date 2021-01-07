@@ -33,5 +33,5 @@ https://docs.google.com/spreadsheets/d/14lGTLdLLdagshKn1n2QIf6kvwL84CrIodQcPC7UW
 
 ## 使用素材
 raty https://github.com/wbotelhos/raty/tree/master/lib/images<br>
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。<br>
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
 - 使用しない場合は、使用素材の項目をREADMEから削除してください。

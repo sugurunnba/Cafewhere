@@ -25,6 +25,15 @@
     <td><%= f.label :gender, "男性" %><%= f.radio_button :gender, 1, autofocus: true, autocomplete: "gender" %><%= f.label :gender, "女性" %><%= f.radio_button :gender, 2, autofocus: true, autocomplete: "gender" %></td>
   </tr>
   <tr>
+    <td>会員ステータス</td>
+    <td>
+      <%= f.radio_button :user_status, false, checked: true %>
+      <%= f.label :user_status, "有効" %>
+      <%= f.radio_button :user_status, true %>
+      <%= f.label :user_status, "退会済み" %>
+    </td>
+  </tr>
+  <tr>
     <td><%= f.submit "更新する" %></td>
   </tr>
 </table>

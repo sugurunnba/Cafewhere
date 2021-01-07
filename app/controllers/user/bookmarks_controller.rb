@@ -1,7 +1,6 @@
 class User::BookmarksController < ApplicationController
 
   def show
-    @shop = Shop.find(params[:shop_id])
     @bookmarks = Bookmark.where(user_id: current_user.id)
   end
 

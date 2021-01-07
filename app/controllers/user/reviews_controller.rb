@@ -14,21 +14,32 @@ class User::ReviewsController < ApplicationController
   end
 
   def index
-    def rank
-      @shops = Shop.
-      left_joins(:review).
-      distinct.
-      sort_by do |user|
-        hoges = user.comments
-        if hoges.present?
-          hoges.map(&:score).sum / hoges.size
-        else
-          0
-        end
-      end
-    reverse
-    end
+    # @shops = Shop.all
+    # shop_hash = Hash.new
+    # @shops.each do |shop|
+    #   shop_hash[shop.id] = shop.reviews.average(:rate).to_f.round(1)
+    # end
+
+    @shops = Shop.all.sort_by{|shop| shop.reviews.average(:rate).to_f.round(1)}.reverse
+
+    # p shop_hash
   end
+=begin
+  def index
+    @shops = Shop.
+    left_joins(:review).
+    distinct.
+    sort_by do |user|
+      hoges = user.comments
+      if hoges.present?
+        hoges.map(&:score).sum / hoges.size
+      else
+        0
+      end
+    end
+  reverse
+  end
+=end
 
 
   def show

@@ -1,5 +1,3 @@
-<% @average = 0 %>
-<% @shop.reviews.each do |review| %>
-  <% @average += (review.rate / @shop.reviews.count) %>
+<% @shops.each do |shop| %>
+  <p><%= shop.reviews.average(:rate).to_f.round(1) %></p>
 <% end %>
-<%= @average %>

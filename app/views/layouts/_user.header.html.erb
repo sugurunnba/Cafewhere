@@ -2,12 +2,13 @@
   <%= link_to "マイページ", user_user_path(current_user) %>
   <%= link_to "お店一覧", user_shops_path %>
   <%= link_to "検索", top_user_searches_path %>
-  <%= link_to "ブックマーク", user_shop_bookmarks_path(current_user) %>
-  <%= link_to "ランキング(未実装)", user_user_path(current_user) %>
-  <%= link_to "お問い合わせ機能(未実装)", user_user_path(current_user) %>
+  <%= link_to "ブックマーク", bookmark_user_shops_path %>
+  <%= link_to "ランキング", reviews_user_shops_path %>
+  <%= link_to "お問い合わせ機能", new_user_contact_path %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 <% else %>
   <%= link_to "ログイン", new_user_session_path %>
   <%= link_to "新規登録", new_user_registration_path %>
   <%= link_to "トップページ", root_path %>
+  <%= link_to "アバウトページ", about_user_users_path %>
 <% end %>

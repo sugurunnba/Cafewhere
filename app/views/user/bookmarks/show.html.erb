@@ -11,7 +11,7 @@
   <% @bookmarks.each do |bookmark| %>
     <tr>
       <td>
-        <%= link_to user_shop_path(@shop) do %>
+        <%= link_to user_shop_path(bookmark.shop) do %>
           <%= bookmark.shop.name %>
         <% end %>
         </td>

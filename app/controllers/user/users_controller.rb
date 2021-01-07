@@ -2,8 +2,24 @@ class User::UsersController < ApplicationController
   def top
   end
 
+  def about
+  end
+
   def show
     @user = User.find(params[:id])
+  end
+
+  # 退会確認画面
+  def quit
+  end
+
+  # 退会データを送信するメソッド
+  def out
+    @user = current_user
+    @user.update(user_status: true)
+    reset_session
+    flash[:notice] = "退会が完了いたしました。"
+    redirect_to root_path
   end
 
   def edit

@@ -70,3 +70,5 @@ gem 'pry-byebug'
 
 # 評価機能(星)を実装する際に記述
 gem 'jquery-rails'
+
+gem 'dotenv-rails'

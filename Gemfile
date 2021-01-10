@@ -71,4 +71,14 @@ gem 'pry-byebug'
 # 評価機能(星)を実装する際に記述
 gem 'jquery-rails'
 
+# .envファイル追加
 gem 'dotenv-rails'
+
+# bootstrap
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails'
+
+# Map表示する際に、Google Mapでは緯度、経度から位置を取得します。
+# 住所は簡単に調べられても緯度、経度までユーザー側で登録するのは面倒です。そこでgemのgeocoderを使用します。
+# geocoderを使用すると住所の情報を元に緯度、経度を割り出してくれます。
+gem "geocoder"

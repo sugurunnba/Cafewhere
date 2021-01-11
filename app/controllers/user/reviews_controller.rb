@@ -20,6 +20,7 @@ class User::ReviewsController < ApplicationController
     #   shop_hash[shop.id] = shop.reviews.average(:rate).to_f.round(1)
     # end
 
+    # 理解できていない
     @shops = Shop.all.sort_by{|shop| shop.reviews.average(:rate).to_f.round(1)}.reverse
 
     # p shop_hash

@@ -76,7 +76,6 @@ gem 'dotenv-rails'
 
 # bootstrap
 gem 'bootstrap', '~> 4.5'
-gem 'jquery-rails'
 
 # Map表示する際に、Google Mapでは緯度、経度から位置を取得します。
 # 住所は簡単に調べられても緯度、経度までユーザー側で登録するのは面倒です。そこでgemのgeocoderを使用します。

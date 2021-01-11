@@ -10,11 +10,14 @@
   <tr>
     <td>お店の写真</td>
     <td><%= @shop.shop_image %></td>
+    <!--→attachment_image_tagへ-->
+    <!--link_to でリンク付けをする-->
   </tr>
   <tr>
     <td>住所</td>
     <td>
       <%= @shop.address %>
+      <% if @shop.latitude.present? && @shop.longitude.present? %>
       <script type="text/javascript">
         function initMap() {
       // latitude,longitudeから位置を特定
@@ -42,8 +45,8 @@
              infowindow.open(map, marker);
            });
         }
-
       </script>
+
       <!--以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください-->
       <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=initMap">
       </script>
@@ -55,6 +58,9 @@
 
       <!--mapの表示-->
       <div id="map"></div>
+      <% else %>
+      <p>表示することができません</p>
+      <% end %>
     </td>
   </tr>
   <tr>

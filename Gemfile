@@ -82,3 +82,8 @@ gem 'jquery-rails'
 # 住所は簡単に調べられても緯度、経度までユーザー側で登録するのは面倒です。そこでgemのgeocoderを使用します。
 # geocoderを使用すると住所の情報を元に緯度、経度を割り出してくれます。
 gem "geocoder"
+
+# 本番環境の作成
+group :production do
+  gem 'mysql2'
+end

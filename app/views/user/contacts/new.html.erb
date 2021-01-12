@@ -1,21 +1,20 @@
 <h3>お問い合わせフォーム</h3>
 
-<%= form_with model: @contact, url: user_contacts_path do |f| %>
-<table>
-  <tr>
-    <td><%= f.label :お名前 %></td>
-  </tr>
-  <tr>
-    <td><%= f.text_field :name %></td>
-  </tr>
-   <tr>
-    <td><%= f.label :お問い合わせ内要 %></td>
-  </tr>
-   <tr>
-    <td><%= f.text_area :message %></td>
-  </tr>
-   <tr>
-    <td><%= f.submit "送信" %></td>
-  </tr>
-</table>
-<% end %>
+<div class="container">
+  <div classs="row">
+    <%= form_with model: @contact, url: user_contacts_path do |f| %>
+    <div class="col-xs-10">
+      <div class="form-group col-xs-12">
+        <%= f.label :"お名前", class: "col-sm-3 control-label" %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="form-group col-xs-12">
+        <%= f.label :"お問い合わせ内容", class: "col-sm-3 control-label" %>
+        <%= f.text_area :message %>
+      </div>
+      <div class="actions col-xs-9 col-xs-offset-3">
+        <%= f.submit "送信する", class: "btn btn-primary save col-xs-6" %>
+      </div>
+    <% end %>
+  </div>
+</div>

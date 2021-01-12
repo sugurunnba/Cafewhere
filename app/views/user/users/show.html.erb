@@ -1,54 +1,31 @@
-<table>
-  <tr>
-    <td>名前</td>
-    <td><%= @user.name %></td>
-  </tr>
-  <tr>
-    <td>自己紹介</td>
-    <td><%= @user.introduction %></td>
-  </tr>
-  <tr>
-    <td>性別</td>
-    <td>
-    <% if @user.gender == 0 %>
-      男性
-    <% else %>
-      女性
-    <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>電話番号</td>
-    <td><%= @user.phone_number %></td>
-  </tr>
-  <tr>
-    <td>住所</td>
-    <td><%= @user.address %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "編集する", edit_user_user_path(@user) %></td>
-  </tr>
-</table>
-
-<!doctype html>
-<html lang="ja">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
-</html>
+<div class="row">
+	<div class="col-xs-offset-1 col-xs-8">
+		<h2 class="head-line text-center title_h2"><%= @user.name %>さんのマイページ</h2>
+		<p><strong class="information-link"><i class="far fa-user"></i>登録情報</strong>
+			<% if @user == current_user %>
+ 				<%= link_to "編集する", edit_user_user_path(@user),class: "glyphicon glyphicon-pencil btn btn-success"  %>
+  			<%= link_to "パスワードを変更する", edit_user_registration_path, class: "glyphicon glyphicon-pencil btn btn-warning" %>
+ 			<% end %>
+ 		</p>
+		<table class="table table-bordered table-condensed" >
+			<tbody>
+				<tr>
+					<td class="info">氏名</td>
+					<td class="text-left"><%= @user.name %><%= @user.name %></td>
+				</tr>
+				<tr>
+					<td class="info">住所</td>
+					<td class="text-left"><%= @user.address %></td>
+				</tr>
+				<tr>
+					<td class="info">電話番号</td>
+					<td class="text-left"><%= @user.phone_number %></td>
+				</tr>
+				<tr>
+					<td class="info">メールアドレス</td>
+					<td class="text-left"><%= @user.email %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -17,6 +17,7 @@ class Admin::ShopsController < ApplicationController
 
   def edit
     @shop = Shop.find(params[:id])
+    @genres = Genre.all
   end
 
   def update

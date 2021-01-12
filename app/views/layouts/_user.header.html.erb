@@ -1,14 +1,64 @@
 <% if user_signed_in? %>
-  <%= link_to "マイページ", user_user_path(current_user) %>
-  <%= link_to "お店一覧", user_shops_path %>
-  <%= link_to "検索", top_user_searches_path %>
-  <%= link_to "ブックマーク", bookmark_user_shops_path %>
-  <%= link_to "ランキング", reviews_user_shops_path %>
-  <%= link_to "お問い合わせ機能", new_user_contact_path %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <!-- <a class="navbar-brand" href="#">Fixed navbar</a> -->
+  <a class="navbar-brand" href="#">固定ナビゲーションバー</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+        <%= link_to "マイページ", user_user_path(current_user), class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+         <%= link_to "お店検索", user_shops_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+        <%= link_to "ブックマーク", bookmark_user_shops_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+        <%= link_to "ランキング", reviews_user_shops_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+        <%= link_to "お問い合わせ機能", new_user_contact_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</nav>
 <% else %>
-  <%= link_to "ログイン", new_user_session_path %>
-  <%= link_to "新規登録", new_user_registration_path %>
-  <%= link_to "トップページ", root_path %>
-  <%= link_to "アバウトページ", about_user_users_path %>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <%= link_to "CafeWhere", root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+        <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+         <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link disabled" href="#">Disabled</a> -->
+         <%= link_to "トップページ", root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+        <%= link_to "アバウトページ", about_user_users_path, class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</nav>
 <% end %>

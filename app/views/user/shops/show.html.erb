@@ -1,115 +1,121 @@
-<table>
-  <tr>
-    <td>店名</td>
-    <td><%= @shop.name %></td>
-  </tr>
-  <tr>
-    <td>お店の紹介文</td>
-    <td><%= @shop.introduction %></td>
-  </tr>
-  <tr>
-    <td>お店の写真</td>
-    <td><%= @shop.shop_image %></td>
-    <!--→attachment_image_tagへ-->
-    <!--link_to でリンク付けをする-->
-  </tr>
-  <tr>
-    <td>住所</td>
-    <td>
-      <%= @shop.address %>
-      <% if @shop.latitude.present? && @shop.longitude.present? %>
-      <script type="text/javascript">
-        function initMap() {
-      // latitude,longitudeから位置を特定
-          var test ={lat: <%= @shop.latitude %>, lng: <%= @shop.longitude %>};
-          var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 15,
-                    center: test
-                    });
-          var transitLayer = new google.maps.TransitLayer();
-          transitLayer.setMap(map);
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <tr>
+        <td>店名</td>
+        <td><%= @shop.name %></td>
+      </tr>
+      <tr>
+        <td>お店の紹介文</td>
+        <td><%= @shop.introduction %></td>
+      </tr>
+      <tr>
+        <td>お店の写真</td>
+        <td><%= @shop.shop_image %></td>
+        <!--→attachment_image_tagへ-->
+        <!--link_to でリンク付けをする-->
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td>
+          <%= @shop.address %>
+          <% if @shop.latitude.present? && @shop.longitude.present? %>
+          <script type="text/javascript">
+            function initMap() {
+          // latitude,longitudeから位置を特定
+              var test ={lat: <%= @shop.latitude %>, lng: <%= @shop.longitude %>};
+              var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 15,
+                        center: test
+                        });
+              var transitLayer = new google.maps.TransitLayer();
+              transitLayer.setMap(map);
 
-          var contentString = '住所：<%= @shop.address %>';
-          var infowindow = new google.maps.InfoWindow({
-            content: contentString
-          });
+              var contentString = '住所：<%= @shop.address %>';
+              var infowindow = new google.maps.InfoWindow({
+                content: contentString
+              });
 
-      // Map上の指定した位置にピンを挿して表示する
-          var marker = new google.maps.Marker({
-                        position:test,
-                        map: map,
-                        title: contentString
-                       });
+          // Map上の指定した位置にピンを挿して表示する
+              var marker = new google.maps.Marker({
+                            position:test,
+                            map: map,
+                            title: contentString
+                           });
 
-           marker.addListener('click', function() {
-             infowindow.open(map, marker);
-           });
-        }
-      </script>
+               marker.addListener('click', function() {
+                 infowindow.open(map, marker);
+               });
+            }
+          </script>
 
-      <!--以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください-->
-      <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=initMap">
-      </script>
-      <!--表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。-->
-      <style type="text/css">
-        #map { height: 200px;
-               width: 70%;}
-      </style>
+          <!--以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください-->
+          <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=initMap">
+          </script>
+          <!--表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。-->
+          <style type="text/css">
+            #map { height: 200px;
+                   width: 70%;}
+          </style>
 
-      <!--mapの表示-->
-      <div id="map"></div>
+          <!--mapの表示-->
+          <div id="map"></div>
+          <% else %>
+          <p>表示することができません</p>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>ジャンル</td>
+        <td><%= @shop.genre.name %></td>
+      </tr>
+      <tr>
+        <td>営業時間</td>
+         <td><%= @shop.start_business_hours %>~<%= @shop.finish_business_hours %></td>
+      </tr>
+      <tr>
+        <td>最寄駅</td>
+        <td><%= @shop.station %></td>
+      </tr>
+      <tr>
+        <td>電話番号</td>
+        <td><%= @shop.phone_number %></td>
+      </tr>
+      <tr>
+        <td>ホームページ</td>
+        <td>
+          <%= link_to "https://tabelog.com/kyoto/A2601/A260202/26017496/" do %>
+            <%= @shop.home_page %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>休日</td>
+         <td><%= @shop.holiday %></td>
+      </tr>
+      <tr>
+      <% if @shop.bookmarked_by?(current_user) %>
+        <td><%= link_to "ブックマークを外す", user_shop_bookmarks_path(@shop.id), method: :delete %></td>
       <% else %>
-      <p>表示することができません</p>
+        <td><%= link_to "ブックマークする", user_shop_bookmarks_path(@shop.id), method: :post %></td>
       <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>ジャンル</td>
-    <td><%= @shop.genre.name %></td>
-  </tr>
-  <tr>
-    <td>営業時間</td>
-     <td><%= @shop.start_business_hours %>~<%= @shop.finish_business_hours %></td>
-  </tr>
-  <tr>
-    <td>最寄駅</td>
-    <td><%= @shop.station %></td>
-  </tr>
-  <tr>
-    <td>電話番号</td>
-    <td><%= @shop.phone_number %></td>
-  </tr>
-  <tr>
-    <td>ホームページ</td>
-    <td>
-      <%= link_to "https://tabelog.com/kyoto/A2601/A260202/26017496/" do %>
-        <%= @shop.home_page %>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>休日</td>
-     <td><%= @shop.holiday %></td>
-  </tr>
-  <tr>
-  <% if @shop.bookmarked_by?(current_user) %>
-    <td><%= link_to "ブックマークを外す", user_shop_bookmarks_path(@shop.id), method: :delete %></td>
-  <% else %>
-    <td><%= link_to "ブックマークする", user_shop_bookmarks_path(@shop.id), method: :post %></td>
-  <% end %>
-  </tr>
-  <tr>
-    <!--route.rbにて、idが含まれていれば、引数が必要-->
-    <td><%= link_to "評価する", new_user_shop_review_path(@shop.id) %></td>
-  </tr>
-</table>
+      </tr>
+      <tr>
+        <!--route.rbにて、idが含まれていれば、引数が必要-->
+        <td><%= link_to "評価する", new_user_shop_review_path(@shop.id) %></td>
+        <td><%= link_to "戻る", user_shops_path %></td>
+      </tr>
+    </table>
+  </div>
+</div>
 
-<%= link_to "戻る", user_shops_path %>
+
+
 
 <br>
 
 <% @shop.reviews.each do |review| %>
-<table>
+<table class="teble">
   <tr>
     <td>
       <%= link_to user_shop_review_path(review) do %>

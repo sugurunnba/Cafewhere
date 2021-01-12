@@ -1,21 +1,12 @@
-<table>
-  <!--縦に表示-->
-  <!--<caption>ブックマーク一覧</caption>-->
-  <thead>
-    <tr>
-      <td>店名</td>
-      <td>お店紹介</td>
-    </tr>
-  </thead>
-  <tbody>
-  <% @bookmarks.each do |bookmark| %>
-    <tr>
-      <td>
+<div class="container text-center">
+  <div class="raw">
+    <p>ブックマーク一覧</p>
+    <% @bookmarks.each do |bookmark| %>
+      <p>
         <%= link_to user_shop_path(bookmark.shop) do %>
           <%= bookmark.shop.name %>
         <% end %>
-        </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+      </p>
+    <% end %>
+  </div>
+</div>

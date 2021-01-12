@@ -1,92 +1,30 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="card col-md-5 mx-auto mt-5" style="margin: 0 auto;">
+  <div class="card-body">
+    <h3 class="mt-1 mb-3">ログイン</h3>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-group">
+      <%= f.label :name, "名前", :class => "form-label" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", :class => "form-control" %>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+    <div class="form-group">
+      <%= f.label :password, "パスワード", :class => "form-label" %>
+      <%= link_to "パスワードを忘れた場合", new_user_password_path, :class => "float-right" %>
+      <%= f.password_field :password, :class => "form-control" %>
+    <% if devise_mapping.rememberable? %>
+    <div class="form-check">
+      <%= f.check_box :remember_me, :class => "form-check-input" %>
+      <%= f.label :remember_me, "ログインを記憶", :class => "form-check-label" %>
+    </div>
+    <% end %>
+    </div>
 
-<%= render "users/shared/links" %>
+    <div class="actions">
+      <%= f.submit "ログイン", :class => "btn btn-primary btn-block" %>
+    </div>
+    <% end %>
 
-<div class="container">
-  <div class="low">
-    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
-  <div class="container">
-    <span class="skiplink-text">Skip to main content</span>
-  </div>
-</a>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<form class="form-signin">
-  <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-  <!-- <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1> -->
-  <h1 class="h3 mb-3 font-weight-normal">サインインする</h1>
-  <!-- <label for="inputEmail" class="sr-only">Email address</label> -->
-  <label for="inputEmail" class="sr-only">メールアドレス</label>
-  <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus> -->
-  <input type="email" id="inputEmail" class="form-control" placeholder="メールアドレス" required autofocus>
-  <!-- <label for="inputPassword" class="sr-only">Password</label> -->
-  <label for="inputPassword" class="sr-only">パスワード</label>
-  <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> -->
-  <input type="password" id="inputPassword" class="form-control" placeholder="パスワード" required>
-  <div class="checkbox mb-3">
-    <label>
-      <!-- <input type="checkbox" value="remember-me"> Remember me -->
-      <input type="checkbox" value="remember-me"> 記憶する
-    </label>
-  </div>
-  <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
-  <button class="btn btn-lg btn-primary btn-block" type="submit">サインイン</button>
-  <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-</form>
-<% end %>
-
+    <div class="small text-muted text-center mt-4">新しいユーザですか?</div>
+    <%= link_to "アカウントを作成", new_user_registration_path, :class => "btn btn-light btn-block border mt-1" %>
   </div>
 </div>
-
-<a id="skippy" class="sr-only sr-only-focusable" href="#content">
-  <div class="container">
-    <span class="skiplink-text">Skip to main content</span>
-  </div>
-</a>
-
-    <form class="form-signin">
-  <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-  <!-- <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1> -->
-  <h1 class="h3 mb-3 font-weight-normal">サインインする</h1>
-  <!-- <label for="inputEmail" class="sr-only">Email address</label> -->
-  <label for="inputEmail" class="sr-only">メールアドレス</label>
-  <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus> -->
-  <input type="email" id="inputEmail" class="form-control" placeholder="メールアドレス" required autofocus>
-  <!-- <label for="inputPassword" class="sr-only">Password</label> -->
-  <label for="inputPassword" class="sr-only">パスワード</label>
-  <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> -->
-  <input type="password" id="inputPassword" class="form-control" placeholder="パスワード" required>
-  <div class="checkbox mb-3">
-    <label>
-      <!-- <input type="checkbox" value="remember-me"> Remember me -->
-      <input type="checkbox" value="remember-me"> 記憶する
-    </label>
-  </div>
-  <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
-  <button class="btn btn-lg btn-primary btn-block" type="submit">サインイン</button>
-  <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-</form>

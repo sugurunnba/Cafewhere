@@ -59,11 +59,7 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :searches do
-      collection do
-        get "top" => "searches#top"
-      end
-    end
+    resources :searches
   end
 
   namespace :user do

@@ -6,9 +6,13 @@ class Admin::ShopsController < ApplicationController
   end
 
   def create
-    shop = Shop.new(shop_params)
-    shop.save
-    redirect_to admin_shops_path
+    @shop = Shop.new(shop_params)
+    if @shop.save
+      redirect_to admin_shops_path
+    else
+      flash[:alert] = "メッセージを入力してください。または重複したデータは登録できません。"
+      render action: :index
+    end
   end
 
   def show
@@ -21,9 +25,12 @@ class Admin::ShopsController < ApplicationController
   end
 
   def update
-    shop = Shop.find(params[:id])
-    shop.update(shop_params)
-    redirect_to admin_shops_path
+    @shop = Shop.find(params[:id])
+    if @shop.update(shop_params)
+      redirect_to admin_shops_path
+    else
+      flash[:alert] = "メッセージを入力してください。または重複したデータは登録できません。"
+    end
   end
 
   def destroy

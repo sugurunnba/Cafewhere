@@ -12,7 +12,7 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 animate-box text-center">
 				<h2 class="intro-heading">CafeWhere</h2>
-				<p><span>少しだけ休憩したいあなたに<i class="icon-heart3"></i> by the fine folks at <a href="http://freehtml5.co">FreeHTML5.co</a></span></p>
+				<p><span>少しだけ休憩したいあなたに☕</span></p>
 			</div>
 		</div>
 	</div>
@@ -224,7 +224,7 @@
 			<div class="col-md-6 col-md-offset-3 text-center animate-box ">
 				<div class="heading-section">
 					<h2>Our Services</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					<p>大阪府内にあるカフェを簡単に検索することができます.</p>
 				</div>
 			</div>
 		</div>
@@ -253,7 +253,8 @@
 		</div>
 	</div>
 </div>
-<div class="fh5co-counters" style="background-image: url(images/hero.jpg);" data-stellar-background-ratio="0.5" id="counter-animate">
+<div class="fh5co-counters" style="background-image: url(<%= asset_path('pic4.jpg') %>)">
+	<!--assetのディレクトリから探してくれるパス-->
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 text-center animate-box">
 				<div class="heading-section">
@@ -264,16 +265,16 @@
 		<div class="fh5co-narrow-content animate-box">
 			<div class="row" >
 				<div class="col-md-4 text-center">
-					<span class="fh5co-counter js-counter" data-from="0" data-to="130" data-speed="5000" data-refresh-interval="50"></span>
-					<span class="fh5co-counter-label">Client</span>
+					<span class="fh5co-counter js-counter" data-from="0" data-to="<%= @users.count %>" data-speed="5000" data-refresh-interval="50"></span>
+					<span class="fh5co-counter-label">登録ユーザー数</span>
 				</div>
 				<div class="col-md-4 text-center">
-					<span class="fh5co-counter js-counter" data-from="0" data-to="1450" data-speed="5000" data-refresh-interval="50"></span>
-					<span class="fh5co-counter-label">Photos</span>
+					<span class="fh5co-counter js-counter" data-from="0" data-to="<%= @shops.count %>" data-speed="5000" data-refresh-interval="50"></span>
+					<span class="fh5co-counter-label">登録カフェ数</span>
 				</div>
 				<div class="col-md-4 text-center">
-					<span class="fh5co-counter js-counter" data-from="0" data-to="7497" data-speed="5000" data-refresh-interval="50"></span>
-					<span class="fh5co-counter-label">Pixels</span>
+					<span class="fh5co-counter js-counter" data-from="0" data-to="<%= @reviews.count %>" data-speed="5000" data-refresh-interval="50"></span>
+					<span class="fh5co-counter-label">登録レビュー数</span>
 				</div>
 			</div>
 		</div>
@@ -365,3 +366,4 @@
 
 	});
 </script>
+

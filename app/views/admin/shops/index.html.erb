@@ -1,28 +1,26 @@
-<h3>user商品一覧ページ</h3>
+<div class="container">
+  <div class="row">
+    <%= render "admin/shops/new.shop", shop: @shop, genres: @genres %>
 
-<br>
-
-<%= render "admin/shops/new.shop", shop: @shop, genres: @genres %>
-
-<br><br>
-
-<table>
-  <thead>
-    <tr>
-      <td>ID</td>
-      <td>店名</td>
-    </tr>
-  </thead>
-  <% @shops.each do |shop| %>
-  <tbody>
-    <tr>
-      <td><%= shop.id %></td>
-      <td>
-        <%= link_to admin_shop_path(shop) do %>
-          <%= shop.name %>
-        <% end %>
-      </td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>店名</td>
+        </tr>
+      </thead>
+      <% @shops.each do |shop| %>
+      <tbody>
+        <tr>
+          <td><%= shop.id %></td>
+          <td>
+            <%= link_to admin_shop_path(shop) do %>
+              <%= shop.name %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

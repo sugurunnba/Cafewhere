@@ -1,5 +1,8 @@
 class User::UsersController < ApplicationController
   def top
+    @users = User.all
+    @shops = Shop.all
+    @reviews = Review.all
   end
 
   def about

@@ -1,51 +1,54 @@
-<table>
-  <tr>
-    <td>店名</td>
-    <td><%= @shop.name %></td>
-  </tr>
-  <tr>
-    <td>お店の紹介文</td>
-    <td><%= @shop.introduction %></td>
-  </tr>
-  <tr>
-    <td>お店の写真</td>
-    <td><%= @shop.shop_image %></td>
-  </tr>
-  <tr>
-    <td>住所</td>
-    <td><%= @shop.address %></td>
-  </tr>
-  <tr>
-    <td>ジャンル</td>
-    <td><%= @shop.genre.name %></td>
-  </tr>
-  <tr>
-    <td>営業時間</td>
-     <td><%= @shop.start_business_hours %>~<%= @shop.finish_business_hours %></td>
-  </tr>
-  <tr>
-    <td>最寄駅</td>
-    <td><%= @shop.station %></td>
-  </tr>
-  <tr>
-    <td>電話番号</td>
-    <td><%= @shop.phone_number %></td>
-  </tr>
-  <tr>
-    <td>ホームページ</td>
-    <td>
-    <%= link_to "https://tabelog.com/kyoto/A2601/A260202/26017496/" do %>
-      <%= @shop.home_page %>
-    <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>休日</td>
-     <td><%= @shop.holiday %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "編集する", edit_admin_shop_path(@shop) %></td>
-  </tr>
-</table>
-
-<%= link_to "戻る", admin_shops_path %>
+<div class="container text-center">
+  <div class="row">
+    <table class="table">
+      <tr>
+        <td>店名</td>
+        <td><%= @shop.name %></td>
+      </tr>
+      <tr>
+        <td>お店の紹介文</td>
+        <td><%= @shop.introduction %></td>
+      </tr>
+      <tr>
+        <td>お店の写真</td>
+        <td><%= @shop.shop_image %></td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td><%= @shop.address %></td>
+      </tr>
+      <tr>
+        <td>ジャンル</td>
+        <td><%= @shop.genre.name %></td>
+      </tr>
+      <tr>
+        <td>営業時間</td>
+         <td><%= @shop.start_business_hours %>~<%= @shop.finish_business_hours %></td>
+      </tr>
+      <tr>
+        <td>最寄駅</td>
+        <td><%= @shop.station %></td>
+      </tr>
+      <tr>
+        <td>電話番号</td>
+        <td><%= @shop.phone_number %></td>
+      </tr>
+      <tr>
+        <td>ホームページ</td>
+        <td>
+        <%= link_to "https://tabelog.com/kyoto/A2601/A260202/26017496/" do %>
+          <%= @shop.home_page %>
+        <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>休日</td>
+         <td><%= @shop.holiday %></td>
+      </tr>
+      <tr>
+        <td><%= link_to "編集する", edit_admin_shop_path(@shop) %></td>
+        <td><%= link_to "戻る", admin_shops_path %></td>
+      </tr>
+    </table>
+  </div>
+</div>

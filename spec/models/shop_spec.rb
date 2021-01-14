@@ -51,6 +51,10 @@ RSpec.describe 'Shopモデルのテスト', type: :model do
       shop.holiday = ''
       expect(shop.valid?).to be false
     end
+    it 'introductionが201文字以上だとNG' do
+      shop.introduction = Faker::Lorem.characters(number:201)
+      expect(shop.valid?).to be false
+    end
     it 'stationが23文字以上だとNG' do
       shop.station = Faker::Lorem.characters(number:23)
       expect(shop.valid?).to be false

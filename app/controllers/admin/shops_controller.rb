@@ -1,4 +1,10 @@
 class Admin::ShopsController < ApplicationController
+  def new
+    @shop = Shop.new
+    @shops = Shop.all
+    @genres = Genre.all
+  end
+
   def index
     @shop = Shop.new
     @shops = Shop.all

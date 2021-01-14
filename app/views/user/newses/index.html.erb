@@ -1,0 +1,26 @@
+<h3>お知らせ一覧</h3>
+
+<%= link_to "お知らせ登録", new_admin_newse_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td></td>
+      <td>お知らせID</td>
+      <td>お知らせタイトル</td>
+    </tr>
+  </thead>
+  <% @newses.each do |news| %>
+  <tbody>
+    <tr>
+      <td><%= image_tag 'pic1.jpg', width: '60', height: '60' %></td>
+      <td><%= news.id %></td>
+      <td>
+        <%= link_to user_newse_path(news) do %>
+          <%= news.title %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

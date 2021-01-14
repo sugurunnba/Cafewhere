@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <%= render "admin/shops/new.shop", shop: @shop, genres: @genres %>
+    <table>
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>店名</td>
+        </tr>
+      </thead>
+      <% @shops.each do |shop| %>
+        <% if shop.is_active == false %>
+        <tbody>
+          <tr>
+            <td><%= shop.id %></td>
+            <td>
+              <%= link_to edit_admin_shop_path(shop) do %>
+                <%= shop.name %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>

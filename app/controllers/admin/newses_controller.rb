@@ -1,4 +1,5 @@
-class Admin::NewesController < ApplicationController
+class Admin::NewsesController < ApplicationController
+
   def new
     @news = News.new
   end
@@ -10,7 +11,7 @@ class Admin::NewesController < ApplicationController
   end
 
   def index
-    @newes = News.all
+    @newses = News.all
   end
 
   def show
@@ -35,6 +36,7 @@ class Admin::NewesController < ApplicationController
 
   private
   def news_params
-    params.require(:news).permit(:title, :text, :new)
+    params.require(:news).permit(:title, :text, :news_image)
   end
+
 end

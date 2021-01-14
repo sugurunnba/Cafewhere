@@ -1,0 +1,22 @@
+<h3 class="text-center">お知らせ詳細</h3>
+
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <td>お知らせID</td>
+          <td>お知らせタイトル</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= attachment_image_tag @news, :news_image, :fill, 60, 60 %></td>
+          <td><%= @news.title %></td>
+          <td><%= @news.title %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

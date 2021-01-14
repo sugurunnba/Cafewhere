@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :newes
+    resources :newses
   end
 
   namespace :user do
@@ -71,7 +71,7 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :newes, only: [:index, :show]
+    resources :newses, only: [:index, :show]
   end
 
 end

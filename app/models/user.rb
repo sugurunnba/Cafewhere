@@ -10,4 +10,11 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
+
+  validates :name, :gender, :phone_number, :address, presence: true
+  # validates :name, :phone_number, :address, uniqueness: true
+  validates :phone_number, length: { maximum: 11 }
+  validates :introduction, length: { maximum: 100 }
+
+
 end

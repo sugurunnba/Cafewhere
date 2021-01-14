@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_063815) do
+ActiveRecord::Schema.define(version: 2021_01_14_083403) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -72,9 +72,10 @@ ActiveRecord::Schema.define(version: 2021_01_10_063815) do
     t.string "holiday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "finish_business_hours"
+    t.time "finish_business_hours"
     t.float "latitude"
     t.float "longitude"
+    t.boolean "is_active", default: false
   end
 
   create_table "users", force: :cascade do |t|

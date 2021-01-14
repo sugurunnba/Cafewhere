@@ -10,16 +10,18 @@
         </tr>
       </thead>
       <% @shops.each do |shop| %>
-      <tbody>
-        <tr>
-          <td><%= shop.id %></td>
-          <td>
-            <%= link_to admin_shop_path(shop) do %>
-              <%= shop.name %>
-            <% end %>
-          </td>
-        </tr>
-      </tbody>
+        <% if shop.is_active == false %>
+        <tbody>
+          <tr>
+            <td><%= shop.id %></td>
+            <td>
+              <%= link_to edit_admin_shop_path(shop) do %>
+                <%= shop.name %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+        <% end %>
       <% end %>
     </table>
   </div>

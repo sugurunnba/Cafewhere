@@ -3,7 +3,12 @@
     <div class="card col-sm-6 mx-auto mt-5">
       <div class="card-body">
         <h3 class="mt-1 mb-3">登録情報編集</h3>
-        <%= form_with model: @shop, url: admin_shop_path(@shop), local:true do |f| %>
+        <%= form_with model: @shop, url: user_shops_path, local:true do |f| %>
+
+        <div class="form-group">
+          <%= f.label :shop_image, "写真", :class => "form-label" %>
+          <%= f.attachment_field :shop_image, autocomplete: "shop_image", :class => "form-control" %>
+        </div>
 
         <div class="form-group">
           <%= f.label :name, "店名", :class => "form-label" %>
@@ -22,7 +27,7 @@
 
         <div class="form-group">
           <%= f.label :"ジャンル", :class => "form-label" %>
-          <%= f.collection_select(:genre, @genres, :id, :name, autocomplete: "genre_id", :class => "form-control") %>
+          <%= f.collection_select(:genre_id, @genres, :id, :name, autocomplete: "genre_id", :class => "form-control") %>
         </div>
 
         <div class="form-group">
@@ -50,13 +55,6 @@
           <%= f.text_field :holiday, autocomplete: "holiday", :class => "form-control" %>
         </div>
 
-        <div class="form-group">
-          <%= f.radio_button :is_active, true %>
-          <%= f.label :is_active, "掲載を許可する", {value: :true, style: "display: inline-block;"} %>
-          <%= f.radio_button :is_active, false %>
-          <%= f.label :is_active, "掲載はだめです", {value: :false, style: "display: inline-block;"} %>
-        </div>
-
         <div class="actions">
           <%= f.submit "新規登録する", :class => "btn btn-primary btn-block" %>
         </div>
@@ -65,4 +63,3 @@
     </div>
   </div>
 </div>
-

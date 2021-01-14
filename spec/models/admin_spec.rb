@@ -1,4 +1,4 @@
-require 'rails_helper.rb'
+require 'rails_helper'
 RSpec.describe 'adminモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     let(:admin) { FactoryBot.create(:admin) }

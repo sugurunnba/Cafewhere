@@ -31,6 +31,10 @@ Rails.application.routes.draw do
     resources :genres
   end
 
+  namespace :admin do
+    resources :newes
+  end
+
   namespace :user do
     resources :users, only: [:show, :edit, :update] do
       collection do
@@ -64,6 +68,10 @@ Rails.application.routes.draw do
 
   namespace :user do
     resources :contacts, only: [:new, :create]
+  end
+
+  namespace :user do
+    resources :newes, only: [:index, :show]
   end
 
 end

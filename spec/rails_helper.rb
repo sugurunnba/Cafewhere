@@ -1,11 +1,13 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+puts("11111")
 require 'spec_helper'
+puts("222")
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 
-
+puts("333")
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -27,9 +29,12 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin
+  puts("444")
   ActiveRecord::Migration.maintain_test_schema!
+  puts("555")
 rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
+  puts '666666'
   exit 1
 end
 RSpec.configure do |config|

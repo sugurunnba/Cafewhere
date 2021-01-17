@@ -18,5 +18,6 @@
 //= require activestorage
 //= require turbolinks
 //= require modernizr-2.6.2.min
+//= require jquery.gridrotator
 //= require_tree .
 

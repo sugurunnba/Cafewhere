@@ -1,13 +1,29 @@
-<div class="container text-center">
-  <div class="raw">
-    <h3>人気ランキング</h3>
-    <% @shops.each do |shop| %>
-      <p>
-        <%= shop.reviews.average(:rate).to_f.round(1) %>
-        <%= link_to user_shop_path(shop) do %>
-          <%= shop.name %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-1 col-md-10">
+			<table>
+				<thead>
+					<h3 class="text-center">人気ランキング</h3>
+					<tr>
+					  <td>評価平均</td>
+					  <td>店名</td>
+					</tr>
+				</thead>
+				<br><br>
+
+				<% @shops.each do |shop| %>
+				<tbody>
+          <tr>
+            <th><%= shop.reviews.average(:rate).to_f.round(1) %></th>
+            <td>
+              <%= link_to user_shop_path(shop) do %>
+                <%= shop.name %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
         <% end %>
-      </p>
-    <% end %>
-  </div>
+			</table>
+		</div>
+	</div>
 </div>

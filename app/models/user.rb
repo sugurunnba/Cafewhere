@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
 
   validates :name, :gender, :phone_number, :address, presence: true
-  # validates :name, :phone_number, :address, uniqueness: true
+  validates :name, :phone_number, :address, uniqueness: true
   validates :phone_number, length: { maximum: 11 }
   validates :introduction, length: { maximum: 100 }
 

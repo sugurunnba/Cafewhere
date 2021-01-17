@@ -2,7 +2,6 @@
   "name": "Cafewhere",
   "private": true,
   "dependencies": {
-    "jquery": "^3.5.1",
-    "raty-js": "^3.0.0"
+    "jquery": "^3.5.1"
   }
 }

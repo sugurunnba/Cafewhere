@@ -26,7 +26,7 @@ RSpec.describe 'Userモデルのテスト', type: :model do
     end
     it '一意性があること' do
       user.name = other_user.name
-      expect(user.valid?).to be true
+      expect(user.valid?).to be false
     end
     it 'introductionが101文字以上だとNG' do
       user.introduction = Faker::Lorem.characters(number:101)

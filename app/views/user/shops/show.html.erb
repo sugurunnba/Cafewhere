@@ -75,7 +75,7 @@
           </tr>
           <tr>
             <th>営業時間</th>
-             <td><%= @shop.start_business_hours.strftime('%Y/%m/%d') %>~<%= @shop.finish_business_hours %></td>
+             <td><%= @shop.start_business_hours.strftime('%H:%M') %>~<%= @shop.finish_business_hours.strftime('%H:%M') %></td>
           </tr>
           <tr>
             <th>最寄駅</th>

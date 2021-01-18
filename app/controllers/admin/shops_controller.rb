@@ -1,6 +1,9 @@
 class Admin::ShopsController < ApplicationController
+  def delete
+    @shops = Shop.all
+  end
+
   def new
-    @shop = Shop.new
     @shops = Shop.all
     @genres = Genre.all
   end

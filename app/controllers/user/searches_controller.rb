@@ -4,6 +4,7 @@ class User::SearchesController < ApplicationController
   end
 
   def index
-    @shops = Shop.search(params[:search], params[:select])
+    select = Shop.distinguish_select(params)
+    @shops = Shop.search(params[:search], select)
   end
 end

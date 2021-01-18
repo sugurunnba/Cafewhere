@@ -2,39 +2,39 @@
   <div class="row">
     <table class="table">
       <tr>
-        <td>店名</td>
+        <th>店名</th>
         <td><%= @shop.name %></td>
       </tr>
       <tr>
-        <td>お店の紹介文</td>
+        <th>お店の紹介文</th>
         <td><%= @shop.introduction %></td>
       </tr>
       <tr>
-        <td>お店の写真</td>
+        <th>お店の写真</th>
         <td><%= attachment_image_tag @shop, :shop_image, :fill, 60, 60 %></td>
       </tr>
       <tr>
-        <td>住所</td>
+        <th>住所</th>
         <td><%= @shop.address %></td>
       </tr>
       <tr>
-        <td>ジャンル</td>
+        <th>ジャンル</th>
         <td><%= @shop.genre.name %></td>
       </tr>
       <tr>
-        <td>営業時間</td>
+        <th>営業時間</th>
          <td><%= @shop.start_business_hours %>~<%= @shop.finish_business_hours %></td>
       </tr>
       <tr>
-        <td>最寄駅</td>
+        <th>最寄駅</th>
         <td><%= @shop.station %></td>
       </tr>
       <tr>
-        <td>電話番号</td>
+        <th>電話番号</th>
         <td><%= @shop.phone_number %></td>
       </tr>
       <tr>
-        <td>ホームページ</td>
+        <th>ホームページ</th>
         <td>
         <%= link_to "https://tabelog.com/kyoto/A2601/A260202/26017496/" do %>
           <%= @shop.home_page %>
@@ -42,12 +42,12 @@
         </td>
       </tr>
       <tr>
-        <td>休日</td>
+        <th>休日</th>
          <td><%= @shop.holiday %></td>
       </tr>
       <tr>
-        <td><%= link_to "編集する", edit_admin_shop_path(@shop) %></td>
-        <td><%= link_to "戻る", admin_shops_path %></td>
+        <td><%= link_to "編集する", edit_admin_shop_path(@shop), :class => "btn btn-primary"  %></td>
+        <td><%= link_to "戻る", admin_shops_path, :class => "btn btn-primary"  %></td>
       </tr>
     </table>
   </div>

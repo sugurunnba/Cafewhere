@@ -24,7 +24,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :shops
+    resources :shops do
+      collection do
+        get "delete" => "shops#delete"
+      end
+    end
   end
 
   namespace :admin do

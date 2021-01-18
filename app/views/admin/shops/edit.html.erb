@@ -51,10 +51,7 @@
         </div>
 
         <div class="form-group">
-          <%= f.radio_button :is_active, true %>
-          <%= f.label :is_active, "掲載を許可する", {value: :true, style: "display: inline-block;"} %>
-          <%= f.radio_button :is_active, false %>
-          <%= f.label :is_active, "掲載はだめです", {value: :false, style: "display: inline-block;"} %>
+          <%= f.select :is_active, [["申請中", "申請中"], ["掲載許可", "掲載許可"], ["掲載禁止", "掲載禁止"]] %>
         </div>
 
         <div class="actions">

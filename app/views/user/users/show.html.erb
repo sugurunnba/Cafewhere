@@ -23,21 +23,25 @@
 				    <th>メールアドレス</th>
 				    <td><%= @user.email %></td>
 				  </tr>
-				  <tr>
-				  	<% if @user == current_user %>
-					 		<td><%= link_to "編集する", edit_user_user_path(@user),class: "glyphicon glyphicon-pencil btn btn-success"  %></td>
-							<td><%= link_to "パスワードを変更する", edit_user_registration_path, class: "glyphicon glyphicon-pencil btn btn-warning" %></td>
-					  <% end %>
-				  </tr>
-				  <tr>
-				  	<td><%= link_to "カフェ登録リクエスト", new_user_shop_path %></td>
-				  	<td><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></td>
-				  </tr>
-				  <tr>
-				  	<td><%= link_to "お問い合わせする", new_user_contact_path %></td>
-				  </tr>
 				</tbody>
 			</table>
+ <br>
+ 			<% if @user == current_user %>
+			<table>
+			  <tr>
+			  	<td><%= link_to "カフェ登録リクエスト", new_user_shop_path, :class => "btn btn-primary" %></td>
+					<td>
+						<% if @user == current_user %>
+							<%= link_to "ユーザー情報を編集する", edit_user_user_path(@user), :class => "btn btn-primary" %>
+						<% end %>
+					</td>
+			  </tr>
+			  <tr>
+			  	<td></span><%= link_to "お問い合わせする", new_user_contact_path, :class => "btn btn-primary" %></td>
+			  	<td><%= link_to "ログアウト", destroy_user_session_path, method: :delete, :class => "btn btn-primary" %></td>
+			  </tr>
+			</table>
+			<% end %>
 		</div>
 	</div>
 </div>

@@ -1,25 +1,29 @@
 <div class="container">
   <div class="row">
-    <br>
-    <%= render "genre.new", genre: @genre %>
-    <br>
-    <table>
-      <thead>
-        <tr>
-          <td>ID</td>
-          <td>ジャンル名</td>
-        </tr>
-      </thead>
-      <% @genres.each do |genre| %>
-      <tbody>
-        <tr>
-          <td><%= genre.id %></td>
-          <td><%= genre.name %></td>
-          <td><%= link_to "編集する", edit_admin_genre_path(genre) %></td>
-          <td><%= link_to "削除する", admin_genre_path(genre), method: :delete %></td>
-        </tr>
-      </tbody>
-      <% end %>
-    </table>
+    <div class="col-md-10 col-md-offset-1">
+      <table border="1" style="border-collapse: collapse">
+        <thead>
+          <tr>
+            <%= link_to "ジャンル登録する", new_admin_genre_path %>
+          </tr>
+          <tr>
+            <td>ID</td>
+            <td>ジャンル名</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </thead>
+        <% @genres.each do |genre| %>
+        <tbody>
+          <tr>
+            <td><%= genre.id %></td>
+            <td><%= genre.name %></td>
+            <td><%= link_to "編集する", edit_admin_genre_path(genre), :class => "btn btn-primary"  %>&nbsp;<%= link_to "削除する", admin_genre_path(genre), method: :delete, :class => "btn btn-primary"  %></td>
+            <td></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>

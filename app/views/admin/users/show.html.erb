@@ -1,46 +1,53 @@
 <div class="container">
   <div class="row">
-    <table class="table">
-      <tr>
-        <td>ユーザーID</td>
-        <td><%= @user.id %></td>
-      </tr>
-      <tr>
-        <td>名前</td>
-        <td>
-          <%= @user.name %>
-          <% if @user.user_status == true %>
-            <span>　<i class="fas fa-bullseye blue"></i>退会済
+    <div class="col-md-offset-1 col-md-10">
+			<table border="1" style="border-collapse: collapse">
+			  <thead>
+			    <h3 class="text-center"><%= @user.name %>さんのユーザー詳細画面</h3>
+			  </thead>
+<br>
+        <tr>
+          <th>ユーザーID</th>
+          <td><%= @user.id %></td>
+        </tr>
+        <tr>
+          <th>名前</th>
+          <td>
+            <%= @user.name %>
+            <% if @user.user_status == true %>
+              <span>　<i class="fas fa-bullseye blue"></i>退会済
+            <% else %>
+              <i class="fas fa-bullseye red"></i>有効会員</span>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>自己紹介</th>
+          <td><%= @user.introduction %></td>
+        </tr>
+        <tr>
+          <th>性別</th>
+          <td>
+          <% if @user.gender == 1 %>
+            男性
           <% else %>
-            <i class="fas fa-bullseye red"></i>有効会員</span>
+            女性
           <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td>自己紹介</td>
-        <td><%= @user.introduction %></td>
-      </tr>
-      <tr>
-        <td>性別</td>
-        <td>
-        <% if @user.gender == 1 %>
-          男性
-        <% else %>
-          女性
-        <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td>電話番号</td>
-        <td><%= @user.phone_number %></td>
-      </tr>
-      <tr>
-        <td>住所</td>
-        <td><%= @user.address %></td>
-      </tr>
-      <tr>
-        <td><%= link_to "編集する", edit_admin_user_path(@user) %></td>
-      </tr>
-    </table>
+          </td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><%= @user.phone_number %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @user.address %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= link_to "編集する", edit_admin_user_path(@user), :class => "btn btn-primary" %></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

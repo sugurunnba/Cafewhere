@@ -1,27 +1,26 @@
 <div class="container">
   <div class="row">
-    <%= render "admin/shops/new.shop", shop: @shop, genres: @genres %>
-    <table>
-      <thead>
+    <div class="col-md-10 col-md-offset-1">
+      <table border="1" style="border-collapse: collapse">
         <tr>
-          <td>ID</td>
-          <td>店名</td>
+          <h3 class="text-center">登録申請カフェ一覧</h3>
         </tr>
-      </thead>
-      <% @shops.each do |shop| %>
-        <% if shop.is_active == false %>
-        <tbody>
-          <tr>
-            <td><%= shop.id %></td>
-            <td>
-              <%= link_to edit_admin_shop_path(shop) do %>
-                <%= shop.name %>
-              <% end %>
-            </td>
-          </tr>
-        </tbody>
+<br>
+        <% @shops.each do |shop| %>
+          <% if shop.is_active == false %>
+          <tbody>
+            <tr>
+              <td><%= shop.id %></td>
+              <td>
+                <%= link_to edit_admin_shop_path(shop) do %>
+                  <%= shop.name %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+          <% end %>
         <% end %>
-      <% end %>
-    </table>
+      </table>
+    </div>
   </div>
 </div>

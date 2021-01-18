@@ -63,7 +63,11 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :searches
+    resources :searches do
+      collection do
+        get 'placegenre' => 'searches#placegenre'
+      end
+    end
   end
 
   namespace :user do

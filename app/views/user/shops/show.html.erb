@@ -5,6 +5,7 @@
         <thead>
           <h3 class="text-center"><%= @shop.name %>の詳細ページ</h3>
         </thead>
+<br>
         <tbody>
           <tr>
             <th>店名</th>
@@ -20,7 +21,7 @@
           </tr>
           <tr>
             <th>住所</th>
-            <td>
+            <td class="text-center">
               <%= @shop.address %>
               <% if @shop.latitude.present? && @shop.longitude.present? %>
               <script type="text/javascript">
@@ -74,7 +75,7 @@
           </tr>
           <tr>
             <th>営業時間</th>
-             <td><%= @shop.start_business_hours %>~<%= @shop.finish_business_hours %></td>
+             <td><%= @shop.start_business_hours.strftime('%Y/%m/%d') %>~<%= @shop.finish_business_hours %></td>
           </tr>
           <tr>
             <th>最寄駅</th>
@@ -93,43 +94,52 @@
             </td>
           </tr>
           <tr>
-            <th>休日</th>
+            <th>定休日</th>
              <td><%= @shop.holiday %></td>
           </tr>
           <tr>
           <% if @shop.bookmarked_by?(current_user) %>
-            <td><%= link_to "ブックマークを外す", user_shop_bookmarks_path(@shop.id), method: :delete %></td>
+            <td><i class="fas fa-check"></i><%= link_to "ブックマークを外す", user_shop_bookmarks_path(@shop.id), method: :delete, :class => "btn btn-primary" %></td>
           <% else %>
-            <td><%= link_to "ブックマークする", user_shop_bookmarks_path(@shop.id), method: :post %></td>
+            <td><i class="fas fa-check-circle fa-fw fa-lg "></i><%= link_to "ブックマーク", user_shop_bookmarks_path(@shop.id), method: :post, :class => "btn btn-primary" %></td>
           <% end %>
-          <td><%= link_to "評価する", new_user_shop_review_path(@shop.id) %></td>
+            <td><i class="far fa-thumbs-up fa-fw fa-lg faa-tada animated"></i><%= link_to "評価する", new_user_shop_review_path(@shop.id), :class => "btn btn-primary" %></td>
           </tr>
           <tr>
           <!--route.rbにて、idが含まれていれば、引数が必要-->
-
-            <td><%= link_to "戻る", 'javascript:history.back()' %></td>
           </tr>
         </tbody>
       </table>
-
-
+<br>
       <table>
-        <% @shop.reviews.each do |review| %>
         <thead>
           <tr>
             <h3 class="text-center">クチコミ</h3>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th class="review-rating" data-score="<%= review.rate %>"></th>
-            <td>
-              <%= link_to user_shop_review_path(review) do %>
-                <%= review.title %>
-              <% end %>
-            </td>
-          </tr>
-        </tbody>
+        <% if @shop.reviews.empty? %>
+          <tbody>
+            <tr>
+              <td>クチコミはありません</td>
+            </tr>
+          </tbody>
+        <% else %>
+          <% @shop.reviews.each do |review| %>
+          <tbody>
+            <tr>
+              <th class="review-rating" data-score="<%= review.rate %>">
+                <%= link_to user_user_path(review.user) do %>
+                  <%= review.user.name %>さん&nbsp;&nbsp;
+                <% end %>
+              </th>
+              <td>
+                <%= link_to user_shop_review_path(review) do %>
+                  <%= review.title %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+          <% end %>
         <% end %>
 
         <script>
@@ -141,6 +151,13 @@
             path: '/assets/'
           });
         </script>
+      </table>
+
+<br>
+      <table>
+        <tr>
+          <td><i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %></td>
+        </tr>
       </table>
 
     </div>

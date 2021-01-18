@@ -1,0 +1,12 @@
+<%= form_with url: user_searches_path, method: :get, local: true do |f| %>
+<table border="1" style="border-collapse: collapse">
+  <tbody>
+    <tr>
+      <td><%= link_to "地名/ジャンル検索ページへ", placegenre_user_searches_path, :class => "btn btn-primary" %></td>
+      <td><%= f.text_field :search, :placeholder => "カフェ名を入力ください", :style => "width: 300px; height: 40px; text-align: center;" %></td>
+      <td><%= f.submit "検索する", :class => "btn btn-primary" %></td>
+
+    </tr>
+  </tbody>
+</table>
+<% end %>

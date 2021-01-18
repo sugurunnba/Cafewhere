@@ -11,8 +11,18 @@
         </div>
 
         <div class="form-group">
+          <%= f.label :email, "メールアドレス", :class => "form-label" %>
+          <%= f.email_field :email, autocomplete: "email", :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :title, "お問い合わせタイトル", :class => "form-label" %>
+          <%= f.text_field :title, autocomplete: "title", :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
           <%= f.label :message, "お問い合わせ内容", :class => "form-label" %>
-          <%= f.text_field :message, autocomplete: "introduction", :class => "form-control" %>
+          <%= f.text_area :message, autocomplete: "introduction", :class => "form-control;", :style => "width: 513px; height:200px" %>
         </div>
 
         <div class="actions">

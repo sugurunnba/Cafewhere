@@ -1,12 +1,13 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-offset-1 col-md-10">
-			<table>
+			<table class="table">
 				<thead>
 					<h3 class="text-center">人気ランキング</h3>
 					<tr>
 					  <td>評価平均</td>
 					  <td>店名</td>
+					  <td>評価数</td>
 					</tr>
 				</thead>
 				<br><br>
@@ -14,11 +15,14 @@
 				<% @shops.each do |shop| %>
 				<tbody>
           <tr>
-            <th><%= shop.reviews.average(:rate).to_f.round(1) %></th>
+            <th><i class="fas fa-star"></i><%= shop.reviews.average(:rate).to_f.round(1) %></th>
             <td>
               <%= link_to user_shop_path(shop) do %>
                 <%= shop.name %>
               <% end %>
+            </td>
+            <td>
+            	<%= shop.reviews.count %>
             </td>
           </tr>
         </tbody>

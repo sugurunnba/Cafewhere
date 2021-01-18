@@ -1,24 +1,25 @@
-<h3>お知らせ一覧</h3>
-
-<table class="table">
-  <thead>
-    <tr>
-      <td></td>
-      <td>お知らせID</td>
-      <td>お知らせタイトル</td>
-    </tr>
-  </thead>
-  <% @newses.each do |news| %>
-  <tbody>
-    <tr>
-      <td><%= image_tag 'pic1.jpg', width: '60', height: '60' %></td>
-      <td><%= news.id %></td>
-      <td>
-        <%= link_to user_newse_path(news) do %>
-          <%= news.title %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table border="1" style="border-collapse: collapse">
+        <tr>
+          <h3 class="text-center">お知らせ一覧</h3>
+        </tr>
+<br>
+        <% @newses.each do |news| %>
+        <tr>
+          <th><%= image_tag 'pic1.jpg', width: '60', height: '60' %></th>
+          <td>
+            <%= link_to user_newse_path(news) do %>
+              <%= news.title %>
+            <% end %>
+          </td>
+          <td>
+            <%= news.created_at.strftime("%Y年%m月%d日") %>更新
+          </td>
+        </tr>
         <% end %>
-      </td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
+      </table>
+    </div>
+  </div>
+</div>

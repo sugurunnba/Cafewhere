@@ -1,24 +1,33 @@
-<h3>お知らせ一覧</h3>
-
-<%= link_to "お知らせ登録", new_admin_newse_path %>
-
-<table class="table">
-  <thead>
-    <tr>
-      <td>お知らせID</td>
-      <td>お知らせタイトル</td>
-    </tr>
-  </thead>
-  <% @newses.each do |news| %>
-  <tbody>
-    <tr>
-      <td><%= news.id %></td>
-      <td>
-        <%= link_to admin_newses_path(news) do %>
-          <%= news.title %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table border="1" style="border-collapse: collapse">
+        <thead>
+          <tr>
+            <h3 class="text-center">お知らせ一覧</h3>
+          </tr>
+<br>
+          <tr>
+            <%= link_to "お知らせ登録", new_admin_newse_path %>
+          </tr>
+          <tr>
+            <td>お知らせID</td>
+            <td>お知らせタイトル</td>
+          </tr>
+        </thead>
+        <% @newses.each do |news| %>
+        <tbody>
+          <tr>
+            <td><%= news.id %></td>
+            <td>
+              <%= link_to admin_newses_path(news) do %>
+                <%= news.title %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
         <% end %>
-      </td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
+      </table>
+    </div>
+  </div>
+</div>

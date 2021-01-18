@@ -5,15 +5,16 @@
     <table class="table">
       <thead>
         <tr>
-          <td>お知らせID</td>
+          <td></td>
           <td>お知らせタイトル</td>
+          <td>お知らせ本文</td>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><%= attachment_image_tag @news, :news_image, :fill, 60, 60 %></td>
           <td><%= @news.title %></td>
-          <td><%= @news.title %></td>
+          <td><%= @news.text %></td>
         </tr>
       </tbody>
     </table>

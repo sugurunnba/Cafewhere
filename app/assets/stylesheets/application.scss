@@ -15,6 +15,10 @@
 // ブートストラップ適用のため記載
 @import "bootstrap";
 
+// fontawesome適用のため記載
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 
 // tableの設定
 table{
@@ -34,10 +38,14 @@ table th{
   position: relative;
   text-align: left;
   width: 30%;
-  background-color: #52c2d0;
+  background-color: #87CEFA;
   color: white;
   text-align: center;
   padding: 10px 0;
+}
+
+table th a {
+  color: white;
 }
 
 table th:after{
@@ -48,14 +56,13 @@ table th:after{
   position: absolute;
   top:calc(50% - 10px);
   right:-10px;
-  border-left: 10px solid #52c2d0;
+  border-left: 10px solid #87CEFA;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
 }
 
 table td{
   text-align: left;
-  width: 40%;
   text-align: center;
   background-color: #eee;
   padding: 10px 0;
@@ -63,4 +70,15 @@ table td{
 
 .animate-box {
   opacity:1!important;
+}
+
+// 星の色
+.fa-star {
+  font-size: 15px;
+  color: yellow;
+}
+
+// テーブルの下線
+table tr, th, td {
+  border-bottom:solid 1px black;
 }

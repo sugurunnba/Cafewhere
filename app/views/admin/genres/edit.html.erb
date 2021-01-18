@@ -1,10 +1,20 @@
-<h3>ジャンル編集</h3>
-
-<%= form_with model: @genre, url: admin_genre_path(@genre), local:true do |f| %>
-<table>
-  <tr>
-    <td>ジャンル名</td>
-    <td><%= f.text_field :name %></td><td><%= f.submit "更新する" %></td>
-  </tr>
-</table>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+    <%= form_with model: @genre, url: admin_genre_path(@genre), local:true do |f| %>
+      <table border="1" style="border-collapse: collapse">
+        <thead>
+          <tr>
+            <h3 class="text-center">ジャンル編集</h3>
+          </tr>
+        </thead>
+<br>
+        <tr>
+          <td>ジャンル名</td>
+          <td><%= f.text_field :name %></td><td><%= f.submit "更新する", :class => "btn btn-primary"  %></td>
+        </tr>
+      </table>
+    <% end %>
+    </div>
+  </div>
+</div>

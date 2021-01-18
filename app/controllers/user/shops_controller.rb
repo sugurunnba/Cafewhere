@@ -12,6 +12,7 @@ class User::ShopsController < ApplicationController
 
   def index
     @shops = Shop.all
+    @genres = Genre.all
   end
 
   def show
@@ -20,6 +21,6 @@ class User::ShopsController < ApplicationController
 
   private
   def shop_params
-    params.require(:shop).permit(:name, :introduction, :shop_image, :address, :genre_id, :start_business_hours, :finish_business_hours, :station, :phone_number, :home_page, :holiday, :longitude, :latitude, :shop_image)
+    params.require(:shop).permit(:shop_image, :name, :introduction, :address, :genre_id, :start_business_hours, :finish_business_hours, :station, :phone_number, :home_page, :holiday, :longitude, :latitude)
   end
 end

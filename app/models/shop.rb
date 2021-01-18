@@ -38,7 +38,7 @@ class Shop < ApplicationRecord
   enum is_active: { "申請中": 0, "掲載許可": 1, "掲載禁止": 2}
 
 
-
+  # どのselectにデータが入っているかを確認する
   def self.distinguish_select(params)
     select = params[:select1] if (params[:select1]).present?
     select = params[:select2] if (params[:select2]).present?
@@ -58,6 +58,7 @@ class Shop < ApplicationRecord
   end
 
 
+  # コントローラーで受け取った値をここで検索する
   def self.search(search, select)
     # 大阪府
     # 大阪市
@@ -200,7 +201,7 @@ class Shop < ApplicationRecord
       Shop.where(["address LIKE ?", "%岬町%"])
     # 南河内地域
     elsif select == "matsubara"
-      Shop.where(["address LIKE ?", "%松原氏%"])
+      Shop.where(["address LIKE ?", "%松原市%"])
     elsif select == "habikino"
       Shop.where(["address LIKE ?", "%羽曳野市%"])
     elsif select == "fujidera"
@@ -219,80 +220,97 @@ class Shop < ApplicationRecord
       Shop.where(["address LIKE ?", "%河内長野市%"])
 
     # 京都府
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == "sakai"
-  #     Shop.where(["address LIKE ?", "%堺区%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == "sakai"
-  #     Shop.where(["address LIKE ?", "%堺区%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
-  #   elsif select == ""
-  #     Shop.where(["address LIKE ?", "%%"])
+    # 京都市
+    elsif select == "k-kita"
+      Shop.where(["address LIKE ?", "%北区%"])
+    elsif select == "kamigyou"
+      Shop.where(["address LIKE ?", "%上京区%"])
+    elsif select == "sakyou"
+      Shop.where(["address LIKE ?", "%左京区%"])
+    elsif select == "nakagyou"
+      Shop.where(["address LIKE ?", "%中京区%"])
+    elsif select == "higashiyama"
+      Shop.where(["address LIKE ?", "%東山区%"])
+    elsif select == "simogyou"
+      Shop.where(["address LIKE ?", "%下京区%"])
+    elsif select == "k-minami"
+      Shop.where(["address LIKE ?", "%南区%"])
+    elsif select == "ukyou"
+      Shop.where(["address LIKE ?", "%右京区%"])
+    elsif select == "fushimi"
+      Shop.where(["address LIKE ?", "%伏見区%"])
+    elsif select == "yamashina"
+      Shop.where(["address LIKE ?", "%山科区%"])
+    elsif select == "nishikyou"
+      Shop.where(["address LIKE ?", "%西京区%"])
+    # 乙訓地域
+    elsif select == "mukou"
+      Shop.where(["address LIKE ?", "%向日市%"])
+    elsif select == "nagaokakyou"
+      Shop.where(["address LIKE ?", "%長岡京市%"])
+    elsif select == "otokumi"
+      Shop.where(["address LIKE ?", "%乙訓群%"])
+    elsif select == "oyamasaki"
+      Shop.where(["address LIKE ?", "%大山崎町%"])
+    # 山城中部地域
+    elsif select == "uji"
+      Shop.where(["address LIKE ?", "%宇治市%"])
+    elsif select == "jouyou"
+      Shop.where(["address LIKE ?", "%城陽市%"])
+    elsif select == "hachiman"
+      Shop.where(["address LIKE ?", "%八幡市%"])
+    elsif select == "kyoutanabe"
+      Shop.where(["address LIKE ?", "%京田辺市%"])
+    elsif select == "kuse"
+      Shop.where(["address LIKE ?", "%久世郡%"])
+    elsif select == "kumiyama"
+      Shop.where(["address LIKE ?", "%久御山町%"])
+    elsif select == "tuduki"
+      Shop.where(["address LIKE ?", "%綴喜郡%"])
+    elsif select == "ide"
+      Shop.where(["address LIKE ?", "%井手町%"])
+    elsif select == "ujitawara"
+      Shop.where(["address LIKE ?", "%宇治田原町%"])
+    # 相良地域
+    elsif select == "kidugawa"
+      Shop.where(["address LIKE ?", "%木津川市%"])
+    elsif select == "sagara"
+      Shop.where(["address LIKE ?", "%相良群%"])
+    elsif select == "kasagi"
+      Shop.where(["address LIKE ?", "%笠置町%"])
+    elsif select == "waduka"
+      Shop.where(["address LIKE ?", "%和束長%"])
+    elsif select == "seika"
+      Shop.where(["address LIKE ?", "%精華町%"])
+    elsif select == "minamiyamashiro"
+      Shop.where(["address LIKE ?", "%南山城町%"])
+    # 中部地域
+    elsif select == "kameoka"
+      Shop.where(["address LIKE ?", "%亀岡市%"])
+    elsif select == "nantan"
+      Shop.where(["address LIKE ?", "%南丹市%"])
+    elsif select == "funai"
+      Shop.where(["address LIKE ?", "%船井郡%"])
+    elsif select == "kyoutanba"
+      Shop.where(["address LIKE ?", "%京丹波町%"])
+    # 中丹地域
+    elsif select == "fukuchiyama"
+      Shop.where(["address LIKE ?", "%福知山市%"])
+    elsif select == "maiduru"
+      Shop.where(["address LIKE ?", "%舞鶴市%"])
+    elsif select == "ayabe"
+      Shop.where(["address LIKE ?", "%綾部市%"])
+    # 丹後地域
+    elsif select == "miyadu"
+      Shop.where(["address LIKE ?", "%宮津市%"])
+    elsif select == "kyoutango"
+      Shop.where(["address LIKE ?", "%京丹後市%"])
+    elsif select == "yosa"
+      Shop.where(["address LIKE ?", "%与謝郡%"])
+    elsif select == "ine"
+      Shop.where(["address LIKE ?", "%伊根町%"])
+    elsif select == "yosano"
+      Shop.where(["address LIKE ?", "%与謝野町%"])
     else
       Shop.where(["name LIKE ?", "%#{search}%"])
     end

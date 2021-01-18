@@ -1,5 +1,11 @@
 <%= form_with url: user_searches_path, method: :get, local: true do |f| %>
 <table border="1" style="border-collapse: collapse">
+  <thead>
+    <tr>
+      <h3 class="text-center">カフェ検索</h3>
+    </tr>
+<br></br>
+  </thead>
   <tbody>
     <tr>
       <td><%= link_to "地名/ジャンル検索ページへ", placegenre_user_searches_path, :class => "btn btn-primary" %></td>

@@ -1,25 +1,38 @@
 <div class="container">
   <div class="row">
-    <table border="1" style="border-collapse: collapse">
-      <thead>
-        <tr>
-          <td>ID</td>
-          <td>カフェ名</td>
-        </tr>
-      </thead>
-      <% @shops.each do |shop| %>
-      <tbody>
-        <tr>
-          <td><%= shop.id %></td>
-          <td>
-            <%= link_to admin_shop_path(shop) do %>
-              <%= shop.name %>
+    <div class="col-md-offset-1 col-md-10">
+      <table border="1" style="border-collapse: collapse">
+        <thead>
+          <tr>
+            <h3 class="text-center">カフェ一覧</h3>
+          </tr>
+<br>
+          <tr>
+            <%= link_to delete_admin_shops_path do %>
+              掲載禁止カフェ一覧へ
             <% end %>
-          </td>
-        </tr>
-      </tbody>
-      <% end %>
-    </table>
+          </tr>
+          <tr>
+            <td>ID</td>
+            <td>カフェ名</td>
+          </tr>
+        </thead>
+        <% @shops.each do |shop| %>
+          <% if shop.is_active == "掲載許可" %>
+          <tbody>
+            <tr>
+              <td><%= shop.id %></td>
+              <td>
+                <%= link_to admin_shop_path(shop) do %>
+                  <%= shop.name %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>
 

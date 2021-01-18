@@ -1,19 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-offset-1 col-md-10">
       <table border="1" style="border-collapse: collapse">
-        <tr>
-          <h3 class="text-center">登録申請カフェ一覧</h3>
-          <p class="text-center">申請中のカフェがあれば表示されます</p>
-        </tr>
+        <thead>
+          <tr>
+            <h3 class="text-center">カフェ一覧</h3>
+          </tr>
 <br>
+          <tr>
+          </tr>
+          <tr>
+            <td>ID</td>
+            <td>カフェ名</td>
+          </tr>
+        </thead>
         <% @shops.each do |shop| %>
-          <% if shop.is_active == "申請中"  %>
+          <% if shop.is_active == "掲載禁止" %>
           <tbody>
             <tr>
               <td><%= shop.id %></td>
               <td>
-                <%= link_to edit_admin_shop_path(shop) do %>
+                <%= link_to admin_shop_path(shop) do %>
                   <%= shop.name %>
                 <% end %>
               </td>

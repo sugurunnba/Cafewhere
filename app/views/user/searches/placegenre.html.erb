@@ -11,30 +11,35 @@
       	<tbody>
       		<tr>
       			<td rowspan="3">大阪府</td>
-      			<td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "大阪市" %></td>
-       			<td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "堺市" %></td>
-      			<td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "豊能地域" %></td>
+      			<td><%= f.select :select1, [["北区", "kita"], ["豊島区", "toshima"], ["福島区", "fukushima"], ["此花区", "konohana"], ["中央区", "tyuuou"], ["西区", "nisi"], ["港区", "minato"], ["大正区", "taishou"], ["天王寺区", "tennouji"], ["浪速区", "naniwa"], ["西淀川区", "nishiyodogawa"], ["淀川区", "yodogawa"], ["東淀川区", "higashiyodogawa"], ["東成区", "higasinari"], ["生野区", "ikuno"], ["旭区", "asahi"], ["城東区", "joutou"], ["鶴見区", "turumi"], ["阿倍野区", "abeno"], ["住之江区", "suminoe"], ["住吉区", "sumiyoshi"], ["東住之江区", "higashisuminoe"], ["住吉区", "sumiyoshi"], ["東住吉区", "higashisumiyoshi"], ["平野区", "hirano"], ["西成区", "nishinari"]], include_blank: "大阪市" %></td>
+       			<td><%= f.select :select2, [["堺区", "sakai"], ["中区", "naka"], ["東区", "higashi"], ["西区", "s-nishi"], ["南区", "minami"], ["北区", "s-kita"], ["美原区", "mihara"]], include_blank: "堺市" %></td>
+      			<td><%= f.select :select3, [["能勢町", "nose"], ["豊能町", "toyono"], ["池田市", "ikeda"], ["箕面市", "minou"], ["豊中市", "toyonaka"]], include_blank: "豊能地域" %></td>
       		</tr>
       		<tr>
-      		  <td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "三島地域" %></td>
-      			<td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "北河内地域" %></td>
-      			<td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "中河内地域" %></td>
+      		  <td><%= f.select :select4, [["茨城市", "ibaraki"], ["高槻市", "takatsuki"], ["鳥本町", "shimamoto"], ["吹田市", "suita"], ["摂津市", "settu"]], include_blank: "三島地域" %></td>
+      			<td><%= f.select :select5, [["枚方市", "hirakata"], ["交野市", "katano"], ["寝屋川市", "neyagawa"], ["守口市", "moriguchi"], ["門真市", "kadoma"], ["四條畷市", "shijounawate"], ["大東市", "daitou"]], include_blank: "北河内地域" %></td>
+      			<td><%= f.select :select6, [["東大阪市", "higashiosaka"], ["八尾市", "yao"], ["柏原市", "kashiwara"]], include_blank: "中河内地域" %></td>
       		</tr>
       		<tr>
-      			<td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "泉北地域" %></td>
-      			<td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "泉南地域" %></td>
-      			<td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "南河内地域" %></td>
+      			<td><%= f.select :select7, [["和泉市", "izumi"], ["高石市", "takaishi"], ["泉大津市", "izumiotsu"], ["忠岡市", "tadooka"]], include_blank: "泉北地域" %></td>
+      			<td><%= f.select :select8, [["岸和田市", "kishiwada"], ["貝塚市", "kaizuka"], ["熊取町", "kumatori"], ["泉佐野市", "izumisano"], ["田尻町", "tajiri"], ["泉南市", "sennan"], ["阪南市", "hannan"], ["岬町", "misaki"]], include_blank: "泉南地域" %></td>
+      			<td><%= f.select :select9, [["松原氏", "matsubara"], ["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["太子町", "taishi"], ["河南町", "kanan"], ["千早赤阪村", "tihayaakasaka"], ["富田林市", "tondabayashi"], ["狭山市", "sayama"], ["河内長野市", "kawachinagano"]], include_blank: "南河内地域" %></td>
       		</tr>
       		<tr>
-      			<td rowspan="2">京都府</td>
-      			<td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "京都市内" %></td>
-      			<td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "山城地域" %></td>
-      			<td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "丹後地域" %></td>
+      			<td rowspan="3">京都府</td>
+      			<td><%= f.select :select10, [["羽曳野市", "habikino"], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["東大阪市", "higashiosaka"]], include_blank: "京都市" %></td>
+      			<td><%= f.select :select11, [["羽曳野市", "habikino"], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["東大阪市", "higashiosaka"]], include_blank: "乙訓地域" %></td>
+      			<td><%= f.select :select12, [["羽曳野市", "habikino"], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["東大阪市", "higashiosaka"]], include_blank: "山城中部地域" %></td>
       		</tr>
       		<tr>
-      			<td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "中丹地域" %></td>
-      			<td><%= f.select :select, [["羽曳野市", "habikino"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["藤井寺市", "fujidera"], ["東大阪市", "higashiosaka"]], include_blank: "南丹地域" %></td>
-      			<td></td>
+      			<td><%= f.select :select13, [["羽曳野市", "habikino"], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["東大阪市", "higashiosaka"]], include_blank: "相良地域" %></td>
+      			<td><%= f.select :select14, [["羽曳野市", "habikino"], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["東大阪市", "higashiosaka"]], include_blank: "中部地域" %></td>
+      			<td><%= f.select :select10, [["羽曳野市", "habikino"], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["東大阪市", "higashiosaka"]], include_blank: "中丹地域" %></td>
+      		</tr>
+      		<tr>
+      		  <td><%= f.select :select10, [["羽曳野市", "habikino"], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["東大阪市", "higashiosaka"]], include_blank: "丹後地域" %></td>
+      		  <td></td>
+      		  <td></td>
       		</tr>
       		<tr>
       			<td>ジャンル</td>

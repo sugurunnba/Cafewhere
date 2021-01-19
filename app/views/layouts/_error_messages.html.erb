@@ -1,0 +1,7 @@
+<% if messages.errors.any? %>
+  <%= messages.errors.count %>件のエラーが発生しました。
+<br>
+  <% messages.errors.full_messages.each do |message| %>
+    <%= message %><br>
+  <% end %>
+<% end %>

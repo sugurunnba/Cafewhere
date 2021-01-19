@@ -1,54 +1,70 @@
 <div class="container text-center">
   <div class="row">
-    <table class="table">
-      <tr>
-        <th>店名</th>
-        <td><%= @shop.name %></td>
-      </tr>
-      <tr>
-        <th>お店の紹介文</th>
-        <td><%= @shop.introduction %></td>
-      </tr>
-      <tr>
-        <th>お店の写真</th>
-        <td><%= attachment_image_tag @shop, :shop_image, :fill, 60, 60 %></td>
-      </tr>
-      <tr>
-        <th>住所</th>
-        <td><%= @shop.address %></td>
-      </tr>
-      <tr>
-        <th>ジャンル</th>
-        <td><%= @shop.genre.name %></td>
-      </tr>
-      <tr>
-        <th>営業時間</th>
-         <td><%= @shop.start_business_hours %>~<%= @shop.finish_business_hours %></td>
-      </tr>
-      <tr>
-        <th>最寄駅</th>
-        <td><%= @shop.station %></td>
-      </tr>
-      <tr>
-        <th>電話番号</th>
-        <td><%= @shop.phone_number %></td>
-      </tr>
-      <tr>
-        <th>ホームページ</th>
-        <td>
-        <%= link_to "https://tabelog.com/kyoto/A2601/A260202/26017496/" do %>
-          <%= @shop.home_page %>
-        <% end %>
-        </td>
-      </tr>
-      <tr>
-        <th>休日</th>
-         <td><%= @shop.holiday %></td>
-      </tr>
-      <tr>
-        <td><%= link_to "編集する", edit_admin_shop_path(@shop), :class => "btn btn-primary"  %></td>
-        <td><%= link_to "戻る", admin_shops_path, :class => "btn btn-primary"  %></td>
-      </tr>
-    </table>
+    <div class="col-md-10 col-md-offset-1">
+      <table border="1" style="border-collapse: collapse">
+        <thead>
+          <h5 class="text-center" style="color: limegreen"><%= flash[:notice] %></h5>
+          <h3 class="text-center"><%= @shop.name %>の詳細ページ</h3>
+        </thead>
+        <tbody>
+          <tr style="text-align: center;">
+            <h5 class="text-left">
+              <i class="fa fa-history"></i><%= link_to "戻る", admin_shops_path %>
+            </h5>
+          </tr>
+          <tr>
+            <th>店名</th>
+            <td><%= @shop.name %></td>
+          </tr>
+          <tr>
+            <th>お店の紹介文</th>
+            <td><%= @shop.introduction %></td>
+          </tr>
+          <tr>
+            <th>お店の写真</th>
+            <td><%= attachment_image_tag @shop, :shop_image, :fill, 300, 300 %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td><%= @shop.address %></td>
+          </tr>
+          <tr>
+            <th>ジャンル</th>
+            <td><%= @shop.genre.name %></td>
+          </tr>
+          <tr>
+            <th>営業時間</th>
+             <td><%= @shop.start_business_hours %>~<%= @shop.finish_business_hours %></td>
+          </tr>
+          <tr>
+            <th>最寄駅</th>
+            <td><%= @shop.station %></td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><%= @shop.phone_number %></td>
+          </tr>
+          <tr>
+            <th>ホームページ</th>
+            <td>
+            <%= link_to "https://tabelog.com/kyoto/A2601/A260202/26017496/" do %>
+              <%= @shop.home_page %>
+            <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th>休日</th>
+             <td><%= @shop.holiday %></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>
+              <%= link_to "編集する", edit_admin_shop_path(@shop), :class => "btn btn-primary"  %>&nbsp;&nbsp;&nbsp;
+              <%= link_to "削除する", admin_shop_path(@shop), method: :delete, :class => "btn btn-primary"  %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

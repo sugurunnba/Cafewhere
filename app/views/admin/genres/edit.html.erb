@@ -7,6 +7,12 @@
           <tr>
             <h3 class="text-center">ジャンル編集</h3>
           </tr>
+          <tr>
+            <i class="fa fa-history"></i><%= link_to "戻る", admin_genres_path %>
+          </tr>
+<br>
+          <%= render 'layouts/error_messages', messages: @genre %>
+
         </thead>
 <br>
         <tr>

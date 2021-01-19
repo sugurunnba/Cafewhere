@@ -1,8 +1,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-offset-1 col-md-10">
-			<table>
+			<table border="1" style="border-collapse: collapse">
 				<thead>
+					<tr>
+            <h5 class="text-center" style="color: limegreen"><%= flash[:notice] %></h5>
+          </tr>
 					<h3 class="text-center"><%= @user.name %>さんのユーザー情報</h3>
 				</thead>
 				<br><br>
@@ -12,22 +15,18 @@
 				    <td><%= @user.name %></td>
 				  </tr>
 				  <tr>
-				    <th>住所</th>
-				    <td><%= @user.address %></td>
-				  </tr>
-				  <tr>
-				    <th>電話番号</th>
-				    <td><%= @user.phone_number %></td>
-				  </tr>
-				  <tr>
 				    <th>メールアドレス</th>
 				    <td><%= @user.email %></td>
+				  </tr>
+				  <tr>
+				    <th>自己紹介</th>
+				    <td><%= @user.introduction %></td>
 				  </tr>
 				</tbody>
 			</table>
  <br>
  			<% if @user == current_user %>
-			<table>
+			<table border="1" style="border-collapse: collapse">
 			  <tr>
 			  	<td><%= link_to "カフェ登録リクエスト", new_user_shop_path, :class => "btn btn-primary" %></td>
 					<td>

@@ -1,39 +1,53 @@
 <div class="container">
   <div class="row">
-    <!--中身がnilならtrueを返す-->
-    <% if !(@shops.empty?) %>
-    <table class="table">
-      <thead>
-        <tr>
-          <i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %>
-        </tr>
-        <tr>
-          <td></td>
-          <td>店名</td>
-          <td>住所</td>
-        </tr>
-      </thead>
-      <tbody>
-      <% @shops.each do |shop| %>
-        <tr>
-          <td><%= attachment_image_tag shop, :shop_image, :fill, 60, 60 %>&nbsp;&nbsp;<%= link_to "詳細", user_shop_path(shop) %></td>
-          <td><%= shop.name %></td>
-          <td><%= shop.address %></td>
-        </tr>
+    <!--空欄送信なら下記falseを返す-->
+    <% if !(@shops.nil?) %>
+      <!--一致するカフェがなければ下記falseで返す-->
+      <% if !(@shops.empty?) %>
+      <table class="table">
+        <thead>
+          <tr>
+            <i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %>
+          </tr>
+          <tr>
+            <td></td>
+            <td>店名</td>
+            <td>住所</td>
+          </tr>
+        </thead>
+        <tbody>
+        <% @shops.each do |shop| %>
+          <tr>
+            <td><%= attachment_image_tag shop, :shop_image, :fill, 60, 60 %>&nbsp;&nbsp;<%= link_to "詳細", user_shop_path(shop) %></td>
+            <td><%= shop.name %></td>
+            <td><%= shop.address %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <% else %>
+      <table>
+        <thead>
+          <tr><i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <h3>一致する店名はございません</h3>
+          </tr>
+        </tbody>
+      </table>
       <% end %>
-      </tbody>
-    </table>
     <% else %>
-    <table>
-      <thead>
-        <tr><i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <h3>一致する店名はございません</h3>
-        </tr>
-      </tbody>
-    </table>
+      <table>
+        <thead>
+          <tr><i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <h3>キーワードを入れてください</h3>
+          </tr>
+        </tbody>
+      </table>
     <% end %>
   </div>
 </div>

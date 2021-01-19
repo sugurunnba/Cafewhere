@@ -92,3 +92,6 @@ group :production do
 end
 
 gem 'font-awesome-sass', '~> 5.8.1'
+
+# エラーメッセージの日本語化
+gem 'rails-i18n'

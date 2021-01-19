@@ -1,2 +1,37 @@
-<h1>Admin::Newses#edit</h1>
-<p>Find me in app/views/admin/newses/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="card col-sm-6 mx-auto mt-5">
+
+      <div>
+        <i class="fa fa-history"></i><%= link_to "戻る", admin_newse_path(@news) %>
+      </div>
+
+      <%= render 'layouts/error_messages', messages: @news %>
+
+      <div class="card-body">
+        <h3 class="mt-1 mb-3">お知らせ編集</h3>
+        <%= form_with model: @news, url: admin_newse_path(@news), local:true do |f| %>
+
+        <div class="form-group">
+          <%= f.label :news_image, "お知らせ写真", :class => "form-label" %>
+          <%= f.attachment_field :news_image, autocomplete: "news_image" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :title, "お知らせタイトル", :class => "form-label" %>
+          <%= f.text_field :title, autocomplete: "title", :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :text, "お知らせ本文", :class => "form-label" %>
+          <%= f.text_area :text, autocomplete: "text", :class => "form-control", :style => "height: 200px;" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "更新する", :class => "btn btn-primary btn-block" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

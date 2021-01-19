@@ -6,11 +6,16 @@ class User::ReviewsController < ApplicationController
   end
 
   def create
-    shop = Shop.find(params[:shop_id])
-    review = Review.new(review_params)
-    review.user = current_user
-    review.save!
-    redirect_to user_shop_path(shop)
+    @shop = Shop.find(params[:shop_id])
+    @review = Review.new(review_params)
+    @review.user = current_user
+    if @review.save
+      redirect_to user_shop_path(shop)
+      flash[:success] = "評価頂きありがとうございます！"
+    else
+      flash[:notice] = "必須箇所を入力ください"
+      render :new
+    end
   end
 
   def index

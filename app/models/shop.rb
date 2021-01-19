@@ -59,7 +59,7 @@ class Shop < ApplicationRecord
 
 
   # コントローラーで受け取った値をここで検索する
-  def self.search(search, select)
+  def self.search(search, select, genre)
     # 大阪府
     # 大阪市
     if  select == "kita"
@@ -311,6 +311,8 @@ class Shop < ApplicationRecord
       Shop.where(["address LIKE ?", "%伊根町%"])
     elsif select == "yosano"
       Shop.where(["address LIKE ?", "%与謝野町%"])
+    elsif genre == genre
+      Shop.where(["name LIKE ?", "%#{genre}%"])
     else
       Shop.where(["name LIKE ?", "%#{search}%"])
     end

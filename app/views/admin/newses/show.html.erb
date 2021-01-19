@@ -1,17 +1,38 @@
-<h3>お知らせ詳細</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table border="1" style="border-collapse: collapse">
+        <thead>
+          <tr>
+            <i class="fa fa-history"></i><%= link_to "戻る", admin_newses_path %>
+          </tr>
+          <tr>
+            <h5 class="text-center" style="color: limegreen"><%= flash[:notice] %></h5>
+          </tr>
+          <tr>
+            <th>お知らせタイトル</th>
+            <td><%= @news.title %></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th></th>
+            <td><%= attachment_image_tag @news, :news_image, :fill, 400, 400 %></td>
+          </tr>
+          <tr>
+            <th>お知らせ本文</th>
+            <td><%= @news.text %></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>
+              <%= link_to "編集する", edit_admin_newse_path(@news), :class => "btn btn-primary" %>
+              <%= link_to "削除する", admin_newse_path(@news), method: :delete, :class => "btn btn-primary" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <td>お知らせID</td>
-      <td>お知らせタイトル</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= attachment_image_tag @news, :news_image, :fill, 60, 60 %></td>
-      <td><%= @news.title %></td>
-      <td><%= @news.title %></td>
-    </tr>
-  </tbody>
-</table>

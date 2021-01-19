@@ -1,12 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-md-offset-1 col-md-10">
-      <table class="table">
+      <table border="1" style="border-collapse: collapse">
         <thead>
+
+          <tr>
+            <h5 class="text-center" style="color: limegreen"><%= flash[:success] %></h5>
+          </tr>
+
           <h3 class="text-center"><%= @shop.name %>の詳細ページ</h3>
         </thead>
 <br>
         <tbody>
+          <tr>
+            <i class="fa fa-history"></i><%= link_to "戻る", user_shops_path %>
+          </tr>
           <tr>
             <th>店名</th>
             <td><%= @shop.name %></td>
@@ -17,11 +25,11 @@
           </tr>
           <tr>
             <th>お店の写真</th>
-            <td><%= attachment_image_tag @shop, :shop_image, :fill, 100, 100 %></td>
+            <td><%= attachment_image_tag @shop, :shop_image, :fill, 300, 300 %></td>
           </tr>
           <tr>
             <th>住所</th>
-            <td class="text-center">
+            <td>
               <%= @shop.address %>
               <% if @shop.latitude.present? && @shop.longitude.present? %>
               <script type="text/javascript">
@@ -75,7 +83,7 @@
           </tr>
           <tr>
             <th>営業時間</th>
-             <td><%= @shop.start_business_hours.strftime('%H:%M') %>~<%= @shop.finish_business_hours.strftime('%H:%M') %></td>
+             <td><%= @shop.start_business_hours.strftime('%H:%M') %>〜<%= @shop.finish_business_hours.strftime('%H:%M') %></td>
           </tr>
           <tr>
             <th>最寄駅</th>
@@ -127,10 +135,17 @@
           <% @shop.reviews.each do |review| %>
           <tbody>
             <tr>
-              <th class="review-rating" data-score="<%= review.rate %>">
+              <th>
                 <%= link_to user_user_path(review.user) do %>
-                  <%= review.user.name %>さん&nbsp;&nbsp;
+                  <%= review.user.name %>さん
+                  <% if review.user.gender == 1 %>
+                    (男性)
+                  <% else %>
+                    (女性)
+                  <% end %>
+
                 <% end %>
+                <div class="review-rating" data-score="<%= review.rate %>"></div>
               </th>
               <td>
                 <%= link_to user_shop_review_path(review) do %>

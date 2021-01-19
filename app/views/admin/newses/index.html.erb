@@ -4,6 +4,9 @@
       <table border="1" style="border-collapse: collapse">
         <thead>
           <tr>
+            <h5 class="text-center" style="color: limegreen"><%= flash[:notice] %></h5>
+          </tr>
+          <tr>
             <h3 class="text-center">お知らせ一覧</h3>
           </tr>
 <br>
@@ -11,16 +14,16 @@
             <%= link_to "お知らせ登録", new_admin_newse_path %>
           </tr>
           <tr>
-            <td>お知らせID</td>
-            <td>お知らせタイトル</td>
+            <td>更新日</td>
+            <td>タイトル</td>
           </tr>
         </thead>
         <% @newses.each do |news| %>
         <tbody>
           <tr>
-            <td><%= news.id %></td>
+            <td><%= news.created_at.strftime("%Y年%m月%d日") %>更新</td>
             <td>
-              <%= link_to admin_newses_path(news) do %>
+              <%= link_to admin_newse_path(news) do %>
                 <%= news.title %>
               <% end %>
             </td>

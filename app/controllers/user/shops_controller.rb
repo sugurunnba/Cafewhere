@@ -6,8 +6,13 @@ class User::ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
-    @shop.save!
-    redirect_to request.referer
+    @genres = Genre.all
+    if @shop.save!
+      flash[:notice] = "リクエスト頂きありがとうございます！"
+      redirect_to user_user_path(current_user)
+    else
+      render :new
+    end
   end
 
   def index

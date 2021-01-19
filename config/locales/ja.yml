@@ -1,0 +1,7 @@
+ja:
+    activerecord:
+        attributes:
+            review:
+              rate: 星
+              title: 評価タイトル
+              body: 評価本文

@@ -36,15 +36,17 @@ class Admin::ShopsController < ApplicationController
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
-      redirect_to admin_shops_path
+      flash[:notice] = "カフェのデータを更新しました"
+      redirect_to admin_shop_path(@shop)
     else
       flash[:alert] = "メッセージを入力してください。または重複したデータは登録できません。"
     end
   end
 
   def destroy
-    shop = Shop.find(params[:id])
-    shop.destroy
+    @shop = Shop.find(params[:id])
+    @shop.destroy
+    flash[:notice] = "カフェのデータを削除しました"
     redirect_to admin_shops_path
   end
 

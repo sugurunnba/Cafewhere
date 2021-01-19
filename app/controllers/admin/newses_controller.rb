@@ -6,8 +6,12 @@ class Admin::NewsesController < ApplicationController
 
   def create
     @news = News.new(news_params)
-    @news.save
-    redirect_to admin_newses_path
+    if @news.save
+      redirect_to admin_newses_path
+      flash[:notice] = "お知らせを投稿しました"
+    else
+      render :new
+    end
   end
 
   def index
@@ -24,13 +28,18 @@ class Admin::NewsesController < ApplicationController
 
   def update
     @news = News.find(params[:id])
-    @news.update(news_params)
-    redirect_to admin_newses_path
+    if @news.update(news_params)
+      flash[:notice] = "お知らせを更新しました"
+      redirect_to admin_newse_path(@news)
+    else
+      render :edit
+    end
   end
 
   def destroy
     @news = News.find(params[:id])
     @news.destroy
+    flash[:notice] = "お知らせを削除しました"
     redirect_to admin_newses_path
   end
 

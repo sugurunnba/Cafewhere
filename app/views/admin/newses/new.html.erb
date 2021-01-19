@@ -1,6 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="card col-sm-6 mx-auto mt-5">
+
+      <div>
+        <i class="fa fa-history"></i><%= link_to "戻る", admin_newses_path %>
+      </div>
+
+      <%= render 'layouts/error_messages', messages: @news %>
+
       <div class="card-body">
         <h3 class="mt-1 mb-3">お知らせ登録</h3>
         <%= form_with model: @news, url: admin_newses_path, local:true do |f| %>

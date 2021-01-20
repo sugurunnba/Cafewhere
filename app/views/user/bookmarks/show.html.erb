@@ -22,6 +22,9 @@
 				    	<%= attachment_image_tag bookmark.shop, :shop_image, :fill, 60, 60 %>
             </td>
 				  </tr>
+				  <tr>
+      	  	<%= paginate @bookmarks %>
+      		</tr>
 				</tbody>
 				<% end %>
 			</table>

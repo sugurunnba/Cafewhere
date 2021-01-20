@@ -3,10 +3,10 @@
 		<div class="col-md-offset-1 col-md-10">
 			<table border="1" style="border-collapse: collapse">
 				<thead>
-					<tr>
-            <h5 class="text-center" style="color: limegreen"><%= flash[:notice] %></h5>
-          </tr>
-					<h3 class="text-center"><%= @user.name %>さんのユーザー情報</h3>
+				  <tr>
+			       <h5 class="text-center" style="color: limegreen"><%= flash[:success] %></h5>
+			      </tr>
+				  <h3 class="text-center"><%= @user.name %>さんのユーザー情報</h3>
 				</thead>
 				<br><br>
 				<tbody>
@@ -14,10 +14,12 @@
 				    <th>氏名</th>
 				    <td><%= @user.name %></td>
 				  </tr>
+				  <% if @user == current_user %>
 				  <tr>
 				    <th>メールアドレス</th>
 				    <td><%= @user.email %></td>
 				  </tr>
+				  <% end %>
 				  <tr>
 				    <th>自己紹介</th>
 				    <td><%= @user.introduction %></td>

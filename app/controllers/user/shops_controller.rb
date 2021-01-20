@@ -7,8 +7,8 @@ class User::ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
     @genres = Genre.all
-    if @shop.save!
-      flash[:notice] = "リクエスト頂きありがとうございます！"
+    if @shop.save
+      flash[:success] = "リクエスト頂きありがとうございます！"
       redirect_to user_user_path(current_user)
     else
       render :new
@@ -16,7 +16,7 @@ class User::ShopsController < ApplicationController
   end
 
   def index
-    @shops = Shop.all
+    @shops = Shop.page(params[:page])
     @genres = Genre.all
   end
 

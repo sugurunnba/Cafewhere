@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
     when Admin
-      admin_shops_path
+      new_admin_shop_path
     when User
       user_user_path(current_user)
     end
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :introduction, :gender, :phone_number, :address])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :introduction, :gender])
   end
 
 end

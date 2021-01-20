@@ -3,7 +3,7 @@
 		<div class="col-md-offset-1 col-md-10">
 			<table border="1" style="border-collapse: collapse">
 				<thead>
-					<h3 class="text-center">人気ランキング</h3>
+					<h3 class="text-center">人気ランキング(高い順)</h3>
 					<tr>
 					  <td>評価平均</td>
 					  <td>店名</td>
@@ -12,7 +12,7 @@
 				</thead>
 				<br><br>
 
-				<% @shops.each do |shop| %>
+				<% @shopss.each do |shop| %>
 					<% if shop.is_active == "掲載許可" %>
 					<tbody>
 	          <tr>
@@ -26,6 +26,9 @@
 	            	<%= shop.reviews.count %>
 	            </td>
 	          </tr>
+	          <tr>
+      	  		<%= paginate @shops %>
+      			</tr>
 	        </tbody>
 	        <% end %>
         <% end %>

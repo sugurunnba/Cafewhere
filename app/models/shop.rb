@@ -33,7 +33,8 @@ class Shop < ApplicationRecord
   # 固定電話
   validates :phone_number, length: { maximum: 11 }
   # 11桁以内に修正する
-
+  validates :phone_number, numericality: {only_integer: true}
+  # 数字のみ入力可能
 
   enum is_active: { "申請中": 0, "掲載許可": 1, "掲載禁止": 2}
 
@@ -312,7 +313,9 @@ class Shop < ApplicationRecord
     elsif select == "yosano"
       Shop.where(["address LIKE ?", "%与謝野町%"])
     elsif genre == genre
-      Shop.where(["name LIKE ?", "%#{genre}%"])
+      Shop.where(["genre_id is ?", "#{genre}"])
+      # 完全一致 %があることであいまい検索が始まる
+      # デバックで検索結果を確認する→パラメータを見て判断する
     else
       Shop.where(["name LIKE ?", "%#{search}%"])
     end

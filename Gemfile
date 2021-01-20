@@ -95,3 +95,6 @@ gem 'font-awesome-sass', '~> 5.8.1'
 
 # エラーメッセージの日本語化
 gem 'rails-i18n'
+
+# ページ機能の追加
+gem 'kaminari','~> 1.2.1'

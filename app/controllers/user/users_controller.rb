@@ -21,7 +21,7 @@ class User::UsersController < ApplicationController
     @user = current_user
     @user.update(user_status: true)
     reset_session
-    flash[:notice] = "退会が完了いたしました。"
+    flash[:success] = "退会が完了いたしました。ぜひまた遊びに来てください！"
     redirect_to root_path
   end
 
@@ -32,7 +32,7 @@ class User::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:notice] = "ユーザー情報を更新しました"
+      flash[:success] = "ユーザー情報を更新しました"
       redirect_to user_user_path(current_user)
     else
       render :edit

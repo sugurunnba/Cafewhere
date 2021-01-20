@@ -9,8 +9,9 @@ class User::ReviewsController < ApplicationController
     @shop = Shop.find(params[:shop_id])
     @review = Review.new(review_params)
     @review.user = current_user
+    @review.shop_id = @shop.id
     if @review.save
-      redirect_to user_shop_path(shop)
+      redirect_to user_shop_path(@shop)
       flash[:success] = "評価頂きありがとうございます！"
     else
       flash[:notice] = "必須箇所を入力ください"
@@ -26,8 +27,9 @@ class User::ReviewsController < ApplicationController
     # end
 
     # 理解できていない
-    @shops = Shop.all.sort_by{|shop| shop.reviews.average(:rate).to_f.round(1)}.reverse
-
+    # @shops = Shop.all.sort_by{|shop| shop.reviews.average(:rate).to_f.round(1)}.reverse
+    @shops = Shop.page(params[:page])
+    @shopss = @shops.sort_by{|shop| shop.reviews.average(:rate).to_f.round(1)}.reverse
     # p shop_hash
   end
 =begin

@@ -13,7 +13,7 @@
         <%= form_with model: @genre, url: admin_genres_path, local:true do |f| %>
 
         <div class="form-group">
-          <%= f.label :name, "ジャンル名", :class => "form-label" %>
+          <%= f.label :name, "ジャンル名", :class => "form-label" %><span class="label label-danger">必須</span&nbsp;<span class="label label-danger">必須</span>
           <%= f.text_field :name, autocomplete: "name", :class => "form-control" %>
         </div>
 

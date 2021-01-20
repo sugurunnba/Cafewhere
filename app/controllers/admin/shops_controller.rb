@@ -14,15 +14,15 @@ class Admin::ShopsController < ApplicationController
     @genres = Genre.all
   end
 
-  def create
-    @shop = Shop.new(shop_params)
-    if @shop.save
-      redirect_to admin_shops_path
-    else
-      flash[:alert] = "メッセージを入力してください。または重複したデータは登録できません。"
-      render action: :index
-    end
-  end
+  # def create
+  #   @shop = Shop.new(shop_params)
+  #   if @shop.save
+  #     redirect_to admin_shops_path
+  #   else
+  #     flash[:alert] = "メッセージを入力してください。または重複したデータは登録できません。"
+  #     render action: :index
+  #   end
+  # end
 
   def show
     @shop = Shop.find(params[:id])
@@ -35,18 +35,19 @@ class Admin::ShopsController < ApplicationController
 
   def update
     @shop = Shop.find(params[:id])
+    @genres = Genre.all
     if @shop.update(shop_params)
-      flash[:notice] = "カフェのデータを更新しました"
+      flash[:success] = "カフェのデータを更新しました"
       redirect_to admin_shop_path(@shop)
     else
-      flash[:alert] = "メッセージを入力してください。または重複したデータは登録できません。"
+      render :edit
     end
   end
 
   def destroy
     @shop = Shop.find(params[:id])
     @shop.destroy
-    flash[:notice] = "カフェのデータを削除しました"
+    flash[:success] = "カフェのデータを削除しました"
     redirect_to admin_shops_path
   end
 

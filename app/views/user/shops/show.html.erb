@@ -138,7 +138,7 @@
               <th>
                 <%= link_to user_user_path(review.user) do %>
                   <%= review.user.name %>さん
-                  <% if review.user.gender == 1 %>
+                  <% if review.user.gender == "男性" %>
                     (男性)
                   <% else %>
                     (女性)

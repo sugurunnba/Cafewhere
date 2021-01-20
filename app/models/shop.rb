@@ -21,11 +21,15 @@ class Shop < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
+  # 写真の複数投稿
+  has_many :shop_images, dependent: :destroy
+  accepts_attachments_for :shop_images, attachment: :shop_image
+
 
   attachment :shop_image
 
 
-  validates :name, :introduction, :address, :genre_id, :start_business_hours, :finish_business_hours, :station, :phone_number, :home_page, :holiday, :shop_image, presence: true
+  validates :name, :introduction, :address, :genre_id, :start_business_hours, :finish_business_hours, :station, :phone_number, :home_page, :holiday, presence: true
   validates :name, :address, :phone_number, :home_page, uniqueness: true
   validates :introduction, length: { maximum: 200 }
   # 日本一長い駅名が22文字のため

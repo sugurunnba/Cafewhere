@@ -18,7 +18,7 @@ ja:
               name: 店名
               introduction: お店紹介分
               address: 住所
-              genre: ジャンル
+              genre_id: ジャンル
               station: 最寄駅
               phone_number: 電話番号(ハイフンなし)
               home_page: ホームページ

@@ -1,6 +1,7 @@
 class User::ShopsController < ApplicationController
   def new
     @shop = Shop.new
+    @shop.shop_images.new
     @genres = Genre.all
   end
 
@@ -26,6 +27,6 @@ class User::ShopsController < ApplicationController
 
   private
   def shop_params
-    params.require(:shop).permit(:shop_image, :name, :introduction, :address, :genre_id, :start_business_hours, :finish_business_hours, :station, :phone_number, :home_page, :holiday, :longitude, :latitude)
+    params.require(:shop).permit(:name, :introduction, :address, :genre_id, :start_business_hours, :finish_business_hours, :station, :phone_number, :home_page, :holiday, :longitude, :latitude, shop_images_shop_images: [])
   end
 end

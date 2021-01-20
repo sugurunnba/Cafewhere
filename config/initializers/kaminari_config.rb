@@ -12,6 +12,6 @@ Kaminari.configure do |config|
   # config.max_pages = nil
   # config.params_on_first_page = false
 
-  # ページの最大表示数設定, -2された数のページ数で表示させる
-  config.default_per_page = 7
+  # ページの最大表示数設定, -1された数のページ数で表示させる
+  config.default_per_page = 5
 end

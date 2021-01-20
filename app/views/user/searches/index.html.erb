@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <!--空欄送信なら下記falseを返す-->
-    <% if (@shops.nil?) %>
+    <% if !(@shops.nil?) %>
       <!--一致するカフェがなければ下記falseで返す-->
       <% if !(@shops.empty?) %>
-      <table class="table">
+      <table border="1" style="border-collapse: collapse">
         <thead>
           <tr>
             <i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %>

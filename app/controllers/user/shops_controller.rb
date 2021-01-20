@@ -16,7 +16,7 @@ class User::ShopsController < ApplicationController
   end
 
   def index
-    @shops = Shop.page(params[:page])
+    @shops = Shop.page(params[:page]).reverse_order
     @genres = Genre.all
   end
 

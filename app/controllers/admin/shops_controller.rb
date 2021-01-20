@@ -1,16 +1,16 @@
 class Admin::ShopsController < ApplicationController
   def delete
-    @shops = Shop.all
+    @shops = Shop.page(params[:page]).reverse_order
   end
 
   def new
-    @shops = Shop.all
+    @shops = Shop.page(params[:page]).reverse_order
     @genres = Genre.all
   end
 
   def index
     @shop = Shop.new
-    @shops = Shop.all
+    @shops = Shop.page(params[:page]).reverse_order
     @genres = Genre.all
   end
 

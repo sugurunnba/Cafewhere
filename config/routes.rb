@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       collection do
         get "delete" => "shops#delete"
       end
+      resources :shop_images
     end
   end
 

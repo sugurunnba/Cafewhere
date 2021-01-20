@@ -63,6 +63,14 @@ class Shop < ApplicationRecord
   end
 
 
+
+    # wheres = []
+    # params[:addresses].each do |address|
+    #   wheres << ["address LIKE ?", "%#{address}%"]
+    # end
+    # Shop.wehre(wheres)
+    # ↑この書き方で検索するのもあり
+
   # コントローラーで受け取った値をここで検索する
   def self.search(search, select, genre)
     # 大阪府

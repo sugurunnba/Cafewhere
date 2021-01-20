@@ -12,6 +12,29 @@
         <h3 class="mt-1 mb-3">登録情報編集</h3>
         <%= form_with model: @shop, url: admin_shop_path(@shop), local:true do |f| %>
 
+
+
+
+        <div class="form-group">
+          <%= f.label :shop_image, "写真", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
+          <%= f.attachment_field :shop_images_shop_images, multiple: true %>
+          <!--<!= f.attachment_field :shop_image, autocomplete: "shop_image", :class => "form-control" %>-->
+        </div>
+
+        <div class="form-group">
+          <% if @shop.shop_images.present? %>
+            <% @shop.shop_images.each do |shop_image| %>
+              <%= attachment_image_tag shop_image, :shop_image, :fill, 200, 200 %>
+              <%= link_to "削除する", admin_shop_shop_image_path(shop_image.shop, shop_image), method: :delete %><br>
+            <% end %>
+          <% else %>
+            <%= image_tag "no_image.jpg", size: "200x200" %>
+          <% end %>
+        </div>
+
+
+
+
         <div class="form-group">
           <%= f.label :name, "店名", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
           <%= f.text_field :name, autocomplete: "name", :class => "form-control" %>

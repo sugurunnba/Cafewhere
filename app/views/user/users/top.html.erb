@@ -3,7 +3,6 @@
 	<div class="container">
 		<div class="fh5co-navbar-brand">
 			<h1 class="text-center"><a class="fh5co-logo" href="index.html"><i class="icon-camera2"></i></a></h1>
-			<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		</div>
 	</div>
 </header>
@@ -13,6 +12,7 @@
 			<div class="col-md-8 col-md-offset-2 animate-box text-center" style="opacity:1">
 				<h2 class="intro-heading">CafeWhere</h2>
 				<p><span>みんなのおすすめのカフェがここに☕️</span></p>
+				<%= link_to "管理者ログイン", new_admin_session_path %>
 				<h5 class="color: limegreen">
 					<%= flash[:success] %>
 				</h5>
@@ -277,7 +277,6 @@
 	</div>
 </footer>
 
-<%= link_to "管理者ログイン", new_admin_session_path %>
 
 <script type="text/javascript">
 	$(function() {

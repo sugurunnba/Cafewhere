@@ -25,7 +25,15 @@
           </tr>
           <tr>
             <th>お店の写真</th>
-            <td><%= attachment_image_tag @shop, :shop_image, :fill, 300, 300 %></td>
+            <!--<td><!%= attachment_image_tag @shop, :shop_image, :fill, 300, 300 %></td>-->
+            <% if @shop.shop_images.present? %>
+              <% @shop.shop_images.each do |shop_image| %>
+                <%= attachment_image_tag shop_image, :shop_image, :fill, 200, 200 %>
+              <% end %>
+              <% else %>
+                <%= image_tag "no_image.jpg", size: "200x200"
+              <% end %>
+            <% end %>
           </tr>
           <tr>
             <th>住所</th>

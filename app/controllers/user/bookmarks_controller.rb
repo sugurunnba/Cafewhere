@@ -1,7 +1,7 @@
 class User::BookmarksController < ApplicationController
 
   def show
-    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page])
+    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).reverse_order
   end
 
   def create

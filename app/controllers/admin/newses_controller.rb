@@ -15,7 +15,7 @@ class Admin::NewsesController < ApplicationController
   end
 
   def index
-    @newses = News.all
+    @newses = News.page(params[:page]).reverse_order
   end
 
   def show

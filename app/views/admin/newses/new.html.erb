@@ -13,17 +13,17 @@
         <%= form_with model: @news, url: admin_newses_path, local:true do |f| %>
 
         <div class="form-group">
-          <%= f.label :news_image, "お知らせ写真", :class => "form-label" %>
+          <%= f.label :news_image, "お知らせ写真", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
           <%= f.attachment_field :news_image, autocomplete: "news_image" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :title, "お知らせタイトル", :class => "form-label" %>
+          <%= f.label :title, "お知らせタイトル", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
           <%= f.text_field :title, autocomplete: "title", :class => "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :text, "お知らせ本文", :class => "form-label" %>
+          <%= f.label :text, "お知らせ本文", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
           <%= f.text_area :text, autocomplete: "text", :class => "form-control", :style => "height: 200px;" %>
         </div>
 

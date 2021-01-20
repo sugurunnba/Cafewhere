@@ -1,7 +1,7 @@
 class User::NewsesController < ApplicationController
 
   def index
-    @newses = News.all
+    @newses = News.page(params[:page])
   end
 
   def show

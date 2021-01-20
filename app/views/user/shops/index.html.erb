@@ -22,12 +22,15 @@
                 <% end %>
               </th>
         	    <td>
-        	    	<%= attachment_image_tag shop, :shop_image, :fill, 60, 60 %>
+        	    	<%= attachment_image_tag shop, :shop_image, :fill, 150, 150 %>
               </td>
         	  </tr>
         	</tbody>
         	<% end %>
       	<% end %>
+      	<tr>
+      	  <%= paginate @shops %>
+      	</tr>
       </table>
     </div>
   </div>

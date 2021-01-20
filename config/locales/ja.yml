@@ -5,3 +5,21 @@ ja:
               rate: 星
               title: 評価タイトル
               body: 評価本文
+            user:
+              name: ニックネーム
+              email: メールアドレス
+            genre:
+              name: ジャンル名
+            news:
+              news_image: お知らせ写真
+              title: お知らせタイトル
+              text: お知らせ本文
+            shop:
+              name: 店名
+              introduction: お店紹介分
+              address: 住所
+              genre: ジャンル
+              station: 最寄駅
+              phone_number: 電話番号(ハイフンなし)
+              home_page: ホームページ
+              holiday: 休日

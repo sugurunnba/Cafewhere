@@ -13,7 +13,12 @@
 <br>
         <% @newses.each do |news| %>
         <tr>
-          <th><%= image_tag 'pic1.jpg', width: '60', height: '60' %></th>
+          <th>
+            <h1 class="text-center" style="line-height: 30px;">
+              <i class="fa fa-coffee"></i><br>
+              <p>CafeWhere</p>
+            </h1>
+          </th>
           <td>
             <%= link_to user_newse_path(news) do %>
               <%= news.title %>

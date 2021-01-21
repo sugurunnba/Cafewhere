@@ -13,7 +13,7 @@
         <%= form_with model: @shop, url: user_shops_path, local:true do |f| %>
 
         <div class="form-group">
-          <%= f.label :shop_image, "写真", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
+          <%= f.label :shop_image, "写真", :class => "form-label" %>&nbsp;<span class="label label-danger">6枚まで選択ください</span>
           <%= f.attachment_field :shop_images_shop_images, multiple: true, :class => "form-control" %>
           <!--<!= f.attachment_field :shop_image, autocomplete: "shop_image", :class => "form-control" %>-->
         </div>

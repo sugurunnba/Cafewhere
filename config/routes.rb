@@ -1,24 +1,22 @@
 Rails.application.routes.draw do
-
   devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
+    sessions: 'admins/sessions',
+    passwords: 'admins/passwords',
     registrations: 'admins/registrations'
   }
 
-
   devise_for :users, controllers: {
-    sessions:      'users/sessions',
-    passwords:     'users/passwords',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
 
-  root :to => "user/users#top"
+  root to: 'user/users#top'
 
   namespace :admin do
     resources :users do
       collection do
-        get "top"
+        get 'top'
       end
     end
   end
@@ -26,12 +24,13 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :shops do
       collection do
-        get "delete" => "shops#delete"
+        get 'delete' => 'shops#delete'
       end
       resources :shop_images
     end
   end
 
+  # ジャンル直下にshopを置きたくないので、shopとは別に設定しています
   namespace :admin do
     resources :genres
   end
@@ -41,12 +40,12 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :users, only: [:show, :edit, :update] do
+    resources :users, only: %i[show edit update] do
       collection do
-        get "top"
-        get "about"
-        get "quit"
-        patch "out"
+        get 'top'
+        get 'about'
+        get 'quit'
+        patch 'out'
       end
     end
   end
@@ -56,14 +55,14 @@ Rails.application.routes.draw do
       collection do
         get 'reviews' => 'reviews#index'
       end
-      resources :reviews, only: [:new, :create, :show, :edit, :update, :destroy]
+      resources :reviews, only: %i[new create show edit update destroy]
 
       # ブックマークのルート
       collection do
         get 'bookmark' => 'bookmarks#show'
       end
-      resource :bookmarks, only: [:create, :destroy]
 
+      resource :bookmarks, only: %i[create destroy]
     end
   end
 
@@ -76,11 +75,10 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :contacts, only: [:new, :create]
+    resources :contacts, only: %i[new create]
   end
 
   namespace :user do
-    resources :newses, only: [:index, :show]
+    resources :newses, only: %i[index show]
   end
-
 end

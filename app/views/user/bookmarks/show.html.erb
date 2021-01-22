@@ -12,19 +12,25 @@
 				<br><br>
 				<% @bookmarks.each do |bookmark| %>
 				<tbody>
-					<tr>
+				  <tr>
 				    <th>
 				      <%= link_to user_shop_path(bookmark.shop) do %>
-                <%= bookmark.shop.name %>
-              <% end %>
-            </th>
+          	    <%= bookmark.shop.name %>
+        		  <% end %>
+      	    </th>
 				    <td>
-				    	<%= attachment_image_tag bookmark.shop, :shop_image, :fill, 60, 60 %>
+			    	<% if bookmark.shop.shop_images.present? %>
+          		<% bookmark.shop.shop_images.first(1).each do |shop_image| %>
+                <%= attachment_image_tag shop_image, :shop_image, :fill, 200, 200 %>
+              <% end %>
+            <% else %>
+              <%= image_tag "no_image.jpg", size: "200x200" %>
+            <% end %>
             </td>
 				  </tr>
 				  <tr>
       	  	<%= paginate @bookmarks %>
-      		</tr>
+      	  </tr>
 				</tbody>
 				<% end %>
 			</table>

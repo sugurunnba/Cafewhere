@@ -44,7 +44,7 @@
           </tr>
           <tr>
             <th>営業時間</th>
-             <td><%= @shop.start_business_hours %>~<%= @shop.finish_business_hours %></td>
+             <td><%= @shop.start_business_hours.strftime('%H:%M') %>〜<%= @shop.finish_business_hours.strftime('%H:%M') %></td>
           </tr>
           <tr>
             <th>最寄駅</th>
@@ -57,8 +57,12 @@
           <tr>
             <th>ホームページ</th>
             <td>
-            <%= link_to "https://tabelog.com/kyoto/A2601/A260202/26017496/" do %>
-              <%= @shop.home_page %>
+            <% if @shop.home_page == "なし" %>
+              なし
+            <% else %>
+              <%= link_to @shop.home_page do %>
+                <%= @shop.name %>のホームページリンク
+              <% end %>
             <% end %>
             </td>
           </tr>

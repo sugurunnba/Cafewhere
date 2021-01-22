@@ -12,9 +12,9 @@ class User::ReviewsController < ApplicationController
     @review.shop_id = @shop.id
     if @review.save
       redirect_to user_shop_path(@shop)
-      flash[:success] = "評価頂きありがとうございます！"
+      flash[:success] = '評価頂きありがとうございます！'
     else
-      flash[:notice] = "必須箇所を入力ください"
+      flash[:notice] = '必須箇所を入力ください'
       render :new
     end
   end
@@ -29,26 +29,23 @@ class User::ReviewsController < ApplicationController
     # 理解できていない
     # @shops = Shop.all.sort_by{|shop| shop.reviews.average(:rate).to_f.round(1)}.reverse
     @shops = Shop.page(params[:page])
-    @shopss = @shops.sort_by{|shop| shop.reviews.average(:rate).to_f.round(1)}.reverse
+    @shopss = @shops.sort_by { |shop| shop.reviews.average(:rate).to_f.round(1) }.reverse
     # p shop_hash
   end
-=begin
-  def index
-    @shops = Shop.
-    left_joins(:review).
-    distinct.
-    sort_by do |user|
-      hoges = user.comments
-      if hoges.present?
-        hoges.map(&:score).sum / hoges.size
-      else
-        0
-      end
-    end
-  reverse
-  end
-=end
-
+  #   def index
+  #     @shops = Shop.
+  #     left_joins(:review).
+  #     distinct.
+  #     sort_by do |user|
+  #       hoges = user.comments
+  #       if hoges.present?
+  #         hoges.map(&:score).sum / hoges.size
+  #       else
+  #         0
+  #       end
+  #     end
+  #   reverse
+  #   end
 
   def show
     @review = Review.find(params[:shop_id])

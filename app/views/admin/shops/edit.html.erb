@@ -3,6 +3,10 @@
     <div class="card col-sm-6 mx-auto mt-5">
       <div class="card-body">
         <tr>
+          <h5 class="text-center" style="color: limegreen"><%= flash[:success] %></h5>
+        </tr>
+
+        <tr>
           <i class="fa fa-history"></i><%= link_to "戻る", new_admin_shop_path %>
         </tr>
 <br>
@@ -16,7 +20,7 @@
 
 
         <div class="form-group">
-          <%= f.label :shop_image, "写真", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
+          <%= f.label :shop_image, "写真(追加ではなく上書きします)", :class => "form-label" %>
           <%= f.attachment_field :shop_images_shop_images, multiple: true %>
           <!--<!= f.attachment_field :shop_image, autocomplete: "shop_image", :class => "form-control" %>-->
         </div>
@@ -25,7 +29,7 @@
           <% if @shop.shop_images.present? %>
             <% @shop.shop_images.each do |shop_image| %>
               <%= attachment_image_tag shop_image, :shop_image, :fill, 200, 200 %>
-              <%= link_to "削除する", admin_shop_shop_image_path(shop_image.shop, shop_image), method: :delete %><br>
+              <%= link_to "削除する", admin_shop_shop_image_path(shop_image.shop.id, shop_image.id), method: :delete %><br>
             <% end %>
           <% else %>
             <%= image_tag "no_image.jpg", size: "200x200" %>

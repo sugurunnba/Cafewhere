@@ -1,11 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <table>
+      <table border="1" style="border-collapse: collapse">
         <thead>
           <h3 class="text-center">評価詳細ページ</h3>
         </thead>
         <tbody>
+          <tr>
+            <i class="fa fa-history"></i><%= link_to "カフェ詳細画面へ戻る", user_shop_path(@review.shop) %>
+          </tr>
           <tr>
             <th>評価タイトル</th>
             <td><%= @review.title %></td>

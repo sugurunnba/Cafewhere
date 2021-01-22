@@ -15,11 +15,11 @@ RSpec.describe 'reviewモデルのテスト', type: :model do
       expect(review.valid?).to be false
     end
     it 'titleが21文字以上だとNG' do
-      review.title = Faker::Lorem.characters(number:21)
+      review.title = Faker::Lorem.characters(number: 21)
       expect(review.valid?).to be false
     end
     it 'bodyが101文字以上だとNG' do
-      review.body = Faker::Lorem.characters(number:101)
+      review.body = Faker::Lorem.characters(number: 101)
       expect(review.valid?).to be false
     end
   end

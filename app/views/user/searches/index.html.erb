@@ -18,7 +18,16 @@
         <tbody>
         <% @shops.each do |shop| %>
           <tr>
-            <td><%= attachment_image_tag shop, :shop_image, :fill, 60, 60 %>&nbsp;&nbsp;<%= link_to "詳細", user_shop_path(shop) %></td>
+            <td>
+              <% if shop.shop_images.present? %>
+                  <% shop.shop_images.first(1).each do |shop_image| %>
+                    <%= attachment_image_tag shop_image, :shop_image, :fill, 200, 200 %>
+                  <% end %>
+                <% else %>
+                    <%= image_tag "no_image.jpg", size: "200x200" %>
+                <% end %>&nbsp;&nbsp;
+              <%= link_to "詳細画面へ移動", user_shop_path(shop) %>
+            </td>
             <td><%= shop.name %></td>
             <td><%= shop.address %></td>
           </tr>

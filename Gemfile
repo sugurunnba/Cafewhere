@@ -38,13 +38,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -53,22 +53,21 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'rspec-rails'
-  gem "factory_bot_rails"
+  gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'devise'
 
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+gem 'refile-mini_magick'
 
 gem 'pry-byebug'
 
@@ -84,7 +83,7 @@ gem 'bootstrap', '~> 4.5'
 # Map表示する際に、Google Mapでは緯度、経度から位置を取得します。
 # 住所は簡単に調べられても緯度、経度までユーザー側で登録するのは面倒です。そこでgemのgeocoderを使用します。
 # geocoderを使用すると住所の情報を元に緯度、経度を割り出してくれます。
-gem "geocoder"
+gem 'geocoder'
 
 # 本番環境の作成
 group :production do
@@ -97,4 +96,8 @@ gem 'font-awesome-sass', '~> 5.8.1'
 gem 'rails-i18n'
 
 # ページ機能の追加
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari', '~> 1.2.1'
+
+# Rubocopでの構文規則チェック
+gem 'rubocop', require: false
+gem 'rubocop-rails', require: false

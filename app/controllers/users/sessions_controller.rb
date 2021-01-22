@@ -30,11 +30,6 @@ class Users::SessionsController < Devise::SessionsController
   # 退会機能時に追加↓
   def reject_inactive_user
     @user = User.find_by(name: params[:user][:name])
-    if @user
-      if @user.valid_password?(params[:user][:password]) && @user.user_status
-        redirect_to new_user_session_path
-      end
-    end
+    redirect_to new_user_session_path if @user && @user.valid_password?(params[:user][:password]) && @user.user_status
   end
-
 end

@@ -1,5 +1,4 @@
 class User::ContactsController < ApplicationController
-
   def new
     @contact = Contact.new
   end
@@ -8,7 +7,7 @@ class User::ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.contact_mail(@contact).deliver
-      flash[:success] = "お問い合わせ頂きありがとうございます!"
+      flash[:success] = 'お問い合わせ頂きありがとうございます!'
       redirect_to user_user_path(current_user)
     else
       render :new
@@ -16,8 +15,8 @@ class User::ContactsController < ApplicationController
   end
 
   private
+
   def contact_params
     params.require(:contact).permit(:name, :message, :email, :title)
   end
-
 end

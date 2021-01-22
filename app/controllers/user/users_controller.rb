@@ -5,23 +5,21 @@ class User::UsersController < ApplicationController
     @reviews = Review.all
   end
 
-  def about
-  end
+  def about; end
 
   def show
     @user = User.find(params[:id])
   end
 
   # 退会確認画面
-  def quit
-  end
+  def quit; end
 
   # 退会データを送信するメソッド
   def out
     @user = current_user
     @user.update(user_status: true)
     reset_session
-    flash[:success] = "退会が完了いたしました。ぜひまた遊びに来てください！"
+    flash[:success] = '退会が完了いたしました。ぜひまた遊びに来てください！'
     redirect_to root_path
   end
 
@@ -32,7 +30,7 @@ class User::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = "ユーザー情報を更新しました"
+      flash[:success] = 'ユーザー情報を更新しました'
       redirect_to user_user_path(current_user)
     else
       render :edit
@@ -40,8 +38,8 @@ class User::UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:email, :name, :introduction, :gender, :phone_number, :address)
   end
-
 end

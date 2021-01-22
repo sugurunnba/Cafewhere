@@ -1,5 +1,4 @@
 class User::NewsesController < ApplicationController
-
   def index
     @newses = News.page(params[:page]).reverse_order
   end
@@ -7,5 +6,4 @@ class User::NewsesController < ApplicationController
   def show
     @news = News.find(params[:id])
   end
-
 end

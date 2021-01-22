@@ -1,5 +1,4 @@
 class Review < ApplicationRecord
-
   belongs_to :user
   belongs_to :shop
 
@@ -11,5 +10,4 @@ class Review < ApplicationRecord
   validates :title, :body, :rate, presence: true
   validates :title, length: { maximum: 20 }
   validates :body, length: { maximum: 100 }
-
 end

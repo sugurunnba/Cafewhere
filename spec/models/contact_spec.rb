@@ -11,7 +11,7 @@ RSpec.describe 'contactモデルのテスト', type: :model do
       expect(contact.valid?).to be false
     end
     it 'messageが201文字以上だとNG' do
-      contact.message = Faker::Lorem.characters(number:201)
+      contact.message = Faker::Lorem.characters(number: 201)
       expect(contact.valid?).to be false
     end
   end

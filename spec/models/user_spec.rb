@@ -21,7 +21,7 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       expect(user.valid?).to be false
     end
     it 'introductionが101文字以上だとNG' do
-      user.introduction = Faker::Lorem.characters(number:101)
+      user.introduction = Faker::Lorem.characters(number: 101)
       expect(user.valid?).to be false
     end
   end

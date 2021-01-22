@@ -13,7 +13,9 @@
 <br>
         <tbody>
           <tr>
-            <i class="fa fa-history"></i><%= link_to "戻る", user_shops_path %>
+            <i class="fa fa-history"></i><%= link_to "検索ページへ戻る", user_shops_path %>&nbsp;
+            <i class="fa fa-history"></i><%= link_to "ブックマークページへ戻る", bookmark_user_shops_path %>&nbsp;
+            <i class="fa fa-history"></i><%= link_to "ランキングページへ戻る", reviews_user_shops_path %>&nbsp;
           </tr>
           <tr>
             <th>店名</th>
@@ -39,7 +41,6 @@
           <tr>
             <th>住所</th>
             <td>
-              <%= @shop.address %>
               <% if @shop.latitude.present? && @shop.longitude.present? %>
               <script type="text/javascript">
                 function initMap() {
@@ -80,7 +81,8 @@
               </style>
 
               <!--mapの表示-->
-              <div id="map"></div>
+              <div id="map" style="margin: 0 auto;"></div>
+              <%= @shop.address %>
               <% else %>
               <p>表示することができません</p>
               <% end %>
@@ -105,8 +107,12 @@
           <tr>
             <th>ホームページ</th>
             <td>
-              <%= link_to "https://tabelog.com/kyoto/A2601/A260202/26017496/" do %>
-                ここをクリックしてホームページを見に行く
+              <% if @shop.home_page == "なし" %>
+                なし
+              <% else %>
+                <%= link_to @shop.home_page do %>
+                  <%= @shop.name %>のホームページリンク
+                <% end %>
               <% end %>
             </td>
           </tr>
@@ -178,11 +184,6 @@
       </table>
 
 <br>
-      <table>
-        <tr>
-          <td><i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %></td>
-        </tr>
-      </table>
 
     </div>
   </div>

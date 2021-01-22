@@ -1,0 +1,10 @@
+AllCops:
+  Exclude:
+    - 'app/models/shop.rb'
+    - 'spec/spec_helper.rb'
+    - 'spec/models/admin_spec.rb'
+    - 'spec/models/contact_spec.rb'
+    - 'spec/models/genre_spec.rb'
+    - 'spec/models/review_spec.rb'
+    - 'spec/models/shop_spec.rb'
+    - 'spec/models/user_spec.rb'

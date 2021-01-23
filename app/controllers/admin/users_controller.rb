@@ -1,5 +1,8 @@
 class Admin::UsersController < ApplicationController
-  def top; end
+  before_action :authenticate_admin!, except: [:top]
+
+  def top
+  end
 
   def index
     @users = User.page(params[:page]).reverse_order

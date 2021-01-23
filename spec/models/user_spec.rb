@@ -16,6 +16,10 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       user.gender = ''
       expect(user.valid?).to be false
     end
+    it 'emailが空だとNG' do
+      user.email = ''
+      expect(user.valid?).to be false
+    end
     it '一意性があること' do
       user.name = other_user.name
       expect(user.valid?).to be false

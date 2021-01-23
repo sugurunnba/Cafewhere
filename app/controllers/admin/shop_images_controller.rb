@@ -1,4 +1,6 @@
 class Admin::ShopImagesController < ApplicationController
+  before_action :authenticate_admin!
+  
   def destroy
     @shop_image = ShopImage.find_by(id: params[:id], shop_id: params[:shop_id])
     @shop_image.destroy

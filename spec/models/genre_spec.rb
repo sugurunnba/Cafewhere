@@ -11,5 +11,9 @@ RSpec.describe 'Genreモデルのテスト', type: :model do
       genre.name = ''
       expect(genre.valid?).to be false
     end
+    it 'nameが15文字以上だとNG' do
+      genre.name = Faker::Lorem.characters(number: 16)
+      expect(genre.valid?).to be false
+    end
   end
 end

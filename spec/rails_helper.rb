@@ -37,9 +37,13 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  
+
   config.use_transactional_fixtures = true
   # テスト実行後にデータベースをリセットしてくれる
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  # コントローラーテスト時にログインする必要があるため記載
+
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false

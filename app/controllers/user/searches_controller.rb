@@ -1,4 +1,6 @@
 class User::SearchesController < ApplicationController
+  before_action :authenticate_user!
+  
   def placegenre
     @genres = Genre.all
   end

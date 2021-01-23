@@ -2,6 +2,7 @@ require 'rails_helper'
 RSpec.describe 'Shopモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     # let(:user) { FactoryBot.create(:user) }
+    let!(:other_shop) { FactoryBot.create(:user) }
     let(:shop) { FactoryBot.create(:shop) }
     # it 'emailが空だとNG' do
     #   shop.email = ''
@@ -23,18 +24,6 @@ RSpec.describe 'Shopモデルのテスト', type: :model do
       shop.genre_id = ''
       expect(shop.valid?).to be false
     end
-    it 'shop_image_idが空だとNG' do
-      shop.shop_image_id = ''
-      expect(shop.valid?).to be false
-    end
-    it 'start_business_hoursが空だとNG' do
-      shop.start_business_hours = ''
-      expect(shop.valid?).to be false
-    end
-    it 'finish_business_hoursが空だとNG' do
-      shop.finish_business_hours = ''
-      expect(shop.valid?).to be false
-    end
     it 'phone_numberが空だとNG' do
       shop.phone_number = ''
       expect(shop.valid?).to be false
@@ -51,6 +40,18 @@ RSpec.describe 'Shopモデルのテスト', type: :model do
       shop.holiday = ''
       expect(shop.valid?).to be false
     end
+    it 'nameが重複していればNG' do
+      shop.name = other_shop.name
+      expect(shop.valid?).to be false
+    end
+    it 'addressが重複していればNG' do
+      shop.address = other_shop.address
+      expect(shop.valid?).to be false
+    end
+    it 'phone_numberが重複していればNG' do
+      shop.phone_number = other_shop.phone_number
+      expect(shop.valid?).to be false
+    end
     it 'introductionが201文字以上だとNG' do
       shop.introduction = Faker::Lorem.characters(number: 201)
       expect(shop.valid?).to be false
@@ -61,6 +62,10 @@ RSpec.describe 'Shopモデルのテスト', type: :model do
     end
     it 'phone_numberが12文字以上だとNG' do
       shop.phone_number = Faker::Lorem.characters(number: 12)
+      expect(shop.valid?).to be false
+    end
+    it 'phone_numberが整数だとNG' do
+      shop.phone_number = Faker::Lorem.characters(number: 12).to_s
       expect(shop.valid?).to be false
     end
   end

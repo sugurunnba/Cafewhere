@@ -1,18 +1,22 @@
 class User::UsersController < ApplicationController
+  before_action :authenticate_user!, except: [:top, :about]
+
   def top
     @users = User.all
     @shops = Shop.all
     @reviews = Review.all
   end
 
-  def about; end
+  def about
+  end
 
   def show
     @user = User.find(params[:id])
   end
 
   # 退会確認画面
-  def quit; end
+  def quit
+  end
 
   # 退会データを送信するメソッド
   def out

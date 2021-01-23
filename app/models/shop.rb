@@ -25,9 +25,11 @@ class Shop < ApplicationRecord
 
   attachment :shop_image
 
-  validates :name, :introduction, :address, :genre_id, :start_business_hours, :finish_business_hours, :station,
-            :phone_number, :home_page, :holiday, presence: true
+  validates :name, :introduction, :address, :genre_id, :phone_number,
+            :station, :home_page, :holiday, presence: true
+  # 空欄ではないか
   validates :name, :address, :phone_number, uniqueness: true
+  # 一意性があるか
   validates :introduction, length: { maximum: 200 }
   # 日本一長い駅名が22文字のため
   validates :station, length: { maximum: 22 }

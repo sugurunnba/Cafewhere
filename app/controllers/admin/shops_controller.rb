@@ -1,4 +1,6 @@
 class Admin::ShopsController < ApplicationController
+  before_action :authenticate_admin!
+  
   def delete
     @shops = Shop.page(params[:page]).reverse_order
   end

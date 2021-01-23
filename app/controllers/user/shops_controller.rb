@@ -1,4 +1,6 @@
 class User::ShopsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @shop = Shop.new
     @shop.shop_images.new

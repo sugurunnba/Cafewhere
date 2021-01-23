@@ -10,6 +10,14 @@ RSpec.describe 'contactモデルのテスト', type: :model do
       contact.message = ''
       expect(contact.valid?).to be false
     end
+    it 'titleが空だとNG' do
+      contact.title = ''
+      expect(contact.valid?).to be false
+    end
+    it 'emailが空だとNG' do
+      contact.email = ''
+      expect(contact.valid?).to be false
+    end
     it 'messageが201文字以上だとNG' do
       contact.message = Faker::Lorem.characters(number: 201)
       expect(contact.valid?).to be false

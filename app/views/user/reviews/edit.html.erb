@@ -1,22 +1,47 @@
-<%= form_with model: @review, url: user_shop_review_path(@review) %>
-  <%= f.hidden_field :ticket_id, value: @ticket.id %>
-  <div class="col-md-6 col-md-offset-3">
-    <div class="field" id="star">
-        <%= f.label :rate %>
-        <%= f.hidden_field :rate, id: :review_rate %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+      <%= render 'layouts/error_messages', messages: @review %>
+
+      <%= form_with model: @review, url: "/user/shops/#{params[:shop_id]}/reviews", local: true do |f| %>
+      <table class="contact-form">
+        <tr>
+          <i class="fa fa-history"></i><%= link_to "戻る", user_shop_path(@shop) %>
+        </tr>
+        <tr>
+          <th>評価</th>
+          <td class="field">
+            <div id="star"></div>
+          </td>
+        </tr>
+        <tr>
+          <th>評価タイトル</th>
+          <td><%= f.text_field :title, :class => "form-control", :size => "50x20"  %></td>
+        </tr>
+        <tr>
+          <th>評価本文</th>
+          <td><%= f.text_area :body, :class => "form-control", :size => "50x20" %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <%= f.submit "レビュー評価を送信する", :class => "btn btn-primary" %>
+          </td>
+        </tr>
+      </table>
+      <% end %>
+
+      <script>
+      $('#star').raty({
+        size     : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        scoreName: 'review[rate]'
+      });
+      </script>
     </div>
-
-    <%= f.text_field :title %>
-    <%= f.text_area :body, :class => "form-control", :size => "50x20"  %><br>
-    <%= f.submit "レビュー評価", :class => "btn btn-primary" %>
   </div>
-<% end %>
-
-<script>
-$('#star').raty({
-  size     : 36,
-  starOff:  '<%= asset_path('star-off.png') %>',
-  starOn : '<%= asset_path('star-on.png') %>',
-  scoreName: 'review[star]'
-});
-</script>
+</div>

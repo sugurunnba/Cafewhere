@@ -12,7 +12,7 @@ RSpec.describe 'Newsモデルのテスト', type: :model do
       expect(news.valid?).to be false
     end
     it 'news_imageが空だとNG' do
-      news.news_image = ''
+      news.news_image_id = ''
       expect(news.valid?).to be false
     end
   end

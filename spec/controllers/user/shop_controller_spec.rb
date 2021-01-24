@@ -113,6 +113,7 @@ RSpec.describe User::ShopsController, type: :controller do
     end
   end
 
+  # ↓adminへ記載する
   describe "#edit" do
     context "ログインしているUserの場合" do
       before do

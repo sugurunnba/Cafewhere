@@ -19,6 +19,5 @@ FactoryBot.define do
     trait :valid do
       genre_id { 1 }
     end
-
   end
 end

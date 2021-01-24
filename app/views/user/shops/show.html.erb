@@ -166,6 +166,7 @@
                 <%= link_to user_shop_review_path(review) do %>
                   <%= review.title %>
                 <% end %>
+                <%= link_to "評価を編集する", edit_user_shop_review_path(review) %>
               </td>
             </tr>
           </tbody>
@@ -178,7 +179,9 @@
             score: function() {
               return $(this).attr('data-score');
             },
-            path: '/assets/'
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
           });
         </script>
       </table>

@@ -2,7 +2,7 @@ require 'rails_helper'
 RSpec.describe 'Shopモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     # let(:user) { FactoryBot.create(:user) }
-    let!(:other_shop) { FactoryBot.create(:user) }
+    let!(:other_shop) { FactoryBot.create(:shop) }
     let(:shop) { FactoryBot.create(:shop) }
     # it 'emailが空だとNG' do
     #   shop.email = ''
@@ -41,7 +41,10 @@ RSpec.describe 'Shopモデルのテスト', type: :model do
       expect(shop.valid?).to be false
     end
     it 'nameが重複していればNG' do
-      shop.name = other_shop.name
+      # ↓ターミナルに変数の中身を表示
+      # print("@@@:#{other_shop.name}")
+      shop.name =other_shop.name
+      # print("###:#{shop.name}")
       expect(shop.valid?).to be false
     end
     it 'addressが重複していればNG' do

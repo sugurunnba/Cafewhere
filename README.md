@@ -11,15 +11,16 @@
 そこで、検索する手間を減らすため今までやっていたことを一つのアプリで検索できるようにしたいと思い、このテーマにいたしました。
 
 ### ターゲットユーザ
-若年層から高齢層のカフェについて知りたいと思っている人
+若年層から高齢層まで、近場のカフェについて知りたいと思っている人
 
 ### 主な利用シーン
 これからどこのカフェに行こうか迷った時<br>
-大阪府にどんなカフェがあるかを知りたいと思った時
+大阪府にどんなカフェがあるかを知りたいと思った時<br>
+自分のおすすめカフェを広めたい時
 
 ## 設計書
-ER図　https://drive.google.com/file/d/1bO9n1dEpD88JzqSHi1BSioqweG2WiFLQ/view?usp=sharing<br>
-アプリケーション詳細設計書　https://docs.google.com/spreadsheets/d/1O2poUcCdPBmwCYhBQZC7dsgNtLoRRCZyJNAKAth1f3E/edit#gid=0
+ER図　[ポートフォリオER図.pdf](https://github.com/sugurunnba/Cafewhere/files/5865958/ER.pdf)<br>
+アプリケーション詳細設計書　[ポートフォリオ テーブル定義書 - シート1.pdf](https://github.com/sugurunnba/Cafewhere/files/5865963/-.1.pdf)
 
 
 ## 機能一覧
@@ -33,6 +34,5 @@ https://docs.google.com/spreadsheets/d/14lGTLdLLdagshKn1n2QIf6kvwL84CrIodQcPC7UW
 - IDE：Cloud9
 
 ## 使用素材
-raty https://github.com/wbotelhos/raty/tree/master/lib/images<br>
 - 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
 - 使用しない場合は、使用素材の項目をREADMEから削除してください。

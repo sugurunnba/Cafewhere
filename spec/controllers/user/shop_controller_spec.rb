@@ -85,7 +85,7 @@ RSpec.describe User::ShopsController, type: :controller do
       it "詳細ページは正常なレスポンスをしているか" do
         sign_in(@user)
         get :show, params: {id: @shop.id}
-        expect(response).to have_http_status(:ok)
+        expect(response).to have_http_status
       end
       it "200レスポンス(成功レスポンス)は返って来ているか" do
         sign_in @user
@@ -112,45 +112,6 @@ RSpec.describe User::ShopsController, type: :controller do
       end
     end
   end
-
-  # ↓adminへ記載する
-  describe "#edit" do
-    context "ログインしているUserの場合" do
-      before do
-        @user = FactoryBot.create(:user)
-        @shop = FactoryBot.create(:shop)
-      end
-      it "編集ページは正常なレスポンスをしているか" do
-        sign_in(@user)
-        get :edit, params: {id: @shop.id}
-        expect(response).to have_http_status(:ok)
-      end
-      it "200レスポンス(成功レスポンス)は返って来ているか" do
-        sign_in @user
-        get :edit, params: {id: @shop.id}
-        expect(response).to have_http_status "200"
-      end
-    end
-    context "ログインしていないゲストユーザの場合" do
-      before do
-        @user = FactoryBot.create(:user)
-        @shop = FactoryBot.create(:shop)
-      end
-      it "正常にレスポンスが返ってきていないか" do
-        get :edit, params: {id: @shop.id}
-        expect(response).to_not be_success
-      end
-      it "302レスポンス(失敗レスポンス)は返って来ているか" do
-        get :edit, params: {id: @shop.id}
-        expect(response).to have_http_status "302"
-      end
-      it "ログイン画面にリダイレクトされているか？" do
-        get :edit, params: {id: @shop.id }
-        expect(response).to redirect_to "/users/sign_in"
-      end
-    end
-  end
-
 
   describe "#create" do
     context "パラメータが妥当な場合" do

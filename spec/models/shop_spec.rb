@@ -43,7 +43,7 @@ RSpec.describe 'Shopモデルのテスト', type: :model do
     it 'nameが重複していればNG' do
       # ↓ターミナルに変数の中身を表示
       # print("@@@:#{other_shop.name}")
-      shop.name =other_shop.name
+      shop.name = other_shop.name
       # print("###:#{shop.name}")
       expect(shop.valid?).to be false
     end

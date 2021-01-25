@@ -14,25 +14,21 @@ Rails.application.routes.draw do
   root to: 'user/users#top'
 
   namespace :admin do
-    resources :users do
-      collection do
-        get 'top'
-      end
-    end
+    resources :users, only: [:index, :show, :edit, :update]
   end
 
   namespace :admin do
-    resources :shops do
+    resources :shops, only: [:new, :index, :show, :edit, :update, :destroy] do
       collection do
         get 'delete' => 'shops#delete'
       end
-      resources :shop_images
+      resources :shop_images, only: [:destroy]
     end
   end
 
   # ジャンル直下にshopを置きたくないので、shopとは別に設定しています
   namespace :admin do
-    resources :genres
+    resources :genres, only: [:new, :index, :create, :edit, :update, :destroy]
   end
 
   namespace :admin do
@@ -51,13 +47,16 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :shops do
+    resources :shops, only: [:new, :create, :index, :show] do
+      # resourcesだとurlにshop_idを介してしまい
+      # 全体のランキングページを表示できないので、collection doで別にしている
       collection do
         get 'reviews' => 'reviews#index'
       end
-      resources :reviews, only: %i[new create show edit update destroy]
+      resources :reviews, only: [:new, :create, :show, :edit, :update, :destroy]
 
-      # ブックマークのルート
+      # resourcesだとurlにshop_idを介してしまい特定のユーザーが
+      # ブックマークしたもののみを表示できないので、collection doで別にしている
       collection do
         get 'bookmark' => 'bookmarks#show'
       end
@@ -67,7 +66,7 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :searches do
+    resources :searches, only: [:index] do
       collection do
         get 'placegenre' => 'searches#placegenre'
       end

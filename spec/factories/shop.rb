@@ -3,7 +3,6 @@ FactoryBot.define do
     association :genre
     name { Faker::Lorem.characters(number: 20) }
     introduction { Faker::Lorem.characters(number: 20) }
-    shop_image_id { 1 }
     address { Faker::Lorem.characters(number: 20) }
     start_business_hours { Time.parse('2020-01-01 12:00:00') }
     station { Faker::Lorem.characters(number: 22) }
@@ -13,9 +12,6 @@ FactoryBot.define do
     finish_business_hours { Time.parse('2020-01-01 12:00:00') }
     latitude { 1.1 }
     longitude { 1.2 }
-    trait :invalid do
-      shop_image_id { 0 }
-    end
     trait :valid do
       genre_id { 1 }
     end

@@ -1,5 +1,6 @@
 class User::BookmarksController < ApplicationController
   before_action :authenticate_user!
+  
   def show
     @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).reverse_order
   end

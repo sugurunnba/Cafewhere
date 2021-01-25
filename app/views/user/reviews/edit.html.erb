@@ -6,7 +6,7 @@
 
       <%= render 'layouts/error_messages', messages: @review %>
 
-      <%= form_with model: @review, url: "/user/shops/#{params[:shop_id]}/reviews", local: true do |f| %>
+      <%= form_with model: @review, user_shop_review_path(@review.shop, @review), local: true do |f| %>
       <table class="contact-form">
         <tr>
           <i class="fa fa-history"></i><%= link_to "戻る", user_shop_path(@shop) %>
@@ -28,7 +28,7 @@
         <tr>
           <td></td>
           <td>
-            <%= f.submit "レビュー評価を送信する", :class => "btn btn-primary" %>
+            <%= f.submit "レビューを更新する", :class => "btn btn-primary" %>
           </td>
         </tr>
       </table>

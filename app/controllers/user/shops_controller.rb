@@ -11,7 +11,7 @@ class User::ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @genres = Genre.all
     if @shop.save
-      flash[:success] = 'リクエスト頂きありがとうございます！'
+      flash[:success] = "リクエスト頂きありがとうございます！"
       redirect_to user_user_path(current_user)
     else
       render :new
@@ -25,6 +25,7 @@ class User::ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @user = current_user
   end
 
   private

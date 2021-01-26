@@ -18,7 +18,7 @@
           </tr>
           <tr>
             <th>お知らせ本文</th>
-            <td><%= @news.text %></td>
+            <td><%= simple_format(@news.text) %></td>
           </tr>
         </tbody>
       </table>

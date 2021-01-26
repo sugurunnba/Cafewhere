@@ -10,13 +10,14 @@
             <i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %>
           </tr>
           <tr>
-            <td></td>
+            <td>カフェ写真</td>
             <td>店名</td>
             <td>住所</td>
           </tr>
         </thead>
         <tbody>
         <% @shops.each do |shop| %>
+          <% if shop.is_active == "掲載許可" %>
           <tr>
             <td>
               <% if shop.shop_images.present? %>
@@ -31,6 +32,7 @@
             <td><%= shop.name %></td>
             <td><%= shop.address %></td>
           </tr>
+          <% end %>
         <% end %>
         	<tr>
       	    <%= paginate @shops %>

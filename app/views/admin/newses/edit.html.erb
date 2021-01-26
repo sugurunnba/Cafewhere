@@ -13,8 +13,9 @@
         <%= form_with model: @news, url: admin_newse_path(@news), local:true do |f| %>
 
         <div class="form-group">
-          <%= f.label :news_image, "お知らせ写真", :class => "form-label" %>
+          <%= f.label :news_image, "お知らせ写真(上書きします)", :class => "form-label" %>
           <%= f.attachment_field :news_image, autocomplete: "news_image" %>
+          <%= attachment_image_tag @news, :news_image, :fill, 200, 200 %>
         </div>
 
         <div class="form-group">

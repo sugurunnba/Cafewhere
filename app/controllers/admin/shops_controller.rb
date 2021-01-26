@@ -1,6 +1,6 @@
 class Admin::ShopsController < ApplicationController
   before_action :authenticate_admin!
-  
+
   def delete
     @shops = Shop.page(params[:page]).reverse_order
   end
@@ -28,7 +28,7 @@ class Admin::ShopsController < ApplicationController
     @genres = Genre.all
     if @shop.update(shop_params)
       flash[:success] = 'カフェのデータを更新しました'
-      redirect_to admin_shop_path(@shop)
+      redirect_to new_admin_shop_path
     else
       render :edit
     end

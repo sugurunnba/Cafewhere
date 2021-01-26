@@ -10,8 +10,8 @@
         <%= render 'layouts/error_messages', messages: @user %>
 
         <h3 class="mt-1 mb-3 text-center"><%= @user.name %>さんのアカウント修正</h3>
+        
         <%= form_with model: @user, url: admin_user_path(@user), local:true do |f| %>
-
         <div class="form-group">
           <%= f.label :name, "ニックネーム", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
           <%= f.text_field :name, autocomplete: "name", :class => "form-control" %>
@@ -45,6 +45,7 @@
           <%= f.submit "更新する", :class => "btn btn-primary btn-block" %>
         </div>
         <% end %>
+        
       </div>
     </div>
   </div>

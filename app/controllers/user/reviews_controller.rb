@@ -3,51 +3,31 @@ class User::ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    # urlの中にあるid名をparamsでもってくる
     @shop = Shop.find(params[:shop_id])
   end
 
   def create
     @shop = Shop.find(params[:shop_id])
     @review = Review.new(review_params)
-    @review.user = current_user
+    # アソシエーションしている際、データを紐づけるために「_id」にidを入れる
+    @review.user_id = current_user.id
     @review.shop_id = @shop.id
     if @review.save
       redirect_to user_shop_path(@shop)
       flash[:success] = '評価頂きありがとうございます！'
     else
-      flash[:notice] = '必須箇所を入力ください'
       render :new
     end
   end
 
   def index
-    # @shops = Shop.all
-    # shop_hash = Hash.new
-    # @shops.each do |shop|
-    #   shop_hash[shop.id] = shop.reviews.average(:rate).to_f.round(1)
-    # end
-
-    # 理解できていない
-    # @shops = Shop.all.sort_by{|shop| shop.reviews.average(:rate).to_f.round(1)}.reverse
     @shops = Shop.page(params[:page])
-    @shopss = @shops.sort_by { |shop| shop.reviews.average(:rate).to_f.round(1) }.reverse
-    # p shop_hash
+    # sort_by, 配列を小さい順に並べる
+    # 「@変数名 { |〇〇| }」でeach doを１行にした簡略文を作成できる
+    # モデル.average(カラム名), カラムの平均化
+    # .to_f.round(N), 小数点以下N桁の四捨五入
+    @average_shops = @shops.sort_by { |shop| shop.reviews.average(:rate).to_f.round(1) }.reverse
   end
-  #   def index
-  #     @shops = Shop.
-  #     left_joins(:review).
-  #     distinct.
-  #     sort_by do |user|
-  #       hoges = user.comments
-  #       if hoges.present?
-  #         hoges.map(&:score).sum / hoges.size
-  #       else
-  #         0
-  #       end
-  #     end
-  #   reverse
-  #   end
 
   def show
     @review = Review.find(params[:shop_id])
@@ -59,7 +39,7 @@ class User::ReviewsController < ApplicationController
   end
 
   def update
-    shop = Shop.find(params[:id])
+    shop = Shop.find(params[:shop_id])
     review = Review.find(params[:id])
     review.update(review_params)
     redirect_to user_shop_path(shop)

@@ -61,12 +61,17 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  # メール送信を有効にする
   config.action_mailer.perform_deliveries = true
+  # メール送信ができなかった場合、エラーを発生させる
   config.action_mailer.raise_delivery_errors = true
+  # メール送信する際に通信プロトコルSMTPを利用する
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
+    # メール送信を行うためのポート番号
     port: 587,
+    # 送信元のメールアドレス/パスワードを設定(.envファイルにて記載)
     user_name: ENV['KEY'],
     password: ENV['SECRET_KEY'],
     enable_starttls_auto: true

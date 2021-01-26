@@ -15,7 +15,7 @@
           </tr>
           <tr>
             <th>評価本文</th>
-            <td><%= @review.body %></td>
+            <td><%= simple_format(@review.body) %></td>
           </tr>
         </tbody>
       </table>

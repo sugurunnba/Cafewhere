@@ -22,6 +22,7 @@ class User::UsersController < ApplicationController
   def out
     @user = current_user
     @user.update(user_status: true)
+    # セッション情報を削除する
     reset_session
     flash[:success] = '退会が完了いたしました。ぜひまた遊びに来てください！'
     redirect_to root_path

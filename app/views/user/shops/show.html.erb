@@ -23,7 +23,7 @@
           </tr>
           <tr>
             <th>お店の紹介文</th>
-            <td><%= @shop.introduction %></td>
+            <td><%= simple_format(@shop.introduction) %></td>
           </tr>
           <tr>
             <th>お店の写真</th>
@@ -135,7 +135,6 @@
             </td>
           </tr>
           <tr>
-          <!--route.rbにて、idが含まれていれば、引数が必要-->
           </tr>
         </tbody>
       </table>
@@ -200,13 +199,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-<!--一からな無いものを作るより、既成のコードを書いた後に、理解を進めた方がよい-->
-<!--巨人の肩に乗る、車輪の再発明をさける-->

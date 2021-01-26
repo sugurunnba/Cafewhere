@@ -8,6 +8,7 @@ class User::ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+      # contact_mailer.rbのメソッド(contact_mail(contact))を使用
       ContactMailer.contact_mail(@contact).deliver
       flash[:success] = 'お問い合わせ頂きありがとうございます!'
       redirect_to user_user_path(current_user)

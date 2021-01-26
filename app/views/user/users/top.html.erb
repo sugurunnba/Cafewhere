@@ -2,7 +2,7 @@
 <header>
 	<div class="container">
 		<div class="fh5co-navbar-brand">
-			<h1 class="text-center"><a class="fh5co-logo" href="index.html"><i class="fa fa-coffee" style="background-image: url(<%= asset_path('') %>)"></i></a></h1>
+			<h1 class="text-center"><a class="fh5co-logo"><i class="fa fa-coffee" style="background-image: url(<%= asset_path('logo.png') %>)"></i></a></h1>
 		</div>
 	</div>
 </header>
@@ -13,7 +13,7 @@
 				<h2 class="intro-heading">CafeWhere</h2>
 				<p><span>あなたのおすすめがみんなのおすすめに️</span></p>
 				<%= link_to "管理者ログイン", new_admin_session_path %>
-				<h5 class="color: limegreen">
+				<h5 class="text-center" style="color: limegreen">
 					<%= flash[:success] %>
 				</h5>
 			</div>
@@ -238,6 +238,7 @@
 	</div>
 </div>
 
+<br><br><br>
 
 <div id="fh5co-services-section">
 	<div class="container">
@@ -253,21 +254,21 @@
 				<div class="services">
 					<span><i class="fa fa-check-square"></i></span>
 					<h3>簡単ユーザー登録</h3>
-					<p>ニックネーム・メールアドレス・性別・パスワードの4点を<br>登録いただくだけでご利用<br>いただけます</p>
+					<p>ニックネーム・メールアドレス・性別・パスワードの<br>4点をご登録いただくと<br>ご利用いただけます</p>
 				</div>
 			</div>
 			<div class="col-md-4 text-center animate-box">
 				<div class="services">
 					<span><i class="fa fa-paper-plane"></i></span>
 					<h3>掲載したいカフェを申請</h3>
-					<p>あなたのおすすめカフェを登録<br>フォームから送信ください。<br>内容を確認次第、<br>掲載させていただきます。</p>
+					<p>あなたのおすすめカフェを<br>登録フォームから送信ください。<br>内容を確認次第、<br>掲載させていただきます。</p>
 				</div>
 			</div>
 			<div class="col-md-4 text-center animate-box">
 				<div class="services">
 					<span><i class="fa fa-laugh"></i></span>
 					<h3>いろんなカフェを<br>見てまわろう！</h3>
-					<p>ここにはお気に入りカフェが<br>詰まっています。<br>あなたが心惹かれるカフェも<br>あるかも…？</p>
+					<p>ここには色んな人のお気に入り<br>カフェが詰まっています。<br>あなたが心惹かれるカフェも<br>あるかも…？</p>
 				</div>
 			</div>
 		</div>

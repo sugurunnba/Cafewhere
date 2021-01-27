@@ -323,12 +323,9 @@ class Shop < ApplicationRecord
       Shop.where(['address LIKE ?', '%伊根町%'])
     elsif select == 'yosano'
       Shop.where(['address LIKE ?', '%与謝野町%'])
-    elsif genre
-      Shop.where(['genre_id is ?', genre.to_s])
-      # 完全一致 %があることであいまい検索が始まる
-      # デバックで検索結果を確認する→パラメータを見て判断する
     else
-      Shop.where(['name LIKE ?', "%#{search}%"])
+      # 完全一致 %があることであいまい検索が始まる
+      Shop.where(['genre_id is ?', genre.to_s])
     end
   end
 

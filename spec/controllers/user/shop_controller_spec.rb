@@ -85,7 +85,7 @@ RSpec.describe User::ShopsController, type: :controller do
       it "詳細ページは正常なレスポンスをしているか" do
         sign_in(@user)
         get :show, params: {id: @shop.id}
-        expect(response).to have_http_status
+        expect(response).to be_success
       end
       it "200レスポンス(成功レスポンス)は返って来ているか" do
         sign_in @user
@@ -146,20 +146,20 @@ RSpec.describe User::ShopsController, type: :controller do
       end
       it "リクエストが成功すること" do
         sign_in(@user)
-        post :create, params: { shop: FactoryBot.attributes_for(:shop, :invalid) }
+        post :create, params: { shop: FactoryBot.attributes_for(:shop) }
         expect(response.status).to eq 200
       end
       it "ユーザーが登録されないこと" do
         sign_in(@user)
         expect do
-          post :create, params: { shop: FactoryBot.attributes_for(:shop, :invalid) }
+          post :create, params: { shop: FactoryBot.attributes_for(:shop) }
         end.to_not change(User, :count)
       end
 
       # ↓システムテストでも登録リクエストフォームが表示されるかを確認する
       it 'newテンプレートでレスポンスボディーに含まれること' do
         sign_in(@user)
-        post :create, params: { shop: FactoryBot.attributes_for(:shop, :invalid) }
+        post :create, params: { shop: FactoryBot.attributes_for(:shop) }
         # ↓レンダリングされたものを見たかったが、データ容量が足りずGemをダウンロードできなかったため下記を記載
         expect(response.body).to include "登録リクエストフォーム"
       end

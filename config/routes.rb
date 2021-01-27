@@ -80,4 +80,10 @@ Rails.application.routes.draw do
   namespace :user do
     resources :newses, only: %i[index show]
   end
+
+  # ゲストログイン
+  post '/homes/guest_sign_in', to: 'homes#new_guest'
+
 end
+
+

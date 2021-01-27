@@ -31,7 +31,7 @@ RSpec.describe Admin::ShopsController, type: :controller do
         get :edit, params: {id: @shop.id}
         expect(response).to have_http_status "302"
       end
-      it "ログイン画面にリダイレクトされているか？" do
+      it "ログイン画面にリダイレクトされているか" do
         get :edit, params: {id: @shop.id }
         expect(response).to redirect_to "/admins/sign_in"
       end
@@ -39,7 +39,7 @@ RSpec.describe Admin::ShopsController, type: :controller do
   end
 
   describe "#update" do
-    context "パラメータが妥当な場合" do
+    context "送信された値が正しい場合" do
       before do
         @admin = FactoryBot.create(:admin)
         @shop = FactoryBot.create(:shop)
@@ -62,7 +62,7 @@ RSpec.describe Admin::ShopsController, type: :controller do
       end
     end
 
-    context "パラメータが不正な場合" do
+    context "送信された値が間違っている場合" do
       render_views
       # ↑標準ではレンダリングしないところ、この記述のおかげでビューをレンダリングさせることができる
       before do
@@ -92,13 +92,24 @@ RSpec.describe Admin::ShopsController, type: :controller do
     end
   end
 
-  # describe '#destroy' do
-  #   it "delete" do
-  #     shop = create(:shop)
-  #     expect{
-  #       delete :destroy, id: shop
-  #     }.to change(Shop,:count).by(-1)
-  #   end
-  # end
+  describe '#destroy' do
+    context "ログインしているAdminの場合" do
+      before do
+        @user = FactoryBot.create(:admin)
+        @shop = FactoryBot.create(:shop)
+      end
+      it "delete" do
+        sign_in(@admin)
+        delete :destroy, params: {id: @shop.id }
+        expect(response).to eq 200
+
+
+        # @shop = create(:shop)
+        # expect{
+        #   delete :destroy, id: shop
+        # }.to change(Shop,:count).by(-1)
+      end
+    end
+  end
 
 end

@@ -2,7 +2,7 @@
 <header>
 	<div class="container">
 		<div class="fh5co-navbar-brand">
-			<h1 class="text-center"><a class="fh5co-logo"><i class="fa fa-coffee" style="background-image: url(<%= asset_path('logo.png') %>)"></i></a></h1>
+			<h1 class="text-center"><a class="fh5co-logo"><img src=<%= asset_path('logo.jpg') %>></a></h1>
 		</div>
 	</div>
 </header>
@@ -10,9 +10,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 animate-box text-center" style="opacity:1">
-				<h2 class="intro-heading">CafeWhere</h2>
-				<p><span>あなたのおすすめがみんなのおすすめに️</span></p>
-				<%= link_to "管理者ログイン", new_admin_session_path %>
+				<p><span>あなたのおすすめが、みんなのおすすめに️</span></p>
 				<h5 class="text-center" style="color: limegreen">
 					<%= flash[:success] %>
 				</h5>
@@ -303,7 +301,14 @@
 	</div>
 </div>
 
-<br><br><br>
+<br><br>
+
+<div class="text-center">
+	<%= link_to "管理者ログイン", new_admin_session_path %>
+</div>
+
+<br><br>
+
 
 <footer>
 	<div id="footer">

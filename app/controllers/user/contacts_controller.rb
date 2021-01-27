@@ -1,6 +1,6 @@
 class User::ContactsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @contact = Contact.new
   end
@@ -9,7 +9,7 @@ class User::ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       # contact_mailer.rbのメソッド(contact_mail(contact))を使用
-      ContactMailer.contact_mail(@contact).deliver
+      ContactMailer.contact_mail(@contact).deliver_later
       flash[:success] = 'お問い合わせ頂きありがとうございます!'
       redirect_to user_user_path(current_user)
     else

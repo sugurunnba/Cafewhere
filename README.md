@@ -21,7 +21,9 @@
 ## 設計書
 ER図　![ER_page-0001](https://user-images.githubusercontent.com/72184121/105929689-7d123d00-608b-11eb-831c-f2147e515135.jpg)
 <br>
-アプリケーション詳細設計書 [ilovepdf_pages-to-jpg.zip](https://github.com/sugurunnba/Cafewhere/files/5877134/ilovepdf_pages-to-jpg.zip)
+アプリケーション詳細設計書 
+![_ 1_page-0001](https://user-images.githubusercontent.com/72184121/105929813-be0a5180-608b-11eb-8b00-5a5b8d6e8034.jpg)
+![_ 1_page-0002](https://user-images.githubusercontent.com/72184121/105929821-c3679c00-608b-11eb-8399-e95bd4948b69.jpg)
 
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/14lGTLdLLdagshKn1n2QIf6kvwL84CrIodQcPC7UWPT8/edit?usp=sharing

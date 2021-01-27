@@ -127,7 +127,7 @@
             <td><i class="fas fa-check-circle fa-fw fa-lg "></i><%= link_to "ブックマーク", user_shop_bookmarks_path(@shop.id), method: :post, :class => "btn btn-primary" %></td>
           <% end %>
             <td>
-            <% if @user.reviews.exists? %>
+            <% if @user.reviews.find_by(shop_id: @shop.id) %>
               評価いただきありがとうございます!
             <% else %>
               <i class="far fa-thumbs-up fa-fw fa-lg faa-tada animated"></i><%= link_to "評価する", new_user_shop_review_path(@shop.id), :class => "btn btn-primary" %>

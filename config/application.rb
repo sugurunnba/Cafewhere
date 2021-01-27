@@ -18,6 +18,7 @@ module Cafewhere
 
     # タイムゾーンを日本に設定
     config.time_zone = 'Tokyo'
+    config.active_record.time_zone_aware_types = [:datetime, :time]
 
     # エラーメッセージの日本語化
     config.i18n.default_locale = :ja

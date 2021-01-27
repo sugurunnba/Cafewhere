@@ -19,9 +19,9 @@
 自分のおすすめカフェを広めたい時
 
 ## 設計書
-ER図　[ポートフォリオER図.pdf](https://github.com/sugurunnba/Cafewhere/files/5865958/ER.pdf)<br>
-アプリケーション詳細設計書　[ポートフォリオ テーブル定義書 - シート1.pdf](https://github.com/sugurunnba/Cafewhere/files/5865963/-.1.pdf)
-
+ER図　![ER_page-0001](https://user-images.githubusercontent.com/72184121/105929689-7d123d00-608b-11eb-831c-f2147e515135.jpg)
+<br>
+アプリケーション詳細設計書 [ilovepdf_pages-to-jpg.zip](https://github.com/sugurunnba/Cafewhere/files/5877134/ilovepdf_pages-to-jpg.zip)
 
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/14lGTLdLLdagshKn1n2QIf6kvwL84CrIodQcPC7UWPT8/edit?usp=sharing

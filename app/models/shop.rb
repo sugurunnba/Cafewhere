@@ -78,10 +78,7 @@ class Shop < ApplicationRecord
   def self.search(search, select, genre)
     # 大阪府
     # 大阪市
-    if genre == genre
-      # 完全一致 %があることであいまい検索が始まる
-      Shop.where(['genre_id LIKE ?', genre.to_s])
-    elsif  select == 'kita'
+    if select == 'kita'
       Shop.where(['address LIKE ?', '%北区%'])
     elsif select == 'toshima'
       Shop.where(['address LIKE ?', '%豊島区%'])
@@ -328,10 +325,18 @@ class Shop < ApplicationRecord
       Shop.where(['address LIKE ?', '%伊根町%'])
     elsif select == 'yosano'
       Shop.where(['address LIKE ?', '%与謝野町%'])
-    # elsif genre == genre
-    #   # 完全一致 %があることであいまい検索が始まる
-    #   Shop.where(['genre_id is ?', genre.to_s])
-    # end
+    elsif genre == genre
+      # 完全一致 %があることであいまい検索が始まる
+      Shop.where(['genre_id LIKE ?', genre.to_s])
     end
   end
+
+  # Shop.where(["address LIKE ?", "%羽曳野市%"])
+  #   elsif select == "fujidera"
+  #     Shop.where(["address LIKE ?", "%藤井寺市%"])
+  #   elsif select == "higashiosaka"
+  #     Shop.where(["address LIKE ?", "%東大阪市%"])
+  #   else
+  #     Shop.where(["name LIKE ?", "%#{search}%"])
+  #   end
 end

@@ -62,6 +62,8 @@ class Shop < ApplicationRecord
     select = params[:select12] if (params[:select12]).present?
     select = params[:select13] if (params[:select13]).present?
     select = params[:select14] if (params[:select14]).present?
+    select = params[:select15] if (params[:select15]).present?
+    select = params[:select16] if (params[:select16]).present?
     select
   end
 

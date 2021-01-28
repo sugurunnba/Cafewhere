@@ -21,12 +21,17 @@ class User::ReviewsController < ApplicationController
   end
 
   def index
-    @shops = Shop.page(params[:page])
+    @shops = Shop.joins(:reviews).group(:shop_id).order('avg(rate) DESC')
+    # @shops = Shop.page(params[:page])
+    # @shops = Shop.all
     # sort_by, 配列を小さい順に並べる
     # 「@変数名 { |〇〇| }」でeach doを１行にした簡略文を作成できる
     # モデル.average(カラム名), カラムの平均化
     # .to_f.round(N), 小数点以下N桁の四捨五入
-    @average_shops = @shops.sort_by { |shop| shop.reviews.average(:rate).to_f.round(1) }.reverse
+    # @average_shops = @shops.sort_by { |shop| shop.reviews.average(:rate).to_f.round(1) }.reverse
+    # @shops = @average_shops.page(params[:page])
+    @average_shops = @shops
+    @shops = @shops.page(params[:page])
   end
 
   def show

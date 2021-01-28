@@ -24,6 +24,7 @@ class Admin::ShopsController < ApplicationController
   end
 
   def update
+    # binding.pry
     @shop = Shop.find(params[:id])
     @genres = Genre.all
     if @shop.update(shop_params)

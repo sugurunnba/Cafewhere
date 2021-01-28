@@ -80,7 +80,7 @@ class Shop < ApplicationRecord
     # 大阪市
     if genre == genre
       # 完全一致 %があることであいまい検索が始まる
-      Shop.where(['genre_id is ?', genre.to_s])
+      Shop.where(['genre_id LIKE ?', genre.to_s])
     elsif  select == 'kita'
       Shop.where(['address LIKE ?', '%北区%'])
     elsif select == 'toshima'

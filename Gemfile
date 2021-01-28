@@ -48,6 +48,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # rubocopの導入
+  gem 'rubocop-airbnb'
 end
 
 group :test do
@@ -99,5 +101,5 @@ gem 'rails-i18n'
 gem 'kaminari', '~> 1.2.1'
 
 # Rubocopでの構文規則チェック
-gem 'rubocop', require: false
-gem 'rubocop-rails', require: false
+# gem 'rubocop', require: false
+# gem 'rubocop-rails', require: false

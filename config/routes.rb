@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords',
-    registrations: 'admins/registrations'
+    registrations: 'admins/registrations',
   }
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
   }
 
   root to: 'user/users#top'
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :users, only: %i[show edit update] do
+    resources :users, only: %i(show edit update) do
       collection do
         get 'top'
         get 'about'
@@ -61,7 +61,7 @@ Rails.application.routes.draw do
         get 'bookmark' => 'bookmarks#show'
       end
 
-      resource :bookmarks, only: %i[create destroy]
+      resource :bookmarks, only: %i(create destroy)
     end
   end
 
@@ -74,16 +74,13 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :contacts, only: %i[new create]
+    resources :contacts, only: %i(new create)
   end
 
   namespace :user do
-    resources :newses, only: %i[index show]
+    resources :newses, only: %i(index show)
   end
 
   # ゲストログイン
   post '/homes/guest_sign_in', to: 'homes#new_guest'
-
 end
-
-

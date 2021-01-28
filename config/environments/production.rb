@@ -92,7 +92,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-   # メール送信を有効にする
+  # メール送信を有効にする
   config.action_mailer.perform_deliveries = true
   # メール送信ができなかった場合、エラーを発生させる
   config.action_mailer.raise_delivery_errors = false
@@ -105,6 +105,6 @@ Rails.application.configure do
     # 送信元のメールアドレス/パスワードを設定(.envファイルにて記載)
     user_name: ENV['KEY'],
     password: ENV['SECRET_KEY'],
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
   }
 end

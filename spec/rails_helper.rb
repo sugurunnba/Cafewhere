@@ -44,7 +44,6 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   # コントローラーテスト時にログインする必要があるため記載
 
-
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 

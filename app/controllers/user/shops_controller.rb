@@ -12,13 +12,13 @@ class User::ShopsController < ApplicationController
 
     # 年の登録をしていないため、西暦1年で登録されてしまい、LMTになってしまう。
     # LMTで登録した時間を上書きして表示させるため、下記を記載
-    s_time =Time.zone.local(2000, shop_params["start_business_hours(2i)"], shop_params["start_business_hours(3i)"],
-    shop_params["start_business_hours(4i)"], shop_params["start_business_hours(5i)"])
-    f_time =Time.zone.local(2000, shop_params["finish_business_hours(2i)"], shop_params["finish_business_hours(3i)"],
-    shop_params["finish_business_hours(4i)"], shop_params["finish_business_hours(5i)"])
+    s_time = Time.zone.local(2000, shop_params["start_business_hours(2i)"], shop_params["start_business_hours(3i)"],
+                             shop_params["start_business_hours(4i)"], shop_params["start_business_hours(5i)"])
+    f_time = Time.zone.local(2000, shop_params["finish_business_hours(2i)"], shop_params["finish_business_hours(3i)"],
+                             shop_params["finish_business_hours(4i)"], shop_params["finish_business_hours(5i)"])
 
-   @shop.start_business_hours = s_time
-   @shop.finish_business_hours = f_time
+    @shop.start_business_hours = s_time
+    @shop.finish_business_hours = f_time
 
     @genres = Genre.all
     if @shop.save

@@ -11,14 +11,7 @@
 
         <div class="form-group">
           <%= f.label :password, "パスワード", :class => "form-label" %>
-          <%= link_to "パスワードを忘れた場合", new_user_password_path, :class => "float-right" %>
           <%= f.password_field :password, :class => "form-control" %>
-        <% if devise_mapping.rememberable? %>
-        <div class="form-check">
-          <%= f.check_box :remember_me, :class => "form-check-input" %>
-          <%= f.label :remember_me, "ロログインを記憶", :class => "form-check-label" %>
-        </div>
-        <% end %>
         </div>
 
         <div class="actions">

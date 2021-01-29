@@ -35,9 +35,9 @@ class Admin::ShopsController < ApplicationController
   end
 
   def destroy
-    @shop = Shop.where(id: params[:id])
-    # @shop.shop_image_id = @shop.shop_image.shop_image.id
-    @shop.destroy_all
+    # pry.byebug
+    @shop = Shop.find(params[:id])
+    @shop.destroy
     flash[:success] = 'カフェのデータを削除しました'
     redirect_to admin_shops_path
   end

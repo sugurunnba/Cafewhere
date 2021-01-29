@@ -12,8 +12,6 @@ class Shop < ApplicationRecord
   has_many :shop_images, dependent: :destroy
   accepts_attachments_for :shop_images, attachment: :shop_image
 
-  attachment :shop_image
-
   # 空欄ではないか
   validates :name, :introduction, :address, :genre_id, :phone_number,
             :station, :home_page, :holiday, presence: true

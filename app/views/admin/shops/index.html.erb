@@ -29,6 +29,7 @@
                 <%= link_to admin_shop_path(shop) do %>
                   <%= shop.name %>
                 <% end %>
+                <%= link_to "削除", admin_shop_path(shop), method: :delete %>
               </td>
             </tr>
           </tbody>

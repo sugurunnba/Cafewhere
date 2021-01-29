@@ -8,6 +8,12 @@ ja:
             user:
               name: ニックネーム
               email: メールアドレス
+              password: パスワード
+              gender: 性別
+            admin:
+              name: 管理者名
+              email: 管理者メールアドレス
+              password: パスワード
             genre:
               name: ジャンル名
             news:

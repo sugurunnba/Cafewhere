@@ -20,16 +20,16 @@ class Shop < ApplicationRecord
 
   # 一意性があるか
   validates :name, :address, :phone_number, uniqueness: true
-  # 日本一長い駅名が22文字のため
+  # 長くなりすぎないようにするために最大200文字に指定
   validates :introduction, length: { maximum: 200 }
-  # 固定電話
+  # 日本一長い駅名が22文字のため
   validates :station, length: { maximum: 22 }
-  # 11桁以内に修正する
+  # 携帯電話の番号が11文字のため、最大11桁に指定
   validates :phone_number, length: { maximum: 11 }
-   # 数字のみ入力可能
+  # 数字のみ入力可能
   validates :phone_number, numericality: { only_integer: true }
 
-
+  # 投稿したカフェデータをuser側では「掲載許可」のみを表示させたいので記載
   enum is_active: { "申請中": 0, "掲載許可": 1, "掲載禁止": 2 }
 
   # user側のshop/show.htmlにて使用

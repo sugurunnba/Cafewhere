@@ -18,11 +18,12 @@ class User::UsersController < ApplicationController
   def quit
   end
 
-  # 退会データを送信するメソッド
+  # 退会データを送信する
   def out
     @user = current_user
+    # user_status(退会済みかを確認するカラム)をtrueに変更する(デフォルトはfalse)
     @user.update(user_status: true)
-    # セッション情報を削除する
+    # 退会するとログインできないようにするため、セッション情報を削除する
     reset_session
     flash[:success] = '退会が完了いたしました。ぜひまた遊びに来てください！'
     redirect_to root_path

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-offset-1 col-md-10">
       <%= form_with model: @shops, url: user_searches_path, method: :get, local: true do |f| %>
-      <table border="1" style="border-collapse: collapse">
+      <table border="1">
 <br>
         <thead>
           <p class="text-center">
@@ -51,6 +51,7 @@
       		<tr>
       			<td>ジャンル</td>
       			<td colspan="3">
+      			  <!--collection_select(オブジェクト名, メソッド名, 要素の配列, value属性の項目, テキストの項目 )-->
       			  <%= f.collection_select(:genre, @genres, :id, :name, include_blank: "ジャンルから検索") %>
       			</td>
       		</tr>

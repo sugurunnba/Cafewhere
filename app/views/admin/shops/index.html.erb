@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-offset-1 col-md-10">
-      <table border="1" style="border-collapse: collapse">
+      <table border="1">
         <thead>
           <tr>
             <h5 class="text-center" style="color: limegreen"><%= flash[:success] %></h5>
@@ -29,7 +29,6 @@
                 <%= link_to admin_shop_path(shop) do %>
                   <%= shop.name %>
                 <% end %>
-                <%= link_to "削除", admin_shop_path(shop), method: :delete %>
               </td>
             </tr>
           </tbody>

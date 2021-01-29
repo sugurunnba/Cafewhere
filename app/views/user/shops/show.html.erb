@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-offset-1 col-md-10">
-      <table border="1" style="border-collapse: collapse">
+      <table border="1">
         <thead>
 
           <tr>
@@ -41,13 +41,15 @@
           <tr>
             <th>住所</th>
             <td>
-              <% if @shop.latitude.present? && @shop.longitude.present? %>
+            <% if @shop.latitude.present? && @shop.longitude.present? %>
               <script type="text/javascript">
                 function initMap() {
               // latitude,longitudeから位置を特定
                   var test ={lat: <%= @shop.latitude %>, lng: <%= @shop.longitude %>};
                   var map = new google.maps.Map(document.getElementById('map'), {
+                            // 表示領域の大きさを指定
                             zoom: 15,
+                            // 初期位置の経度緯度を指定
                             center: test
                             });
                   var transitLayer = new google.maps.TransitLayer();
@@ -67,14 +69,15 @@
 
                    marker.addListener('click', function() {
                      infowindow.open(map, marker);
-                   });
+                  });
                 }
               </script>
 
-              <!--以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください-->
+              APIキーを入れている
               <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=initMap">
               </script>
-              <!--表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。-->
+              <!--表示するmapのcss-->
+              <!--styleタグでマップの大きさを指定している。ここを省いてしまうと地図が表示されない-->
               <style type="text/css">
                 #map { height: 200px;
                        width: 70%;}
@@ -83,9 +86,9 @@
               <!--mapの表示-->
               <div id="map" style="margin: 0 auto;"></div>
               <%= @shop.address %>
-              <% else %>
+            <% else %>
               <p>表示することができません</p>
-              <% end %>
+            <% end %>
             </td>
           </tr>
           <tr>

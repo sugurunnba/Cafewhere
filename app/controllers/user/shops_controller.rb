@@ -10,8 +10,8 @@ class User::ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
 
-    # 年の登録をしていないため、西暦1年で登録されてしまい、LMTになってしまう。
-    # LMTで登録した時間を上書きして表示させるため、下記を記載
+    # time_selectを使うと年月日を登録しないといけないが、このアプリでは年の登録をしていないため、自動的に西暦1年で登録されてしまい、LMTになってしまう。
+    # LMTで登録した時間を上書きして表示させるため、下記を記載, 2000は西暦を上書きしている
     s_time = Time.zone.local(2000, shop_params["start_business_hours(2i)"], shop_params["start_business_hours(3i)"],
                              shop_params["start_business_hours(4i)"], shop_params["start_business_hours(5i)"])
     f_time = Time.zone.local(2000, shop_params["finish_business_hours(2i)"], shop_params["finish_business_hours(3i)"],

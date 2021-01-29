@@ -48,6 +48,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
   # rubocopの導入
   gem 'rubocop-airbnb'
 end
@@ -82,8 +83,8 @@ gem 'dotenv-rails'
 # bootstrap
 gem 'bootstrap', '~> 4.5'
 
-# Map表示する際に、Google Mapでは緯度、経度から位置を取得します。
-# 住所は簡単に調べられても緯度、経度までユーザー側で登録するのは面倒です。そこでgemのgeocoderを使用します。
+# Map表示する際に、Google Mapでは緯度、経度から位置を取得する。
+# 住所は簡単に調べられても緯度、経度までユーザー側で登録するのは面倒なので、gemのgeocoderを使用。
 # geocoderを使用すると住所の情報を元に緯度、経度を割り出してくれます。
 gem 'geocoder'
 
@@ -92,6 +93,7 @@ group :production do
   gem 'mysql2'
 end
 
+# fontawesome適用のため記載
 gem 'font-awesome-sass', '~> 5.8.1'
 
 # エラーメッセージの日本語化
@@ -99,7 +101,3 @@ gem 'rails-i18n'
 
 # ページ機能の追加
 gem 'kaminari', '~> 1.2.1'
-
-# Rubocopでの構文規則チェック
-# gem 'rubocop', require: false
-# gem 'rubocop-rails', require: false

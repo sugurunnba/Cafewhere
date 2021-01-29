@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   root to: 'user/users#top'
 
+
+
+  # 以下adminのルートパス
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
   end
@@ -35,6 +38,9 @@ Rails.application.routes.draw do
     resources :newses
   end
 
+
+
+  # 以下userのルートパス
   namespace :user do
     resources :users, only: %i(show edit update) do
       collection do
@@ -48,15 +54,15 @@ Rails.application.routes.draw do
 
   namespace :user do
     resources :shops, only: [:new, :create, :index, :show] do
-      # resourcesだとurlにshop_idを介してしまい
+      # resourcesだとurlにshop_idを介してしまい、
       # 全体のランキングページを表示できないので、collection doで別にしている
       collection do
         get 'reviews' => 'reviews#index'
       end
       resources :reviews, only: [:new, :create, :show, :edit, :update, :destroy]
 
-      # resourcesだとurlにshop_idを介してしまい特定のユーザーが
-      # ブックマークしたもののみを表示できないので、collection doで別にしている
+      # resourcesだとurlにshop_idを介してしまい、
+      # 特定のユーザーがブックマークしたもののみを表示できないので、collection doで別にしている
       collection do
         get 'bookmark' => 'bookmarks#show'
       end
@@ -80,7 +86,4 @@ Rails.application.routes.draw do
   namespace :user do
     resources :newses, only: %i(index show)
   end
-
-  # ゲストログイン
-  post '/homes/guest_sign_in', to: 'homes#new_guest'
 end

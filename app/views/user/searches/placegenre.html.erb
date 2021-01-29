@@ -5,7 +5,11 @@
       <table border="1" style="border-collapse: collapse">
 <br>
         <thead>
-          <p class="text-center">地名/ジャンルから検索する</p>
+          <p class="text-center">
+            地名/ジャンルから検索する<br>
+            (選択タブから1つ選択して検索ください)<br>
+            <span style="color: red;">※地名とジャンル両方を選択して検索することはできません</span>
+          </p>
         </thead>
 <br>
       	<tbody>
@@ -14,8 +18,8 @@
           </tr>
       		<tr>
       			<td rowspan="3">大阪府</td>
-      			<td><%= f.select :select1, [["北区", "kita"], ["豊島区", "toshima"], ["福島区", "fukushima"], ["此花区", "konohana"], ["中央区", "tyuuou"], ["西区", "nisi"], ["港区", "minato"], ["大正区", "taishou"], ["天王寺区", "tennouji"], ["浪速区", "naniwa"], ["西淀川区", "nishiyodogawa"], ["淀川区", "yodogawa"], ["東淀川区", "higashiyodogawa"], ["東成区", "higasinari"], ["生野区", "ikuno"], ["旭区", "asahi"], ["城東区", "joutou"], ["鶴見区", "turumi"], ["阿倍野区", "abeno"], ["住之江区", "suminoe"], ["住吉区", "sumiyoshi"], ["東住之江区", "higashisuminoe"], ["東住吉区", "higashisumiyoshi"], ["平野区", "hirano"], ["西成区", "nishinari"]], include_blank: "大阪市" %></td>
-       			<td><%= f.select :select2, [["堺区", "sakai"], ["中区", "naka"], ["東区", "higashi"], ["西区", "s-nishi"], ["南区", "minami"], ["北区", "s-kita"], ["美原区", "mihara"]], include_blank: "堺市" %></td>
+      			<td><%= f.select :select1, [["大阪市北区", "o-kita"], ["豊島区", "toshima"], ["福島区", "fukushima"], ["此花区", "konohana"], ["大阪市中央区", "o-tyuuou"], ["大阪市西区", "o-nisi"], ["港区", "minato"], ["大正区", "taishou"], ["天王寺区", "tennouji"], ["浪速区", "naniwa"], ["西淀川区", "nishiyodogawa"], ["淀川区", "yodogawa"], ["東淀川区", "higashiyodogawa"], ["東成区", "higasinari"], ["生野区", "ikuno"], ["旭区", "asahi"], ["城東区", "joutou"], ["鶴見区", "turumi"], ["阿倍野区", "abeno"], ["住之江区", "suminoe"], ["住吉区", "sumiyoshi"], ["東住之江区", "higashisuminoe"], ["東住吉区", "higashisumiyoshi"], ["平野区", "hirano"], ["西成区", "nishinari"]], include_blank: "大阪市" %></td>
+       			<td><%= f.select :select2, [["堺区", "sakai"], ["堺市中区", "o-s-naka"], ["堺市東区", "o-s-higashi"], ["堺市西区", "o-s-s-nishi"], ["堺市南区", "o-s-minami"], ["堺市北区", "o-s-kita"], ["美原区", "mihara"]], include_blank: "堺市" %></td>
       			<td><%= f.select :select3, [["能勢町", "nose"], ["豊能町", "toyono"], ["池田市", "ikeda"], ["箕面市", "minou"], ["豊中市", "toyonaka"]], include_blank: "豊能地域" %></td>
       		</tr>
       		<tr>
@@ -30,7 +34,7 @@
       		</tr>
       		<tr>
       			<td rowspan="3">京都府</td>
-      			<td><%= f.select :select10, [["北区", "k-kita"], ["上京区", "kamigyou"], ["左京区", "sakyou"], ["中京区", "nakagyou"], ["東山区", "higashiyama"], ["下京区", "simogyou"], ["南区", "k-minami"], ["右京区", "ukyou"], ["伏見区", "fushimi"], ["山科区", "yamashina"], ["西京区", "nishikyou"]], include_blank: "京都市" %></td>
+      			<td><%= f.select :select10, [["京都北区", "k-kita"], ["上京区", "kamigyou"], ["左京区", "sakyou"], ["中京区", "nakagyou"], ["東山区", "higashiyama"], ["下京区", "simogyou"], ["京都南区", "k-minami"], ["右京区", "ukyou"], ["伏見区", "fushimi"], ["山科区", "yamashina"], ["西京区", "nishikyou"]], include_blank: "京都市" %></td>
       			<td><%= f.select :select11, [["向日市", "mukou"], ["長岡京市", "nagaokakyou"], ["乙訓群", "otokumi"], ["大山崎町", "oyamasaki"]], include_blank: "乙訓地域" %></td>
       			<td><%= f.select :select12, [["宇治市", "uji"], ["城陽市", "jouyou"], ["八幡市", "hachiman"], ["京田辺市", "kyoutanabe"], ["久世郡", "kuse"], ["久御山町", "kumiyama"], ["綴喜郡", "tuduki"], ["井手町", "ide"], ["宇治田原町", "ujitawara"]], include_blank: "山城中部地域" %></td>
       		</tr>

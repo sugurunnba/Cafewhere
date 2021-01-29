@@ -1,19 +1,8 @@
 class Shop < ApplicationRecord
-  # :addressを登録した際にgeocoderが緯度、経度のカラムにも自動的に値を入れてくれるようになります。
-  # この記述がないとaddressを登録してもlatitude(緯度),longitude(経度)が登録されなくなってしまう(nillになる)ので注意です。
+  # :addressを登録した際にgeocoderが緯度、経度のカラムにも自動的に値を入れてくれるようになる。
+  # この記述がないとaddressを登録してもlatitude(緯度),longitude(経度)が登録されなくなってしまう(nillになる)ので注意。
   geocoded_by :address
-  after_validation :geocode # , if: :address_changed?
-  # after_validation :geocode , if: :address_saved?r
-  # validates時は、新規登録と更新しかgeocodeが働かないようにする
-  # after_validation :hoge, if: :hoge_false
-
-  # def hoge
-  #   puts 'hoge'
-  # end
-
-  # def hoge_false
-  #   false
-  # end
+  after_validation :geocode
 
   belongs_to :genre
   has_many :bookmarks, dependent: :destroy
@@ -25,19 +14,21 @@ class Shop < ApplicationRecord
 
   attachment :shop_image
 
+  # 空欄ではないか
   validates :name, :introduction, :address, :genre_id, :phone_number,
             :station, :home_page, :holiday, presence: true
-  # 空欄ではないか
-  validates :name, :address, :phone_number, uniqueness: true
+
   # 一意性があるか
-  validates :introduction, length: { maximum: 200 }
+  validates :name, :address, :phone_number, uniqueness: true
   # 日本一長い駅名が22文字のため
-  validates :station, length: { maximum: 22 }
+  validates :introduction, length: { maximum: 200 }
   # 固定電話
-  validates :phone_number, length: { maximum: 11 }
+  validates :station, length: { maximum: 22 }
   # 11桁以内に修正する
+  validates :phone_number, length: { maximum: 11 }
+   # 数字のみ入力可能
   validates :phone_number, numericality: { only_integer: true }
-  # 数字のみ入力可能
+
 
   enum is_active: { "申請中": 0, "掲載許可": 1, "掲載禁止": 2 }
 
@@ -48,6 +39,7 @@ class Shop < ApplicationRecord
 
   # どのselectにデータが入っているかを確認する
   def self.distinguish_select(params)
+    # 「真(true)」となった場合に実行したい処理 if 条件式
     select = params[:select1] if (params[:select1]).present?
     select = params[:select2] if (params[:select2]).present?
     select = params[:select3] if (params[:select3]).present?
@@ -78,18 +70,18 @@ class Shop < ApplicationRecord
   def self.search(search, select, genre)
     # 大阪府
     # 大阪市
-    if select == 'kita'
-      Shop.where(['address LIKE ?', '%北区%'])
+    if select == 'o-kita'
+      Shop.where(['address LIKE ?', '%大阪市北区%'])
     elsif select == 'toshima'
       Shop.where(['address LIKE ?', '%豊島区%'])
     elsif select == 'fukushima'
       Shop.where(['address LIKE ?', '%福島区%'])
     elsif select == 'konohana'
       Shop.where(['address LIKE ?', '%此花区%'])
-    elsif select == 'tyuuou'
-      Shop.where(['address LIKE ?', '%中央区%'])
-    elsif select == 'nisi'
-      Shop.where(['address LIKE ?', '%西区%'])
+    elsif select == 'o-tyuuou'
+      Shop.where(['address LIKE ?', '%大阪市中央区%'])
+    elsif select == 'o-nisi'
+      Shop.where(['address LIKE ?', '%大阪市西区%'])
     elsif select == 'minato'
       Shop.where(['address LIKE ?', '%港区%'])
     elsif select == 'taishou'
@@ -131,16 +123,16 @@ class Shop < ApplicationRecord
     # 堺市
     elsif select == 'sakai'
       Shop.where(['address LIKE ?', '%堺区%'])
-    elsif select == 'naka'
-      Shop.where(['address LIKE ?', '%中区%'])
-    elsif select == 'higasi'
-      Shop.where(['address LIKE ?', '%東区%'])
-    elsif select == 's-nishi'
-      Shop.where(['address LIKE ?', '%西区%'])
-    elsif select == 'minami'
-      Shop.where(['address LIKE ?', '%南区%'])
-    elsif select == 's-kita'
-      Shop.where(['address LIKE ?', '%北区%'])
+    elsif select == 'o-s-naka'
+      Shop.where(['address LIKE ?', '%堺市中区%'])
+    elsif select == 'o-s-higasi'
+      Shop.where(['address LIKE ?', '%堺市東区%'])
+    elsif select == 'o-s-nishi'
+      Shop.where(['address LIKE ?', '%堺市西区%'])
+    elsif select == 'o-s-minami'
+      Shop.where(['address LIKE ?', '%堺市南区%'])
+    elsif select == 'o-s-kita'
+      Shop.where(['address LIKE ?', '%堺市北区%'])
     elsif select == 'mihara'
       Shop.where(['address LIKE ?', '%美原区%'])
     # 豊能地域
@@ -236,7 +228,7 @@ class Shop < ApplicationRecord
     # 京都府
     # 京都市
     elsif select == 'k-kita'
-      Shop.where(['address LIKE ?', '%北区%'])
+      Shop.where(['address LIKE ?', '%京都市北区%'])
     elsif select == 'kamigyou'
       Shop.where(['address LIKE ?', '%上京区%'])
     elsif select == 'sakyou'
@@ -248,7 +240,7 @@ class Shop < ApplicationRecord
     elsif select == 'simogyou'
       Shop.where(['address LIKE ?', '%下京区%'])
     elsif select == 'k-minami'
-      Shop.where(['address LIKE ?', '%南区%'])
+      Shop.where(['address LIKE ?', '%京都市南区%'])
     elsif select == 'ukyou'
       Shop.where(['address LIKE ?', '%右京区%'])
     elsif select == 'fushimi'

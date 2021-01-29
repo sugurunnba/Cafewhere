@@ -24,7 +24,6 @@ class Admin::ShopsController < ApplicationController
   end
 
   def update
-    # binding.pry
     @shop = Shop.find(params[:id])
     @genres = Genre.all
     if @shop.update(shop_params)
@@ -36,8 +35,9 @@ class Admin::ShopsController < ApplicationController
   end
 
   def destroy
-    @shop = Shop.find(params[:id])
-    @shop.destroy
+    @shop = Shop.where(id: params[:id])
+    # @shop.shop_image_id = @shop.shop_image.shop_image.id
+    @shop.destroy_all
     flash[:success] = 'カフェのデータを削除しました'
     redirect_to admin_shops_path
   end

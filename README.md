@@ -52,8 +52,12 @@
 
 
 ## 設計書
-ER図　[ポートフォリオER図.pdf](https://github.com/sugurunnba/Cafewhere/files/5865958/ER.pdf)<br>
-アプリケーション詳細設計書　[ポートフォリオ テーブル定義書 - シート1.pdf](https://github.com/sugurunnba/Cafewhere/files/5865963/-.1.pdf)
+ER図　
+![ER_page-0001](https://user-images.githubusercontent.com/72184121/106295339-a7364b80-6293-11eb-8c27-45495951c462.jpg)<br>
+アプリケーション詳細設計書　
+![_ 1_page-0001](https://user-images.githubusercontent.com/72184121/106295398-b9b08500-6293-11eb-881d-85d02ce46f1a.jpg)
+![_ 1_page-0002](https://user-images.githubusercontent.com/72184121/106295415-bf0dcf80-6293-11eb-88b5-b3bba1073e4e.jpg)
+
 
 
 ## 使用素材

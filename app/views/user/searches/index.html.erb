@@ -7,7 +7,8 @@
       <table border="1" style="border-collapse: collapse">
         <thead>
           <tr>
-            <i class="fa fa-history"></i><%= link_to "戻る", placegenre_user_searches_path %>
+            <i class="fa fa-history"></i><%= link_to "地名/ジャンル検索へ戻る", placegenre_user_searches_path %>&nbsp;
+            <i class="fa fa-history"></i><%= link_to "店名検索へ戻る", user_shops_path %>
           </tr>
           <tr>
             <td>カフェ写真</td>
@@ -42,7 +43,10 @@
       <% else %>
       <table border="1" style="border-collapse: collapse">
         <thead>
-          <tr><i class="fa fa-history"></i><%= link_to "戻る", placegenre_user_searches_path %></tr>
+          <tr>
+            <i class="fa fa-history"></i><%= link_to "地名/ジャンル検索へ戻る", placegenre_user_searches_path %>&nbsp;
+            <i class="fa fa-history"></i><%= link_to "店名検索へ戻る", user_shops_path %>
+            </tr>
         </thead>
         <tbody>
           <tr>
@@ -54,7 +58,10 @@
     <% else %>
       <table border="1" style="border-collapse: collapse">
         <thead>
-          <tr><i class="fa fa-history"></i><%= link_to "戻る", placegenre_user_searches_path %></tr>
+          <tr>
+            <i class="fa fa-history"></i><%= link_to "地名/ジャンル検索へ戻る", placegenre_user_searches_path %>&nbsp;
+            <i class="fa fa-history"></i><%= link_to "店名検索へ戻る", user_shops_path %>
+          </tr>
         </thead>
         <tbody>
           <tr>

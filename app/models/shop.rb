@@ -38,6 +38,7 @@ class Shop < ApplicationRecord
   end
 
   # どのselectにデータが入っているかを確認する
+  # self, クラスメソッド化することで、searchコントローラーで使用することができる
   def self.distinguish_select(params)
     # 「真(true)」となった場合に実行したい処理 if 条件式
     select = params[:select1] if (params[:select1]).present?
@@ -59,15 +60,16 @@ class Shop < ApplicationRecord
     select
   end
 
+  # ↓この書き方で検索することも可能らしい
   # wheres = []
   # params[:addresses].each do |address|
   #   wheres << ["address LIKE ?", "%#{address}%"]
   # end
   # Shop.wehre(wheres)
-  # ↑この書き方で検索するのもあり
+
 
   # コントローラーで受け取った値をここで検索する
-  def self.search(search, select, genre)
+  def self.search(select, genre)
     # 大阪府
     # 大阪市
     if select == 'o-kita'
@@ -318,7 +320,6 @@ class Shop < ApplicationRecord
     elsif select == 'yosano'
       Shop.where(['address LIKE ?', '%与謝野町%'])
     elsif genre == genre
-      # 完全一致 %があることであいまい検索が始まる
       Shop.where(['genre_id LIKE ?', genre.to_s])
     end
   end

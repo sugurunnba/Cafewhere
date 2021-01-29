@@ -10,7 +10,7 @@ class User::SearchesController < ApplicationController
     @shops = if params[:search].present?
                Shop.where(['name LIKE ?', "%#{params[:search]}%"]).page(params[:page])
              else
-               Shop.search(params[:search], select, params[:genre]).page(params[:page])
-            end
+               Shop.search(select, params[:genre]).page(params[:page])
+             end
   end
 end

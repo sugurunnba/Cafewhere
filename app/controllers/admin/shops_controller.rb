@@ -35,7 +35,6 @@ class Admin::ShopsController < ApplicationController
   end
 
   def destroy
-    # pry.byebug
     @shop = Shop.find(params[:id])
     @shop.destroy
     flash[:success] = 'カフェのデータを削除しました'

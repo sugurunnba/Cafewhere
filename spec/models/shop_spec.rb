@@ -1,13 +1,8 @@
 require 'rails_helper'
 RSpec.describe 'Shopモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
-    # let(:user) { FactoryBot.create(:user) }
     let!(:other_shop) { FactoryBot.create(:shop) }
     let(:shop) { FactoryBot.create(:shop) }
-    # it 'emailが空だとNG' do
-    #   shop.email = ''
-    #   expect(shop.valid?).to be false
-    # end
     it 'nameが空だとNG' do
       shop.name = ''
       expect(shop.valid?).to be false

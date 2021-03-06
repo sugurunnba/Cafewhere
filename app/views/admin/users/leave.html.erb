@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <table border="1">
+        <thead>
+          <tr>
+            <h3 class="text-center">退会済みユーザー一覧</h3>
+          </tr>
+<br>
+          <tr>
+            <i class="fa fa-history"></i><%= link_to "戻る", admin_users_path %>
+          </tr>
+          <tr>
+            <td>ユーザーID</td>
+            <td>ユーザー名</td>
+          </tr>
+        </thead>
+        <% @users.each do |user| %>
+          <% if user.user_status == true %>
+          <tbody>
+            <tr>
+              <td><%= user.id %></td>
+              <td>
+                <%= link_to admin_user_path(user) do %>
+                  <%= user.name %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+          <% end %>
+        <% end %>
+        <tr>
+  	  		<%= paginate @users %>
+  			</tr>
+      </table>
+    </div>
+  </div>
+</div>

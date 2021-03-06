@@ -8,21 +8,28 @@
           </tr>
 <br>
           <tr>
+            <%= link_to leave_admin_users_path do %>
+              退会済みユーザー一覧へ
+            <% end %>
+          </tr>
+          <tr>
             <td>ユーザーID</td>
             <td>ユーザー名</td>
           </tr>
         </thead>
         <% @users.each do |user| %>
-        <tbody>
-          <tr>
-            <td><%= user.id %></td>
-            <td>
-              <%= link_to admin_user_path(user) do %>
-                <%= user.name %>
-              <% end %>
-            </td>
-          </tr>
-        </tbody>
+          <% if user.user_status == false %>
+            <tbody>
+              <tr>
+                <td><%= user.id %></td>
+                <td>
+                  <%= link_to admin_user_path(user) do %>
+                    <%= user.name %>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          <% end %>
         <% end %>
         <tr>
   	  		<%= paginate @users %>

@@ -3,8 +3,14 @@ class User::UsersController < ApplicationController
 
   def top
     @users = User.all
+    @user = @users.where(user_status: false).count
+
     @shops = Shop.all
-    @reviews = Review.all
+    @shop = @shops.where(is_active: 1).count
+
+    # 掲載許可したお店の評価数のみ表示するため、下記記述
+    # 登録リクエスト中であったり、登録禁止にしたカフェはtopページの「登録カフェ数」にカウントされないようにしています
+    @review = Review.joins(:shop).where("shops.is_active = 1").count
   end
 
   def about

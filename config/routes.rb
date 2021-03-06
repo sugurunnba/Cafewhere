@@ -41,7 +41,7 @@ Rails.application.routes.draw do
 
 
   # 以下userのルートパス
-  namespace :user do
+  scope module: :user do
     resources :users, only: %i(show edit update) do
       collection do
         get 'top'
@@ -51,18 +51,28 @@ Rails.application.routes.draw do
       end
     end
   end
+  # namespace :user do
+  #   resources :users, only: %i(show edit update) do
+  #     collection do
+  #       get 'top'
+  #       get 'about'
+  #       get 'quit'
+  #       patch 'out'
+  #     end
+  #   end
+  # end
 
-  namespace :user do
+  scope module: :user do
     resources :shops, only: [:new, :create, :index, :show] do
       # resourcesだとurlにshop_idを介してしまい、
-      # 全体のランキングページを表示できないので、collection doで別にしている
+      # 全体のランキングページを表示できないので、collection doで別にしています
       collection do
         get 'reviews' => 'reviews#index'
       end
       resources :reviews, only: [:new, :create, :show, :edit, :update, :destroy]
 
       # resourcesだとurlにshop_idを介してしまい、
-      # 特定のユーザーがブックマークしたもののみを表示できないので、collection doで別にしている
+      # 特定のユーザーがブックマークしたもののみを表示できないので、collection doで別にしています
       collection do
         get 'bookmark' => 'bookmarks#show'
       end
@@ -71,7 +81,26 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :user do
+  # namespace :user do
+  #   resources :shops, only: [:new, :create, :index, :show] do
+  #     # resourcesだとurlにshop_idを介してしまい、
+  #     # 全体のランキングページを表示できないので、collection doで別にしています
+  #     collection do
+  #       get 'reviews' => 'reviews#index'
+  #     end
+  #     resources :reviews, only: [:new, :create, :show, :edit, :update, :destroy]
+
+  #     # resourcesだとurlにshop_idを介してしまい、
+  #     # 特定のユーザーがブックマークしたもののみを表示できないので、collection doで別にしています
+  #     collection do
+  #       get 'bookmark' => 'bookmarks#show'
+  #     end
+
+  #     resource :bookmarks, only: %i(create destroy)
+  #   end
+  # end
+
+  scope module: :user do
     resources :searches, only: [:index] do
       collection do
         get 'placegenre' => 'searches#placegenre'
@@ -79,11 +108,27 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :user do
+  # namespace :user do
+  #   resources :searches, only: [:index] do
+  #     collection do
+  #       get 'placegenre' => 'searches#placegenre'
+  #     end
+  #   end
+  # end
+
+  scope module: :user do
     resources :contacts, only: %i(new create)
   end
 
-  namespace :user do
+  # namespace :user do
+  #   resources :contacts, only: %i(new create)
+  # end
+
+  scope module: :user do
     resources :newses, only: %i(index show)
   end
+
+  # namespace :user do
+  #   resources :newses, only: %i(index show)
+  # end
 end

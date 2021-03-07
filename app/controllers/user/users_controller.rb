@@ -1,6 +1,12 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!, except: [:top, :about]
 
+  def registration
+    @user = current_user
+    @user.destroy
+    redirect_to new_user_registration_path
+  end
+
   def top
     @users = User.all
     @user = @users.where(user_status: false).count
@@ -48,6 +54,15 @@ class User::UsersController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = "ご利用いただきありがとうございました。ぜひまた遊びに来てください！"
+    redirect_to root_path
+  end
+
+
 
   private
 

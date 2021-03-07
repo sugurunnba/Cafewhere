@@ -30,16 +30,35 @@
  			<% if @user == current_user %>
 			<table border="1">
 			  <tr>
-			  	<td><%= link_to "カフェ登録リクエスト", new_shop_path, :class => "btn btn-primary" %></td>
+			  	<td>
+		  		<% unless @user.name == "ゲストユーザー" %>
+		  			<%= link_to "カフェ登録リクエスト", new_shop_path, :class => "btn btn-primary" %>
+		  		<% else %>
+		  			<%= link_to "カフェ登録リクエスト", registration_users_path, method: :delete, :class => "btn btn-primary" %>
+		  		<% end %>
+			  	</td>
 					<td>
-						<% if @user == current_user %>
-							<%= link_to "ユーザー情報を編集する", edit_user_path(@user), :class => "btn btn-primary" %>
+						<% unless @user.name == "ゲストユーザー" %>
+							<% if @user == current_user %>
+								<%= link_to "ユーザー情報を編集する", edit_user_path(@user), :class => "btn btn-primary" %>
+							<% end %>
+						<% else %>
+							<p>
+								ゲストログイン中のため、<br>
+								ユーザー編集は行えません。
+							</p>
 						<% end %>
 					</td>
 			  </tr>
 			  <tr>
 			  	<td></span><%= link_to "お問い合わせする", new_contact_path, :class => "btn btn-primary" %></td>
-			  	<td><%= link_to "ログアウト", destroy_user_session_path, method: :delete, :class => "btn btn-primary" %></td>
+			  	<td>
+			  		<% if @user.name == "ゲストユーザー" %>
+			  			<%= link_to "ログアウト", user_path(@user), method: :delete, :class => "btn btn-primary" %>
+			  		<% else %>
+			  			<%= link_to "ログアウト", destroy_user_session_path, method: :delete, :class => "btn btn-primary" %>
+			  		<% end %>
+			  	</td>
 			  </tr>
 			</table>
 			<% end %>

@@ -36,18 +36,24 @@ pidfile ENV.fetch('PIDFILE') { 'tmp/pids/server.pid' }
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
 
+# Docker適用のため記述
+app_root = File.expand_path("../..", __FILE__)
+bind "unix://#{app_root}/tmp/sockets/puma.sock"
+
+stdout_redirect "#{app_root}/log/puma.stdout.log", "#{app_root}/log/puma.stderr.log", true
+
 # pumaの設定で39~53を追加
-bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
-rails_root = Dir.pwd
-# 本番環境のみデーモン起動
-if Rails.env.production?
-  pidfile File.join(rails_root, 'tmp', 'pids', 'puma.pid')
-  state_path File.join(rails_root, 'tmp', 'pids', 'puma.state')
-  stdout_redirect(
-    File.join(rails_root, 'log', 'puma.log'),
-    File.join(rails_root, 'log', 'puma-error.log'),
-    true
-  )
-  # デーモン
-  daemonize
-end
+# bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
+# rails_root = Dir.pwd
+# # 本番環境のみデーモン起動
+# if Rails.env.production?
+#   pidfile File.join(rails_root, 'tmp', 'pids', 'puma.pid')
+#   state_path File.join(rails_root, 'tmp', 'pids', 'puma.state')
+#   stdout_redirect(
+#     File.join(rails_root, 'log', 'puma.log'),
+#     File.join(rails_root, 'log', 'puma-error.log'),
+#     true
+#   )
+#   # デーモン
+#   daemonize
+# end

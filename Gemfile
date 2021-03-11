@@ -101,3 +101,6 @@ gem 'rails-i18n'
 
 # ページ機能の追加
 gem 'kaminari', '~> 1.2.1'
+
+# Docker時のエラー解決のため記述
+gem 'sassc', '~> 2.1.0'

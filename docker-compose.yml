@@ -24,13 +24,12 @@ services:
   web:
     build:
       context: containers/nginx
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 443 -b '0.0.0.0'"
+    # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 443 -b '0.0.0.0'"
     volumes:
       - public-data:/Cafewhere/public
       - tmp-data:/Cafewhere/tmp
     ports:
-      - 80:80
-      - 443:443
+      - 8000:443
 
 
 volumes:

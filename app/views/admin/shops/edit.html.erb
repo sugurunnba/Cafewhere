@@ -24,7 +24,7 @@
         <div class="form-group">
           <% if @shop.shop_images.present? %>
             <% @shop.shop_images.each do |shop_image| %>
-              <%= attachment_image_tag shop_image, :shop_image, :fill, size: "200x200" %>
+              <%= attachment_image_tag shop_image, :shop_image, size: "200x200" %>
               <%= link_to "削除する", admin_shop_shop_image_path(shop_image.shop.id, shop_image.id), method: :delete %><br>
             <% end %>
           <% else %>

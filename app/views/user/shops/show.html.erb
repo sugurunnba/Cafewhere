@@ -31,7 +31,7 @@
             <td>
             <% if @shop.shop_images.present? %>
               <% @shop.shop_images.each do |shop_image| %>
-                <%= attachment_image_tag shop_image, :shop_image, :fill, 200, 200 %>
+                <%= attachment_image_tag shop_image, :shop_image, size: "200x200" %>
               <% end %>
             <% else %>
                 <%= image_tag "no_image.jpg", size: "200x200" %>
